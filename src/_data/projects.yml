@@ -1,0 +1,58 @@
+projects:
+  - name: "oauth-five-nine"
+    description: "Ruby OAuth 2.0 framework for building OAuth providers and clients"
+    forges:
+      - type: "github"
+        url: "https://github.com/pboling/oauth-five-nine"
+        stars: 145
+      - type: "gitlab"
+        url: "https://gitlab.com/pboling/oauth-five-nine"
+        stars: 23
+    tags: ["ruby", "oauth", "security"]
+    
+  - name: "sanitize_email"
+    description: "Email sanitization for Rails applications - prevent accidental emails in development"
+    forges:
+      - type: "github"
+        url: "https://github.com/pboling/sanitize_email"
+        stars: 567
+    tags: ["ruby", "rails", "email"]
+    
+  - name: "rspec-pending_for"
+    description: "Mark specs as pending for specific Ruby versions, platforms, or implementations"
+    forges:
+      - type: "github"
+        url: "https://github.com/pboling/rspec-pending_for"
+        stars: 89
+      - type: "codeberg"
+        url: "https://codeberg.org/pboling/rspec-pending_for"
+        stars: 12
+    tags: ["ruby", "rspec", "testing"]
+    
+  - name: "kettle-soup-cover"
+    description: "Code coverage tools and utilities for Ruby projects"
+    forges:
+      - type: "github"
+        url: "https://github.com/pboling/kettle-soup-cover"
+        stars: 234
+    tags: ["ruby", "testing", "coverage"]
+    
+  - name: "flag_shih_tzu"
+    description: "Bit fields for ActiveRecord - store multiple boolean flags in a single integer column"
+    forges:
+      - type: "github"
+        url: "https://github.com/pboling/flag_shih_tzu"
+        stars: 891
+      - type: "gitlab"
+        url: "https://gitlab.com/pboling/flag_shih_tzu"
+        stars: 45
+      - type: "bitbucket"
+        url: "https://bitbucket.org/pboling/flag_shih_tzu"
+        stars: 18
+    tags: ["ruby", "rails", "activerecord"]
+
+forge_colors:
+  github: "#24292e"
+  gitlab: "#fc6d26"
+  codeberg: "#2185d0"
+  bitbucket: "#0052cc"
