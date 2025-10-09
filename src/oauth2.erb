@@ -1,15 +1,15 @@
 ---
 layout: page
-title: OAuth Five Nine Blog
-permalink: /oauth-five-nine/
+title: OAuth2 Blog
+permalink: /oauth2/
 ---
 
-<h1>OAuth Five Nine Blog</h1>
+<h1>OAuth2 Blog</h1>
 
-<p>Latest updates and guides about oauth-five-nine.</p>
+<p>Latest updates and guides about oauth2.</p>
 
 <div class="posts-list">
-  <% collections.oauth_five_nine.resources.sort_by(&:date).reverse.each do |post| %>
+  <% collections.oauth2.resources.sort_by(&:date).reverse.each do |post| %>
     <article class="post-item">
       <h2><a href="<%= post.relative_url %>"><%= post.data.title %></a></h2>
       <time datetime="<%= post.date.strftime('%Y-%m-%d') %>">
@@ -26,37 +26,37 @@ permalink: /oauth-five-nine/
   .posts-list {
     margin-top: 2rem;
   }
-  
+
   .post-item {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #e0e0e0;
   }
-  
+
   .post-item:last-child {
     border-bottom: none;
   }
-  
+
   .post-item h2 {
     margin: 0 0 0.5rem 0;
   }
-  
+
   .post-item h2 a {
     color: #333;
     text-decoration: none;
   }
-  
+
   .post-item h2 a:hover {
     color: #1976d2;
   }
-  
+
   .post-item time {
     display: block;
     color: #666;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .post-item p {
     color: #666;
     line-height: 1.6;

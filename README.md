@@ -37,7 +37,7 @@ Configuration is managed via YAML in `src/_data/projects.yml`.
 
 Each project has its own mini-blog accessible at `/<project-name>/`:
 
-- `/oauth-five-nine/` - OAuth library blog
+- `/oauth2/` - OAuth library blog
 - `/sanitize_email/` - Email sanitization blog
 - `/rspec-pending_for/` - RSpec utilities blog
 - `/kettle-soup-cover/` - Code coverage blog
@@ -83,7 +83,7 @@ To start your site in development mode, run `bin/bridgetown start` and navigate 
 .
 ├── src/
 │   ├── _posts/              # Blog posts (main blog)
-│   ├── _oauth_five_nine/    # OAuth Five Nine project blog posts
+│   ├── _oauth2/             # OAuth2 project blog posts
 │   ├── _sanitize_email/     # Sanitize Email project blog posts
 │   ├── _rspec_pending_for/  # RSpec Pending For project blog posts
 │   ├── _kettle_soup_cover/  # Kettle Soup Cover project blog posts
@@ -144,7 +144,7 @@ Then create:
 
 ### Adding a Project Blog Post
 
-Create a new file in the project's collection directory (e.g., `src/_oauth_five_nine/`):
+Create a new file in the project's collection directory (e.g., `src/_oauth2/`):
 
 ```markdown
 ---

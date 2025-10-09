@@ -4,20 +4,19 @@ title: Projects
 ---
 
 <div class="projects-container">
-  <h1>My Projects</h1>
-  <p class="projects-intro">Here are some of the open source projects I maintain across various platforms.</p>
-  
+  <p class="projects-intro">Open source projects I maintain across various platforms.</p>
+
   <div class="projects-grid">
-    <% site.data.projects.projects.each do |project| %>
+    <% site.data.projects.projects.reject { |p| p['archive'] }.each do |project| %>
       <div class="project-card">
         <h2 class="project-name"><%= project.name %></h2>
         <p class="project-description"><%= project.description %></p>
-        
+
         <div class="project-forges">
           <% project.forges.each do |forge| %>
             <% color = site.data.projects.forge_colors[forge.type] %>
-            <a href="<%= forge.url %>" 
-               class="forge-link" 
+            <a href="<%= forge.url %>"
+               class="forge-link"
                style="border-left: 4px solid <%= color %>;"
                target="_blank"
                rel="noopener noreferrer">
@@ -26,13 +25,13 @@ title: Projects
             </a>
           <% end %>
         </div>
-        
+
         <div class="project-tags">
           <% project.tags.each do |tag| %>
             <span class="tag"><%= tag %></span>
           <% end %>
         </div>
-        
+
         <% if project.name %>
           <a href="/<%= project.name %>/" class="project-blog-link">View <%= project.name %> blog →</a>
         <% end %>
@@ -47,20 +46,20 @@ title: Projects
     margin: 0 auto;
     padding: 2rem;
   }
-  
+
   .projects-intro {
     font-size: 1.1rem;
     color: #666;
     margin-bottom: 2rem;
   }
-  
+
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
   }
-  
+
   .project-card {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -69,32 +68,32 @@ title: Projects
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  
+
   .project-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
-  
+
   .project-name {
     font-size: 1.5rem;
     margin: 0 0 0.5rem 0;
     color: #333;
     font-family: monospace;
   }
-  
+
   .project-description {
     color: #666;
     margin-bottom: 1rem;
     line-height: 1.6;
   }
-  
+
   .project-forges {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     margin: 1rem 0;
   }
-  
+
   .forge-link {
     display: flex;
     justify-content: space-between;
@@ -106,28 +105,28 @@ title: Projects
     color: #333;
     transition: background 0.2s;
   }
-  
+
   .forge-link:hover {
     background: #e9ecef;
   }
-  
+
   .forge-type {
     font-weight: 600;
     text-transform: capitalize;
   }
-  
+
   .forge-stars {
     color: #666;
     font-size: 0.9rem;
   }
-  
+
   .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin: 1rem 0;
   }
-  
+
   .tag {
     background: #e3f2fd;
     color: #1976d2;
@@ -136,7 +135,7 @@ title: Projects
     font-size: 0.85rem;
     font-weight: 500;
   }
-  
+
   .project-blog-link {
     display: inline-block;
     margin-top: 1rem;
@@ -144,7 +143,7 @@ title: Projects
     text-decoration: none;
     font-weight: 500;
   }
-  
+
   .project-blog-link:hover {
     text-decoration: underline;
   }

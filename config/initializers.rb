@@ -31,7 +31,7 @@ Bridgetown.configure do |config|
 
   # Configure collections for project-specific blogs
   collections do
-    oauth_five_nine do
+    oauth2 do
       output true
       permalink "/:collection/:title/"
     end

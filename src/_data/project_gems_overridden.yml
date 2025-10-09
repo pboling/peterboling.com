@@ -1,0 +1,14 @@
+---
+flag_shih_tzu:
+  name: flag_shih_tzu
+  description: |
+    Bit fields for ActiveRecord:
+    This gem lets you use a single integer column in an ActiveRecord model
+    to store a collection of boolean attributes (flags). Each flag can be used
+    almost in the same way you would use any boolean attribute on an
+    ActiveRecord object.
+  forges:
+  - type: github
+    url: https://github.com/pboling/flag_shih_tzu
+  tags:
+  - ruby
