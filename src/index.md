@@ -35,7 +35,8 @@ I am a core maintainer of projects within the following OSS organizations:
 [ruby-oauth]: https://github.com/ruby-oauth
 [ruby-openid]: https://github.com/ruby-openid
 
-My latest general audience, or at least non-project-specific, blog posts can be found on the [Blog](./blog).
+My latest technical, or project-specific, posts can be found on the [Tech Posts](./posts).
+My latest general audience, or at least non-tech-specific, personal (and obviously public), blog posts can be found on the [Personal Blog](./blog).
 
 ----
 

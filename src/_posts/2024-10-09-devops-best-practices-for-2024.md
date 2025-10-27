@@ -17,20 +17,24 @@ DevOps continues to evolve, and staying up-to-date with best practices is crucia
 ## Essential Tools
 
 ### Version Control
+
 - Git for source code management
 - GitHub/GitLab for collaboration
 
 ### CI/CD
+
 - GitHub Actions
 - Jenkins
 - GitLab CI
 
 ### Infrastructure as Code
+
 - Terraform
 - Ansible
 - Pulumi
 
 ### Containerization
+
 ```bash
 # Docker example
 docker build -t myapp:latest .
@@ -38,6 +42,7 @@ docker run -p 8080:8080 myapp:latest
 ```
 
 ### Orchestration
+
 - Kubernetes for container orchestration
 - Docker Swarm as a simpler alternative
 
