@@ -16,8 +16,9 @@ I am a core maintainer of projects within the following OSS organizations:
 * [appraisal-rb][appraisal-rb] (3 projects)
 * [kettle-rb][kettle-rb] (4 projects)
 * [floss-funding][floss-funding] (3 projects)
-* [galtzo-floss][galtzo-floss] (57 projects)
+* [galtzo-floss][galtzo-floss] (> 50 projects)
 * [omniauth][omniauth] (4 projects)
+* [pboling][pboling] (... projects)
 * [resque][resque] (4 projects)
 * [rubocop-lts][rubocop-lts] (20 projects)
 * [ruby-oauth][ruby-oauth] (7 projects)
@@ -28,6 +29,7 @@ I am a core maintainer of projects within the following OSS organizations:
 [floss-funding]: https://github.com/floss-funding
 [galtzo-floss]: https://github.com/galtzo-floss
 [omniauth]: https://github.com/omniauth
+[pboling]: https://github.com/pboling
 [resque]: https://github.com/resque
 [rubocop-lts]: https://github.com/rubocop-lts
 [ruby-oauth]: https://github.com/ruby-oauth
