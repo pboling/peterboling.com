@@ -7,8 +7,32 @@ layout: default
 Welcome to my corner of the internet! This is the main index page of my website.
 Here, you'll find a collection of my projects, blog posts, and other content that I have created.
 
-My published open source projects are listed over at [Projects](./projects.erb),
+My published open source projects are listed alphabetically over at [Projects](./projects.erb),
 where each project has its own mini blog. RSS feeds for project updates are available.
+An interactive listing of projects is available at <a href="https://galtzo.com">galtzo.com</a>.
+
+I am a core maintainer of certain projects within the following OSS organizations:
+
+* [appraisal-rb][appraisal-rb]
+* [kettle-rb][kettle-rb]
+* [floss-funding][floss-funding]
+* [galtzo-floss][galtzo-floss]
+* [omniauth][omniauth]
+* [resque][resque]
+* [rubocop-lts][rubocop-lts]
+* [ruby-oauth][ruby-oauth]
+* [ruby-openid][ruby-openid]
+
+[appraisal-rb]: https://github.com/appraisal-rb
+[kettle-rb]: https://github.com/kettle-rb
+[floss-funding]: https://github.com/floss-funding
+[galtzo-floss]: https://github.com/galtzo-floss
+[omniauth]: https://github.com/omniauth
+[resque]: https://github.com/resque
+[rubocop-lts]: https://github.com/rubocop-lts
+[ruby-oauth]: https://github.com/ruby-oauth
+[ruby-openid]: https://github.com/ruby-openid
+
 My latest general audience, or at least non-project-specific, blog posts can be found on the [Blog](./blog).
 
 ----

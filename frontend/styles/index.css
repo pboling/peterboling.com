@@ -3,6 +3,11 @@
   --body-color: #444;
   --heading-color: black;
   --action-color: #d64045;
+  --forge-github: #24292e;
+  --forge-gitlab: #fc6d26;
+  --forge-codeberg: #2185d0;
+  --forge-bitbucket: #0052cc;
+  --forge-sourcehut: #0052cc;
 }
 
 body {
@@ -36,10 +41,22 @@ body > header {
   text-align: center;
 }
 
-body > header img {
-  display: inline-block;
-  width: 400px;
-  max-width: 100%;
+/* Logos block */
+.logos {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.logos a {
+  display: inline-flex;
+}
+
+.logos img {
+  height: 96px;
+  width: auto;
+  display: block;
 }
 
 body > nav ul {
