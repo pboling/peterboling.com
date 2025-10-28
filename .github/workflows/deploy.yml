@@ -25,9 +25,20 @@ jobs:
           bundle config set --local path 'vendor/bundle'
           bundle install --jobs 4 --retry 3
 
-      - name: Build site (Bridgetown)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Build site (frontend + HTML)
+        env:
+          BRIDGETOWN_ENV: production
         run: |
-          bundle exec bridgetown build
+          npm run build:site
 
       - name: Start ssh-agent and add deploy key
         uses: webfactory/ssh-agent@v0.9.1

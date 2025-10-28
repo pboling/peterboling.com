@@ -7,4 +7,7 @@
 
 <link rel="stylesheet" href="<%= asset_path :css %>" />
 <script src="<%= asset_path :js %>" defer></script>
+<%# Only include live-reload in development %>
+<% if ENV["BRIDGETOWN_ENV"] == "development" %>
 <%= live_reload_dev_js %>
+<% end %>

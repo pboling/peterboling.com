@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "esbuild": "node esbuild.config.js --minify",
-    "esbuild-dev": "node esbuild.config.js --watch"
+    "esbuild-dev": "node esbuild.config.js --watch",
+    "build:site": "npm run esbuild && BRIDGETOWN_ENV=production bin/bridgetown build",
+    "build:deploy": "bundle exec rake deploy"
   },
   "devDependencies": {
     "esbuild": "^0.25.0",

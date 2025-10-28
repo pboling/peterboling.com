@@ -178,4 +178,18 @@ bin/bridgetown console
 
 You can deploy Bridgetown sites on hosts like Render or Vercel as well as traditional web servers by simply building and copying the output folder to your HTML root.
 
+Recommended production build commands (ensure both frontend assets and HTML are generated):
+
+- Using npm scripts:
+  - `npm ci`
+  - `npm run build:site`
+
+- Or using Rake (default task runs frontend + build):
+  - `bundle install`
+  - `bundle exec rake`
+
+This will:
+- Build hashed CSS/JS to `output/_bridgetown/static` via esbuild
+- Build the site with `BRIDGETOWN_ENV=production` to `output/`
+
 > Read the [Bridgetown Deployment Documentation](https://www.bridgetownrb.com/docs/deployment) for more information.
