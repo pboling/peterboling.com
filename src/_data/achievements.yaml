@@ -1,0 +1,26 @@
+# section information
+section:
+  name: Achievements
+  id: achievements
+  enable: false
+  weight: 6
+  showOnNavbar: true
+  hideTitle: false
+
+# Your achievements achievements
+achievements:
+- title: High School Early Release to Attend University
+  image: images/achievements/HS-EarlyRelease.png
+  summary: August 1997 - granted early release to begin attending university.
+- title: Indiana Core 40 Honors Diploma
+  image: images/achievements/Indiana-Core40.png
+  summary: January 1998 - Graduated with 68 credits before finishing my senior year
+- title: Dean’s Honor List - Spring 1998
+  image: images/achievements/BSU-DeansList.png
+  summary: Spring 1998 - Computer Science, College of Sciences and Humanities, Ball State University; During my "senior year" of high school
+- title: Eagle Scout Award
+  image: images/achievements/BSA-EagleScoutMedal.png
+  summary: Summer 1998 - Before I understood the discriminatory nature of the organization I was awarded the Eagle Scout Award, Scouting's highest honor.
+- title: Dean’s Honor List - Spring 1999
+  image: images/achievements/BSU-DeansList.png
+  summary: Spring 1999 - Computer Science, College of Sciences and Humanities, Ball State University; One of three students selected by the Dean to intern at the Indiana Statehouse

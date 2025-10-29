@@ -4,12 +4,25 @@ title: Sanitize Email Blog
 permalink: /sanitize_email/
 ---
 
-<h1>Sanitize Email Blog</h1>
+<% project = site.data.projects.find { |p| p['name'] == 'sanitize_email' } %>
+<% project_name = project["name"] %>
+<% collection_name = project_name.tr("-", "_") %>
 
-<p>Tips and updates about sanitize_email.</p>
+<div class="project-root">
+  <p class="project-description">
+    <% if project['description'] %>
+      <%== project['description'] %>
+      <%= project['description'][-1].match?(/[[:punct:]]/) ? "." : "" %>
+    <% end %>
+    <% if project['docs_site'] && !project['docs_site'].empty? %>
+      Read the <a href="<%= project['docs_site'] %>" target="_blank" rel="noopener">documentation</a>.
+    <% end %>
+  </p>
+</div>
 
 <div class="posts-list">
-  <% collections.sanitize_email.resources.sort_by(&:date).reverse.each do |post| %>
+  <p>Tips and updates about <%= project_name %>.</p>
+  <% collections.send(collection_name).resources.sort_by(&:date).reverse.each do |post| %>
     <article class="post-item">
       <h2><a href="<%= post.relative_url %>"><%= post.data.title %></a></h2>
       <time datetime="<%= post.date.strftime('%Y-%m-%d') %>">
@@ -21,44 +34,3 @@ permalink: /sanitize_email/
     </article>
   <% end %>
 </div>
-
-<style>
-  .posts-list {
-    margin-top: 2rem;
-  }
-  
-  .post-item {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .post-item:last-child {
-    border-bottom: none;
-  }
-  
-  .post-item h2 {
-    margin: 0 0 0.5rem 0;
-  }
-  
-  .post-item h2 a {
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .post-item h2 a:hover {
-    color: #1976d2;
-  }
-  
-  .post-item time {
-    display: block;
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .post-item p {
-    color: #666;
-    line-height: 1.6;
-  }
-</style>

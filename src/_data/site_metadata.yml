@@ -7,6 +7,42 @@
 title: Peter Boling
 tagline: Technical Coding Blog & Open Source Projects
 email: peter@peterboling.com
+
+# Meta description for your site.  This will help the search engines to find your site.
 description: >-
-  Peter Boling's personal website featuring technical blog posts about
+  Yet Another Paradigm by Peter Boling, featuring technical blog posts about
   Ruby, JavaScript, TypeScript, Go, Python, DevOps, and various open source projects.
+  Ramblings, mumblings, cv/resume, technical blog, and documentation for many popular, and unpopular, RubyGems and other FLOSS projects, including oauth2, omniauth-identity, sanitize_email, debug_logging, flag_shih_tzu, gem_bench, etc.
+  Semi-lifely state-of-the-petris updates.
+
+# specify the list of custom menus that you want to show in the top navbar.
+# they will be separated by a divider from the main menus.
+customMenus:
+  - name: "RSS"
+    url: "/index.xml"
+  - name: "CV"
+    url: "/cv"
+  - name: "FLOSS"
+    url: "/floss"
+  - name: "Ruby"
+    url: "/tags/ruby"
+  - name: "Gems"
+    url: "/posts/rubygems/current_list/"
+  - name: "JavaScript"
+    url: "/javascript"
+  - name: "Bash"
+    url: "/bash"
+  - name: "Contact"
+    url: "/contact"
+
+Menus:
+  sidebar:
+    - name: "Ruby"
+      url: "/tags/ruby"
+    - name: "Resque"
+      url: "/tags/resque"
+    - name: "RSpec"
+      url: "/tags/rspec"
+  footer:
+    - name: "My Old Blog"
+      url: "https://galtzo.blogspot.com"

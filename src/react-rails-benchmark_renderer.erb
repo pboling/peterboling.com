@@ -1,0 +1,35 @@
+---
+layout: page
+title: "React Rails Benchmark Renderer"
+---
+
+<% project = site.data.projects.find { |p| p['name'] == 'react-rails-benchmark_renderer' } %>
+<% project_name = project["name"] %>
+<% collection_name = project_name.tr("-", "_") %>
+
+<div class="project-root">
+  <p class="project-description">
+    <% if project['description'] %>
+      <%== project['description'] %>
+      <%= project['description'][-1].match?(/[[:punct:]]/) ? "." : "" %>
+    <% end %>
+    <% if project['docs_site'] && !project['docs_site'].empty? %>
+      Read the <a href="<%= project['docs_site'] %>" target="_blank" rel="noopener">documentation</a>.
+    <% end %>
+  </p>
+</div>
+
+<div class="posts-list">
+  <p>Tips and updates about <%= project_name %>.</p>
+  <% collections.send(collection_name).resources.sort_by(&:date).reverse.each do |post| %>
+    <article class="post-item">
+      <h2><a href="<%= post.relative_url %>"><%= post.data.title %></a></h2>
+      <time datetime="<%= post.date.strftime('%Y-%m-%d') %>">
+        <%= post.date.strftime('%B %d, %Y') %>
+      </time>
+      <% if post.data.excerpt %>
+        <p><%= post.data.excerpt %></p>
+      <% end %>
+    </article>
+  <% end %>
+</div>

@@ -31,30 +31,121 @@ Bridgetown.configure do |config|
 
   # Configure collections for project-specific blogs
   collections do
-    blog do
-      output true
-      permalink "/:collection/:title/"
+    def project(name)
+      instance_eval do |it|
+        it.send(name) do
+          output true
+          permalink "/:collection/:title/"
+        end
+      end
     end
-    oauth2 do
-      output true
-      permalink "/:collection/:title/"
-    end
-    sanitize_email do
-      output true
-      permalink "/:collection/:title/"
-    end
-    rspec_pending_for do
-      output true
-      permalink "/:collection/:title/"
-    end
-    kettle_soup_cover do
-      output true
-      permalink "/:collection/:title/"
-    end
-    flag_shih_tzu do
-      output true
-      permalink "/:collection/:title/"
-    end
+    project :blog
+    project :active_security
+    project :activerecord_tablefree
+    project :activerecord_transactionable
+    project :activesupport_broadcast_logger
+    project :activesupport_logger
+    project :activesupport_tagged_logging
+    project :anonymous_active_record
+    project :skywalking_eyes
+    project :appraisal2
+    project :archivist_client
+    project :awesome_search
+    project :awesome_sponsorships
+    project :bash_step
+    project :bsfl
+    project :cacheable_flash
+    project :capistrano_mailer
+    project :celluloid_io_pg_listener
+    project :controller_validator
+    project :csv_pirate
+    project :debug_logging
+    project :destination_errors
+    project :dry_views
+    project :dynamoid
+    project :each_in_batches
+    project :flag_shih_tzu
+    project :floss_funding
+    project :gem_bench
+    project :gitmoji_regex
+    project :humorous_log_formatter
+    project :include_with_respect
+    project :json_schemer_fuzz
+    project :kettle_dev
+    project :kettle_soup_cover
+    project :kettle_test
+    project :letter_group
+    project :library_tree
+    project :logos
+    project :masq
+    project :masq2
+    project :month_serializer
+    project :oauth
+    project :oauth_tty
+    project :oauth2
+    project :omniauth_identity
+    project :omniauth_jwt
+    project :omniauth_jwt2
+    project :omniauth_ldap
+    project :omniauth_openid
+    project :open_id_authentication
+    project :os
+    project :pretty_feed
+    project :qfill
+    project :rack_insight
+    project :rack_openid
+    project :rack_openid2
+    project :rack_toolbar
+    project :rails_env_local
+    project :react_rails_benchmark_renderer
+    project :remit
+    project :require_bench
+    project :resque
+    project :resque_lonely_job
+    project :resque_unique_at_runtime
+    project :resque_unique_by_arity
+    project :resque_unique_in_queue
+    project :rots
+    project :rspec_block_is_expected
+    project :rspec_pending_for
+    project :rspec_stubbed_env
+    project :rubocop_lts
+    project :rubocop_ruby1_8
+    project :rubocop_ruby1_9
+    project :rubocop_ruby2_0
+    project :rubocop_ruby2_1
+    project :rubocop_ruby2_2
+    project :rubocop_ruby2_3
+    project :rubocop_ruby2_4
+    project :rubocop_ruby2_5
+    project :rubocop_ruby2_6
+    project :rubocop_ruby2_7
+    project :rubocop_ruby3_0
+    project :rubocop_ruby3_1
+    project :rubocop_ruby3_2
+    project :ruby_openid
+    project :ruby_openid2
+    project :sanitize_email
+    project :seed_migration
+    project :sequential_file
+    project :service_actor_promptable
+    project :shields_badge
+    project :shiftable
+    project :silent_stream
+    project :simple_column_scopes
+    project :snaky_hash
+    project :spyke_connection_lambda
+    project :stackable_flash
+    project :standard_rubocop_lts
+    project :status_tag
+    project :stone_checksums
+    project :strict_states
+    project :super_exception_notifier
+    project :timecop_rspec
+    project :undrive_google
+    project :version_gem
+    project :warden_oauth
+    project :yacs
   end
 
   # Other options you might want to investigate:
