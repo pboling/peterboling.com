@@ -33,7 +33,7 @@ title: Projects
         <h2 class="family-name"><%= family['name'] %></h2>
         <div class="projects-grid">
           <% family_projects_list.each do |project| %>
-            <%= render partial: "partials/project_card", locals: { project: project } %>
+            <%= render "project_card", locals: { project: project } %>
           <% end %>
         </div>
       </div>
@@ -45,7 +45,7 @@ title: Projects
       <h2 class="family-name">Other Projects</h2>
       <div class="projects-grid">
         <% other_projects.each do |project| %>
-          <%= render partial: "partials/project_card", locals: { project: project } %>
+          <%= render "project_card", locals: { project: project } %>
         <% end %>
       </div>
     </div>

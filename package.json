@@ -10,8 +10,9 @@
     "build:deploy": "bundle exec rake deploy"
   },
   "devDependencies": {
+    "baseline-browser-mapping": "^2.10.0",
     "esbuild": "^0.25.0",
-    "glob": "^10.3.3",
+    "glob": "^13.0.6",
     "postcss": "^8.4.29",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
