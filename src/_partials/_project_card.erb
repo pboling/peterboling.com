@@ -1,0 +1,39 @@
+<div class="project-card">
+  <h3 class="project-name"><%= project['name'] %></h3>
+  <p class="project-description"><%== project['description'] %></p>
+
+  <% if project['forges'] && project['forges'].any? %>
+    <div class="project-forges">
+      <% project['forges'].each do |forge| %>
+        <% star_key = case forge['type'].to_s.downcase
+                     when 'github' then 'github_stars'
+                     when 'gitlab' then 'gitlab_stars'
+                     when 'codeberg' then 'codeberg_stars'
+                     else nil
+                     end %>
+        <% star_count = star_key ? project[star_key] : nil %>
+        <a href="<%= forge['url'] %>"
+           class="forge-link <%= forge['type'].downcase %>"
+           target="_blank"
+           rel="noopener noreferrer">
+          <span class="forge-type"><%= forge['type'] %></span>
+          <% unless star_count.nil? %>
+            <span class="forge-stars">⭐ <%= star_count %></span>
+          <% end %>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if project['tags'] && project['tags'].any? %>
+    <div class="project-tags">
+      <% project['tags'].each do |tag| %>
+        <span class="tag"><%= tag %></span>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if project['name'] %>
+    <a href="/<%= project['name'] %>/" class="project-blog-link">View <%= project['name'] %> blog →</a>
+  <% end %>
+</div>

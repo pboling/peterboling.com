@@ -3,48 +3,52 @@ layout: page
 title: Projects
 ---
 
+<%
+  # Separate projects by theme
+  family_projects = site.data.projects.select { |p| p['theme'] == 'family' && !p['archive'] && p['type'] != 'person' }
+  other_projects = site.data.projects.reject { |p| p['theme'] == 'family' || p['archive'] || p['type'] == 'person' }
+
+  # Group family projects by family_id
+  projects_by_family = family_projects.group_by { |p| p['family_id'] }
+
+  # Sort projects within each family by family_position
+  projects_by_family.each do |family_id, projects|
+    projects_by_family[family_id] = projects.sort_by { |p| p['family_position'] || 999 }
+  end
+
+  # Get families data and sort by position
+  families = site.data.families.sort_by { |f| f['position'] || 999 }
+%>
+
 <div class="projects-container">
   <p class="projects-intro">Open source projects I maintain across various platforms. For an interactive presentation of this list with useful filters, head over to <a href="https://galtzo.com">galtzo.com</a>.</p>
 
-  <div class="projects-grid">
-    <% site.data.projects.reject { |p| p['archive'] || p['type'] == "person" }.each do |project| %>
-      <div class="project-card">
-        <h2 class="project-name"><%= project.name %></h2>
-        <p class="project-description"><%== project.description %></p>
+  <% if families.any? %>
+    <% families.each do |family| %>
+      <% family_projects_list = projects_by_family[family['id']] %>
+      <% next unless family_projects_list && family_projects_list.any? %>
 
-        <div class="project-forges">
-          <% project.forges.each do |forge| %>
-            <% star_key = case forge.type.to_s.downcase
-                         when 'github' then 'github_stars'
-                         when 'gitlab' then 'gitlab_stars'
-                         when 'codeberg' then 'codeberg_stars'
-                         else nil
-                         end %>
-            <% star_count = star_key ? project[star_key] : nil %>
-            <a href="<%= forge.url %>"
-               class="forge-link <%= forge.type.downcase %>"
-               target="_blank"
-               rel="noopener noreferrer">
-              <span class="forge-type"><%= forge.type %></span>
-              <% unless star_count.nil? %>
-                <span class="forge-stars">⭐ <%= star_count %></span>
-              <% end %>
-            </a>
+      <div class="family-section">
+        <h2 class="family-name"><%= family['name'] %></h2>
+        <div class="projects-grid">
+          <% family_projects_list.each do |project| %>
+            <%= render partial: "partials/project_card", locals: { project: project } %>
           <% end %>
         </div>
-
-        <div class="project-tags">
-          <% project.tags.each do |tag| %>
-            <span class="tag"><%= tag %></span>
-          <% end %>
-        </div>
-
-        <% if project.name %>
-          <a href="/<%= project.name %>/" class="project-blog-link">View <%= project.name %> blog →</a>
-        <% end %>
       </div>
     <% end %>
-  </div>
+  <% end %>
+
+  <% if other_projects.any? %>
+    <div class="family-section">
+      <h2 class="family-name">Other Projects</h2>
+      <div class="projects-grid">
+        <% other_projects.each do |project| %>
+          <%= render partial: "partials/project_card", locals: { project: project } %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <style>
@@ -173,5 +177,17 @@ title: Projects
 
   .project-blog-link:hover {
     text-decoration: underline;
+  }
+
+  .family-section {
+    margin-bottom: 3rem;
+  }
+
+  .family-name {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e0e0e0;
   }
 </style>

@@ -90,6 +90,7 @@ To start your site in development mode, run `bin/bridgetown start` and navigate 
 │   ├── _flag_shih_tzu/      # Flag Shih Tzu project blog posts
 │   ├── _data/
 │   │   ├── projects.yml     # Project configuration
+│   │   ├── families.yml     # Project family definitions
 │   │   └── site_metadata.yml # Site metadata
 │   ├── _layouts/            # Page layouts
 │   ├── _components/         # Reusable components
@@ -124,18 +125,40 @@ Your content here...
 Edit `src/_data/projects.yml`:
 
 ```yaml
-projects:
-  - name: "project-name"
-    description: "Project description"
-    forges:
-      - type: "github"
-        url: "https://github.com/user/repo"
-        stars: 100
-      - type: "gitlab"
-        url: "https://gitlab.com/user/repo"
-        stars: 50
-    tags: ["ruby", "rails"]
+- name: "project-name"
+  description: "Project description"
+  language: Ruby
+  ecosystem: rubygems
+  theme: family  # Optional: set to "family" if this project belongs to a family
+  family_id: active-record  # Optional: reference to a family in families.yml
+  family_position: 1  # Optional: display order within the family
+  forges:
+    - type: GitHub
+      url: "https://github.com/user/repo"
+    - type: GitLab
+      url: "https://gitlab.com/user/repo"
+  tags:
+    - ruby
+    - rails
+  github_stars: 100
+  gitlab_stars: 50
 ```
+
+#### Project Families
+
+Projects can be organized into families using the `theme: family` attribute. Family metadata (name, global display order) is defined in `src/_data/families.yml`:
+
+```yaml
+- id: active-record
+  name: ActiveRecord Plugins
+  position: 2
+```
+
+Projects reference families using:
+- `theme: family` - Indicates this project belongs to a family
+- `family_id: <family-id>` - References a family from families.yml
+- `family_position: <number>` - Display order within that family (optional)
+- `family_primary: true` - Marks the primary/flagship project in the family (optional)
 
 Then create:
 1. Collection directory: `src/_project_name/`
