@@ -1,13 +1,15 @@
-# Developer Guide: Working with Projects and Families
+# Developer Guide: Working with Projects, Families, and Person Data
 
-This guide explains how to work with the project and family data structures in your code and templates.
+This guide explains how to work with the project, family, and person data structures in your code and templates.
 
 ## Quick Reference
 
 ### Data Locations
 - Projects: `src/_data/projects.yml`
 - Families: `src/_data/families.yml`
+- Person/Author: `src/_data/person.yml` (consolidated from person.yml + author.yaml)
 - Main projects page: `src/projects.erb`
+- About page: `src/about.erb`
 - Project card partial: `src/_partials/_project_card.erb`
 
 ### Access in Templates
@@ -18,12 +20,55 @@ This guide explains how to work with the project and family data structures in y
 <!-- All families -->
 <% site.data.families %>
 
+<!-- Person/author data -->
+<% site.data.person %>
+<% site.data.person['name'] %>
+<% site.data.person['contact_info']['email']['full'] %>
+<% site.data.person['forges'] %>
+
 <!-- A specific project's family reference -->
 <% project['family_id'] %>
 <% project['family_position'] %>
 
 <!-- Find a family by id -->
 <% family = site.data.families.find { |f| f['id'] == project['family_id'] } %>
+```
+
+## Working with Person Data
+
+### Access Author Information
+
+```erb
+<!-- Display author greeting -->
+<%= site.data.person['greeting'] %>
+<%= site.data.person['name'] %>
+
+<!-- Get contact information -->
+<% person = site.data.person %>
+<p>Email: <%= person['contact_info']['email']['full'] %></p>
+<p>Phone: <%= person['contact_info']['phone'] %></p>
+
+<!-- Display summary -->
+<% person['summary'].each do |item| %>
+  <li><%= item %></li>
+<% end %>
+
+<!-- Show social links (forges) -->
+<% person['forges'].each do |forge| %>
+  <a href="<%= forge['url'] %>"><%= forge['type'] %></a>
+<% end %>
+
+<!-- Show funding options -->
+<% person['funding_sites'].each do |site| %>
+  <a href="<%= site['url'] %>"><%= site['type'] %></a>
+<% end %>
+```
+
+### Render Person Description
+```erb
+<div class="person-bio">
+  <%== site.data.person['description'] %>
+</div>
 ```
 
 ## Common Tasks
@@ -182,8 +227,7 @@ Primary project: <%= primary['name'] %>
   'last_scrape_at' => '2026-02-23T04:34:59Z',
   'archive' => false,
   'archived' => false,
-  'adoptable' => false,
-  'type' => nil
+  'adoptable' => false
 }
 ```
 
@@ -228,10 +272,6 @@ The partial automatically:
 <% active = site.data.projects.reject { |p| p['archive'] || p['archived'] } %>
 ```
 
-### Exclude Person Entries
-```erb
-<% projects = site.data.projects.reject { |p| p['type'] == 'person' } %>
-```
 
 ## Sorting Patterns
 

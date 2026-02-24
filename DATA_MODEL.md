@@ -1,13 +1,142 @@
 # Data Model Documentation
 
-This document describes the YAML data structures used for managing projects and project families.
+This document describes the YAML data structures used for managing projects, project families, and personal data.
 
 ## Overview
 
-Projects are organized into two related YAML files:
+Data is organized into three related YAML files:
 
 1. **`src/_data/projects.yml`** - Individual project entries
 2. **`src/_data/families.yml`** - Project family definitions
+3. **`src/_data/person.yml`** - Author/person biographical and contact information
+
+## person.yml Schema
+
+Consolidates author information including contact details, personal summary, and social links.
+
+### Structure
+
+```yaml
+---
+# Names
+full_name: "Peter Boling, ..."      # Full name with optional title/subtitle
+name: "Peter Boling"                # Display name
+nickname: "Peter"                   # Short nickname
+
+# Personalization
+greeting: "Hi, I am"                # Greeting message for templates
+image: "images/avatar.png"          # Profile image path
+
+# Contact Information
+contact_info:
+  email:
+    handle: "peter.boling"          # Email username/handle
+    domain: "gmail.com"             # Email domain
+    full: "peter.boling@gmail.com"  # Full email address
+  phone: "+1-925-252-5351"          # Phone number
+
+# Summary/Bio
+summary:                            # Array of personal taglines/summary points
+  - I am a computer programmer
+  - I build web applications
+  - I work on free and open-source projects
+
+# Long-form Description
+description: |                      # HTML/markdown description (projects page)
+  <span class="intro">
+  Hi! I love to solve problems with code...
+  </span>
+
+# Professional Info
+language: Ruby                       # Primary programming language
+role: author                         # Professional role
+first_commit_by_person_on: 2004/01/01  # Start date
+
+# Social/Forge Links
+forges:                             # Array of social/code hosting links
+  - type: GitHub
+    url: "https://github.com/pboling"
+    owner: pboling
+  - type: GitLab
+    url: "https://gitlab.com/pboling"
+
+# Support/Funding Links
+funding_sites:                      # Array of funding platform links
+  - type: OpenCollective
+    url: "https://opencollective.com/galtzo-floss"
+  - type: Liberapay
+    url: "https://liberapay.com/pboling"
+
+# Skills/Interests
+tags:                               # Array of technology/skill tags
+  - ruby
+  - rails
+  - javascript
+  - open-source
+  
+docs_site: "https://galtzo.com"    # Primary documentation site
+```
+
+### Example
+
+```yaml
+---
+full_name: "Peter Boling, team leader, web architect, security researcher, and rubyist. Building for web since 2004. 🧐"
+name: "Peter Boling"
+nickname: "Peter"
+greeting: "Hi, I am"
+image: "images/avatar.png"
+
+contact_info:
+  email:
+    handle: "peter.boling"
+    domain: "gmail.com"
+    full: "peter.boling@gmail.com"
+  phone: "+1-925-252-5351"
+
+summary:
+  - I am a computer programmer
+  - I build web applications
+  - I am a father, son, husband, brother
+  - I work on free and open-source projects
+
+description: |
+  <span class="intro">
+  Hi! I love to solve problems with code...
+  </span>
+
+language: Ruby
+role: author
+first_commit_by_person_on: 2004/01/01
+
+forges:
+  - type: GitHub
+    url: "https://github.com/pboling"
+    owner: pboling
+  - type: GitLab
+    url: "https://gitlab.com/pboling"
+
+funding_sites:
+  - type: OpenCollective
+    url: "https://opencollective.com/galtzo-floss"
+  - type: Liberapay
+    url: "https://liberapay.com/pboling"
+
+tags:
+  - ruby
+  - rails
+  - javascript
+  - open-source
+
+docs_site: "https://galtzo.com"
+```
+
+### Usage
+
+- `person.yml` contains consolidated author/person data (previously split between `person.yml` and `author.yaml`)
+- Access in templates via `site.data.person`
+- Used primarily on the About page and for footer contact information
+
 
 ## families.yml Schema
 
@@ -123,11 +252,6 @@ When a project belongs to a family, include:
   adoptable: true                       # If true, project is looking for maintainers
 ```
 
-### Special Cases
-
-```yaml
-  type: person                          # Optional: use "person" for non-project entries
-```
 
 ## Complete Example
 

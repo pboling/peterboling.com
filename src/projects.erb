@@ -5,6 +5,7 @@ title: Projects
 
 <%
   # Separate projects by theme
+  # Note: Person/author data is now in person.yml, not projects.yml
   family_projects = site.data.projects.select { |p| p['theme'] == 'family' && !p['archive'] && p['type'] != 'person' }
   other_projects = site.data.projects.reject { |p| p['theme'] == 'family' || p['archive'] || p['type'] == 'person' }
 

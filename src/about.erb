@@ -6,46 +6,41 @@ title: About
 <div class="projects-container">
   <p class="projects-intro">🎶&nbsp;coding the night away&nbsp;🎶</p>
 
-  <% site.data.projects.select { |p| p['type'] == "person" }.each do |project| %>
-    <div class="person-card">
-      <h2 class="project-name"><%= project.name %></h2>
-      <p class="project-description"><%== project.description %></p>
+  <% person = site.data.person %>
+  <div class="person-card">
+    <h2 class="project-name"><%= person['name'] %></h2>
+    <p class="project-description"><%== person['description'] %></p>
 
-      <div class="project-forges">
-        <% project.forges.each do |forge| %>
-          <% star_key = case forge.type.to_s.downcase
-                       when 'github' then 'github_stars'
-                       when 'gitlab' then 'gitlab_stars'
-                       when 'codeberg' then 'codeberg_stars'
-                       else nil
-                       end %>
-          <% star_count = site.data.projects.sum { |p| p[star_key].to_i } %>
-          <a href="<%= forge.url %>"
-             class="forge-link <%= forge.type.downcase %>"
-             target="_blank"
-             rel="noopener noreferrer">
-            <span class="forge-type"><%= forge.type %></span>
-            <span class="form-url"><%= forge.url %></span>
-            <span class="forge-stars">
-              <% unless star_count.zero? %>
-              ⭐ <%= star_count %>
-              <% end %>
-            </span>
-          </a>
-        <% end %>
-      </div>
-
-      <div class="project-tags">
-        <% project.tags.each do |tag| %>
-          <span class="tag"><%= tag %></span>
-        <% end %>
-      </div>
-
-      <% if project.name %>
-        <a href="/<%= project.name %>/" class="project-blog-link">View this human's blog →</a>
+    <div class="project-forges">
+      <% (person['forges'] || []).each do |forge| %>
+        <% star_key = case forge['type'].to_s.downcase
+                     when 'github' then 'github_stars'
+                     when 'gitlab' then 'gitlab_stars'
+                     when 'codeberg' then 'codeberg_stars'
+                     else nil
+                     end %>
+        <% star_count = site.data.projects.sum { |p| p[star_key].to_i } %>
+        <a href="<%= forge['url'] %>"
+           class="forge-link <%= forge['type'].downcase %>"
+           target="_blank"
+           rel="noopener noreferrer">
+          <span class="forge-type"><%= forge['type'] %></span>
+          <span class="form-url"><%= forge['url'] %></span>
+          <span class="forge-stars">
+            <% unless star_count.zero? %>
+            ⭐ <%= star_count %>
+            <% end %>
+          </span>
+        </a>
       <% end %>
     </div>
-  <% end %>
+
+    <div class="project-tags">
+      <% (person['tags'] || []).each do |tag| %>
+        <span class="tag"><%= tag %></span>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <style>

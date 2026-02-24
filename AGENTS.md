@@ -52,11 +52,23 @@ git status 2>&1 | tee tmp/git_status.txt
 ## Project Context
 
 - **Framework**: Bridgetown (Ruby static site generator)
-- **Key data file**: `src/_data/projects.yml` — list of all projects shown on the site
+- **Key data files**:
+  - `src/_data/projects.yml` — list of all projects shown on the site
+  - `src/_data/families.yml` — project family groupings and metadata
+  - `src/_data/person.yml` — consolidated author/person biographical data (previously split between person.yml and author.yaml)
 
-### projects.yml Entry Count (as of 2026-02-22)
+### Data Files Overview
 
-- Total YAML entries: 107 (includes 1 `type: person` entry)
+**person.yml (as of 2026-02-24)**
+- Consolidates author information: full_name, name, nickname, greeting, image, contact_info, summary, description
+- Contains professional info (language, role, first_commit_by_person_on)
+- Contains social links (forges) and funding sites
+- Contains skills/interests (tags) and documentation site link
+- Accessed in templates via `site.data.person`
+- Used on About page and footer contact information
+
+**projects.yml Entry Count (as of 2026-02-24)**
+- Total YAML entries: 106 (person entry moved to person.yml)
 - Ruby+rubygems project entries: 101
 - RubyGems.org gems owned by pboling: 114
 - **Gap: 17 gems missing from projects.yml** (ast-merge, bash-merge, commonmarker-merge,
