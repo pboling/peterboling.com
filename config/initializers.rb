@@ -146,6 +146,37 @@ Bridgetown.configure do |config|
     project :version_gem
     project :warden_oauth
     project :yacs
+    project :ast_merge
+    project :bash_merge
+    project :bson
+    project :bundler
+    project :commonmarker_merge
+    project :cyclonedx_ruby
+    project :dotenv_merge
+    project :gemfile_go
+    project :hashie
+    project :json_merge
+    project :jsonc_merge
+    project :magnus
+    project :markdown_merge
+    project :markly_merge
+    project :ore_light
+    project :prism_merge
+    project :psych_merge
+    project :rails
+    project :rb_sys
+    project :rbs_merge
+    project :rexml
+    project :ruby_tree_sitter
+    project :rv
+    project :setup_ruby_flash
+    project :token_resolver
+    project :toml_merge
+    project :tree_haver
+    project :tree_stump
+    project :yaml_converter
+    project :yard_fence
+    project :yard_yaml
   end
 
   # Other options you might want to investigate:

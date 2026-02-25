@@ -28,13 +28,33 @@ title: "{title}"
 ---
 
 <% project = site.data.projects.find {{ |p| p['name'] == '{name}' }} %>
+<% project_name = project["name"] %>
+<% collection_name = project_name.tr("-", "_") %>
+
 <div class="project-root">
-  <h1><%= project['name'] %></h1>
-  <% if project['description'] %>
-    <p class="project-description"><%== project['description'] %></p>
-  <% end %>
-  <% if project['docs_site'] && !project['docs_site'].empty? %>
-    <p><a href="<%= project['docs_site'] %>" target="_blank" rel="noopener">Documentation</a></p>
+  <p class="project-description">
+    <% if project['description'] %>
+      <%== project['description'] %>
+      <%= project['description'][-1].match?(/[[:punct:]]/) ? "." : "" %>
+    <% end %>
+    <% if project['docs_site'] && !project['docs_site'].empty? %>
+      Read the <a href="<%= project['docs_site'] %>" target="_blank" rel="noopener">documentation</a>.
+    <% end %>
+  </p>
+</div>
+
+<div class="posts-list">
+  <p>Tips and updates about <%= project_name %>.</p>
+  <% collections.send(collection_name).resources.sort_by(&:date).reverse.each do |post| %>
+    <article class="post-item">
+      <h2><a href="<%= post.relative_url %>"><%= post.data.title %></a></h2>
+      <time datetime="<%= post.date.strftime('%Y-%m-%d') %>">
+        <%= post.date.strftime('%B %d, %Y') %>
+      </time>
+      <% if post.data.excerpt %>
+        <p><%= post.data.excerpt %></p>
+      <% end %>
+    </article>
   <% end %>
 </div>
 """
@@ -56,6 +76,55 @@ def parse_projects_yml(path: Path) -> list[str]:
         # strip any trailing spaces
         names.append(name)
     return names
+
+
+def update_initializers(init_path: Path, project_names: list[str], apply: bool = False) -> list[str]:
+    text = init_path.read_text(encoding="utf-8")
+    existing_collections = parse_initializers(init_path)
+
+    # We want a collection for every project.
+    # Bridgetown collection names should use underscores.
+    new_collections = []
+    for name in project_names:
+        coll_name = name.replace("-", "_").replace(" ", "_").lower()
+        if coll_name not in existing_collections:
+            new_collections.append(coll_name)
+
+    if not new_collections:
+        return []
+
+    new_collections = sorted(set(new_collections))
+
+    # Find the last 'project :name' line or the end of the 'collections do' block
+    lines = text.splitlines()
+    last_project_idx = -1
+    collections_block_start = -1
+    collections_block_end = -1
+
+    for i, line in enumerate(lines):
+        if "collections do" in line:
+            collections_block_start = i
+        if collections_block_start != -1 and line.strip() == "end" and collections_block_end == -1:
+            # This is a bit naive if there are multiple 'end's, but should work for standard Bridgetown config
+            # Let's look for the 'end' that matches the 'collections do' indentation
+            if line.startswith("  end") or line.startswith("    end"):
+                 collections_block_end = i
+        if "project :" in line:
+            last_project_idx = i
+
+    if last_project_idx != -1:
+        insert_idx = last_project_idx + 1
+        indent = "    " # default Bridgetown indent
+        new_lines = [f"{indent}project :{coll}" for coll in new_collections]
+
+        if apply:
+            for i, new_line in enumerate(new_lines):
+                lines.insert(insert_idx + i, new_line)
+            init_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+        return [f"project :{coll}" for coll in new_collections]
+
+    return []
 
 
 def find_project_name_for_collection(collection: str, project_names: list[str]) -> str | None:
@@ -126,18 +195,32 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Source dir not found: {src_dir}", file=sys.stderr)
         return 2
 
-    collections = parse_initializers(init_path)
     project_names = parse_projects_yml(data_path)
+    inits_added = update_initializers(init_path, project_names, apply=args.apply)
+
+    collections = parse_initializers(init_path)
 
     created = []
     skipped = []
     not_found = []
+    dirs_created = []
 
     for coll in collections:
         proj_name = find_project_name_for_collection(coll, project_names)
         if not proj_name:
             not_found.append(coll)
             continue
+
+        # Ensure collection directory exists: src/_<collection_name>
+        # Note: Bridgetown expects underscores for collection directories.
+        coll_dir = src_dir / f"_{coll}"
+        if not coll_dir.exists():
+            if args.apply:
+                coll_dir.mkdir(parents=True, exist_ok=True)
+                dirs_created.append(str(coll_dir))
+            else:
+                dirs_created.append(str(coll_dir) + " (dry-run)")
+
         dest = src_dir / f"{proj_name}.erb"
         if dest.exists():
             skipped.append(str(dest))
@@ -150,6 +233,14 @@ def main(argv: list[str] | None = None) -> int:
             created.append(str(dest) + " (dry-run)")
 
     print("Summary:")
+    if inits_added:
+        print(f"  initializers added: {len(inits_added)}")
+        for i in inits_added:
+            print(f"    {i}{' (dry-run)' if not args.apply else ''}")
+    if dirs_created:
+        print(f"  directories created: {len(dirs_created)}")
+        for d in dirs_created:
+            print(f"    {d}")
     print(f"  to_create: {len(created)}")
     if created:
         for c in created:

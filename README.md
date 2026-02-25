@@ -6,9 +6,10 @@ My personal website & blog built with Bridgetown
 
 This is a technical coding blog and project showcase built using the Bridgetown static site generator. The site features:
 
-- **Blog Posts**: Technical articles about Ruby, JavaScript, Python, DevOps, and more
+- **Blog Posts**: Technical and personal articles
 - **Projects Page**: Showcase of open source projects with multi-forge support
-- **Project-Specific Mini-Blogs**: Each project has its own dedicated blog
+- **Project-Specific Mini-Blogs**: Each project has its own dedicated blog, automatically generated
+- **Automated Content**: Intro and release posts are automatically populated from GitHub
 
 ## Features
 
@@ -35,13 +36,7 @@ Configuration is managed via YAML in `src/_data/projects.yml`.
 
 ### 3. Project-Specific Mini-Blogs
 
-Each project has its own mini-blog accessible at `/<project-name>/`:
-
-- `/oauth2/` - OAuth library blog
-- `/sanitize_email/` - Email sanitization blog
-- `/rspec-pending_for/` - RSpec utilities blog
-- `/kettle-soup-cover/` - Code coverage blog
-- `/flag_shih_tzu/` - Bit fields blog
+Each project has its own mini-blog accessible at `/<project-name>/`, which is dynamically generated from project data in `src/_data/projects.yml`.
 
 ## Table of Contents
 
@@ -81,44 +76,36 @@ To start your site in development mode, run `bin/bridgetown start` and navigate 
 
 ```
 .
+├── scripts/             # Automation scripts for project management
 ├── src/
-│   ├── _posts/              # Blog posts (main blog)
-│   ├── _oauth2/             # OAuth2 project blog posts
-│   ├── _sanitize_email/     # Sanitize Email project blog posts
-│   ├── _rspec_pending_for/  # RSpec Pending For project blog posts
-│   ├── _kettle_soup_cover/  # Kettle Soup Cover project blog posts
-│   ├── _flag_shih_tzu/      # Flag Shih Tzu project blog posts
+│   ├── _posts/              # Tech blog posts (main blog)
+│   ├── _blog/               # Personal blog posts
+│   ├── _<project_name>/     # Individual project collections (e.g., _oauth2)
 │   ├── _data/
 │   │   ├── projects.yml     # Project configuration
 │   │   ├── families.yml     # Project family definitions
+│   │   ├── person.yml       # Personal profile & organization data
 │   │   └── site_metadata.yml # Site metadata
 │   ├── _layouts/            # Page layouts
 │   ├── _components/         # Reusable components
 │   ├── _partials/           # Partial templates
 │   ├── projects.erb         # Projects page
-│   └── *.erb                # Project blog index pages
+│   └── <project_name>.erb   # Individual project blog root pages
 ├── config/
-│   └── initializers.rb      # Bridgetown configuration
+│   └── initializers.rb      # Bridgetown configuration (includes project collections)
 ├── frontend/                # Frontend assets (JS, CSS)
 └── output/                  # Generated site (gitignored)
 ```
 
 ## Adding Content
 
-### Adding a Blog Post
+### Adding a Technical Post
 
-Create a new file in `src/_posts/` with the format `YYYY-MM-DD-title.md`:
+Create a new file in `src/_posts/` with the format `YYYY-MM-DD-title.md`.
 
-```markdown
----
-layout: post
-title: "Your Post Title"
-date: 2024-10-09 10:00:00 +0000
-categories: ruby
----
+### Adding a Personal Post
 
-Your content here...
-```
+Create a new file in `src/_blog/` with the format `YYYY-MM-DD-title.md`.
 
 ### Adding a Project
 
@@ -160,12 +147,35 @@ Projects reference families using:
 - `family_position: <number>` - Display order within that family (optional)
 - `family_primary: true` - Marks the primary/flagship project in the family (optional)
 
-Then create:
-1. Collection directory: `src/_project_name/`
-2. Index page: `src/project-name.erb`
-3. Update `config/initializers.rb` to add the collection
+Then run the automation script to set up the collection, directory, and index page:
 
-### Adding a Project Blog Post
+```sh
+python3 scripts/generate_project_collections.py --apply
+```
+
+This will automatically:
+1. Update `config/initializers.rb` to add the new collection.
+2. Create the collection directory `src/_project_name/`.
+3. Create the project index page `src/project_name.erb`.
+
+### Automated Content Generation
+
+You can automatically populate project "intro" posts and "release" posts from GitHub using the following script:
+
+```sh
+# Fetch and populate content (dry-run by default)
+python3 scripts/fill_project_posts.py
+
+# Apply changes and provide GitHub token to avoid rate limits
+GITHUB_TOKEN=your_token python3 scripts/fill_project_posts.py
+```
+
+The script will:
+- Find projects where you are the "author" or "maintainer".
+- Populate empty "intro" posts using the project's README from GitHub.
+- Create new "release" posts in `src/_<project_name>/releases/` based on GitHub release notes.
+
+### Adding a Project Blog Post Manually
 
 Create a new file in the project's collection directory (e.g., `src/_oauth2/`):
 

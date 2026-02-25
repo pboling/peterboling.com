@@ -268,6 +268,9 @@
   last_commit_on: 2026/02/11
   status: active
   last_scrape_at: '2026-02-24T05:39:30Z'
+  theme: family
+  family_id: rubygems-bundler-family
+  family_position: 10
 - name: appraisal2
   description: Appraisal2 integrates with bundler and rake to test your library against
     different versions of dependencies in repeatable scenarios called "appraisals."
@@ -334,6 +337,9 @@
   last_commit_on: 2026/01/17
   status: active
   last_scrape_at: '2026-02-24T05:39:35Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 2
 - name: awesome_search
   description: Organize complicated search results
   language: Ruby
@@ -392,6 +398,9 @@
   last_commit_on: 2026/02/20
   status: active
   last_scrape_at: '2026-02-24T05:39:39Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 3
 - name: bash_step
   description: Bash Step Function Library
   language: Bash
@@ -415,6 +424,9 @@
   last_commit_on: 2021/12/07
   status: stale
   last_scrape_at: '2026-02-24T05:39:41Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 4
 - name: bsfl
   description: Bash Script Function Library
   language: Bash
@@ -438,6 +450,9 @@
   last_commit_on: 2021/12/07
   status: stale
   last_scrape_at: '2026-02-24T05:39:44Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 5
 - name: cacheable_flash
   description: |-
     Allows caching of pages with flash messages by rendering flash
@@ -551,7 +566,7 @@
   ecosystem: rubygems
   theme: family
   family_id: rails-family
-  family_position: 4
+  family_position: 6
   minimum_version: '1.8'
   role: author
   first_commit_by_person_on: 2014/11/20
@@ -696,7 +711,7 @@
   ecosystem: rubygems
   theme: family
   family_id: rails-family
-  family_position: 2
+  family_position: 4
   minimum_version: '1.8'
   role: author
   first_commit_by_person_on: 2012/08/14
@@ -753,6 +768,9 @@
   last_commit_on: 2026/01/17
   status: active
   last_scrape_at: '2026-02-24T05:40:05Z'
+  theme: family
+  family_id: rails-family
+  family_position: 1
 - name: each_in_batches
   description: Batch Processing of Records with Blocks in Rails
   language: Ruby
@@ -834,7 +852,7 @@
   ecosystem: rubygems
   theme: family
   family_id: rubygems-bundler-family
-  family_position: 3
+  family_position: 7
   minimum_version: '1.9'
   role: author
   first_commit_by_person_on: 2025/08/08
@@ -870,7 +888,7 @@
   ecosystem: rubygems
   theme: family
   family_id: rubygems-bundler-family
-  family_position: 2
+  family_position: 5
   minimum_version: '2.3'
   role: author
   first_commit_by_person_on: 2013/04/05
@@ -905,7 +923,7 @@
     dependencies: floss-funding.dev"
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.4'
+  minimum_version: '2.3'
   role: author
   first_commit_by_person_on: 2022/03/28
   first_commit_by_person: https://github.com/galtzo-floss/gitmoji-regex/commit/e71c6c3dad5bfd59ae2509531eaea3a16e21cb63
@@ -931,6 +949,9 @@
   last_commit_on: 2025/11/21
   status: active
   last_scrape_at: '2026-02-24T05:40:18Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 7
 - name: humorous_log_formatter
   description: Humorous Log Levels and Color For Rails.  Customizable!
   language: Ruby
@@ -1023,6 +1044,9 @@
   last_commit_on: 2026/01/22
   status: active
   last_scrape_at: '2026-02-24T05:40:25Z'
+  theme: family
+  family_id: rspec-family
+  family_position: 7
 - name: kettle-dev
   description: "\U0001F372 Kettle::Dev is a meta tool from kettle-rb to streamline
     development and testing. Acts as a shim dependency, pulling in many other dependencies,
@@ -1035,7 +1059,7 @@
   theme: family
   family_id: kettle-rb-family
   family_position: 1
-  minimum_version: '2.7'
+  minimum_version: '2.3'
   role: author
   first_commit_by_person_on: 2023/08/17
   first_commit_by_person: https://github.com/kettle-rb/kettle-dev/commit/a427c302df09cfe4253a7c8d400333f9a4c1a208
@@ -1127,7 +1151,7 @@
   theme: family
   family_id: kettle-rb-family
   family_position: 2
-  minimum_version: '2.7'
+  minimum_version: '2.3'
   role: author
   first_commit_by_person_on: 2023/08/17
   first_commit_by_person: https://github.com/kettle-rb/kettle-test/commit/baed02cf1ca1e0e8c75c11fd188edaf1a4f5f08b
@@ -1218,6 +1242,9 @@
   last_commit_on: 2025/11/21
   status: active
   last_scrape_at: '2026-02-24T05:40:39Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 9
 - name: logos
   description: "\U0001FAB5 A resource for logos, with proper attribution information,
     including license and copyright, for open source projects I care about."
@@ -1244,6 +1271,9 @@
   last_commit_on: 2025/11/21
   status: active
   last_scrape_at: '2026-02-24T05:40:41Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 10
 - name: masq
   description: Masq supports OpenID 2.0 and supports SReg, AX (fetch and store requests)
     and PAPE as well as some custom additions like multi-factor authentication using
@@ -1349,6 +1379,9 @@
   last_commit_on: 2025/11/21
   status: active
   last_scrape_at: '2026-02-24T05:40:50Z'
+  theme: family
+  family_id: active-record
+  family_position: 13
 - name: oauth
   description: "\U0001F511 A Ruby wrapper for the original OAuth 1.0 / 1.0a spec."
   language: Ruby
@@ -1558,7 +1591,7 @@
   theme: family
   family_id: omniauth-family
   family_position: 2
-  minimum_version: '1.8'
+  minimum_version: '2.0'
   role: maintainer
   first_commit_by_person_on: 2025/10/18
   first_commit_by_person: https://github.com/omniauth/omniauth-ldap/commit/5ea8e97a1e729a21d4cb7f022af350c322d1406e
@@ -1681,6 +1714,9 @@
   last_commit_on: 2025/06/08
   status: active
   last_scrape_at: '2026-02-24T05:41:19Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 11
 - name: pretty_feed
   description: |
     PrettyFeed provides a modulizer you can include in a job, worker, class, rake task, etc,
@@ -1907,7 +1943,7 @@
   ecosystem: rubygems
   theme: family
   family_id: rails-family
-  family_position: 5
+  family_position: 7
   minimum_version: '1.8'
   role: author
   first_commit_by_person_on: 2016/03/08
@@ -2050,7 +2086,7 @@
   theme: family
   family_id: resque-family
   family_position: 1
-  minimum_version: '1.8'
+  minimum_version: '3.0'
   role: maintainer
   first_commit_by_person_on: 2024/05/17
   first_commit_by_person: https://github.com/resque/resque/commit/fa72b7b30adbbe9cf15d48784df78367b0294e82
@@ -2436,7 +2472,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 2
-  minimum_version: '3.2'
+  minimum_version: '2.7'
   role: author
   first_commit_by_person_on: 2023/05/14
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby1_8/commit/b1df7fff27e040c8dc7a7e63bf8eddbe456c7d18
@@ -2469,7 +2505,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 3
-  minimum_version: '3.2'
+  minimum_version: '2.7'
   role: author
   first_commit_by_person_on: 2022/05/01
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby1_9/commit/1668e34e9dbdb6e8b2062c05bfce35f0ac071a44
@@ -2502,7 +2538,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 4
-  minimum_version: '3.2'
+  minimum_version: '2.7'
   role: author
   first_commit_by_person_on: 2022/05/01
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby2_0/commit/8fb0f104adf43c5a0e3487b390f91881f79e4d89
@@ -2535,7 +2571,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 5
-  minimum_version: '3.2'
+  minimum_version: '2.7'
   role: author
   first_commit_by_person_on: 2022/05/01
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby2_1/commit/e23c1cb798e1198c7b2dcca40a586b5ad6294348
@@ -2568,7 +2604,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 6
-  minimum_version: '3.2'
+  minimum_version: '2.7'
   role: author
   first_commit_by_person_on: 2022/05/01
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby2_2/commit/b86f10e2f7a0ad4081b07782b3b924ef67acdeab
@@ -2601,7 +2637,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 7
-  minimum_version: '3.2'
+  minimum_version: '2.7'
   role: author
   first_commit_by_person_on: 2022/05/01
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby2_3/commit/496ae0431f229da4ce2ca472954773af32f27078
@@ -2634,7 +2670,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 8
-  minimum_version: '3.2'
+  minimum_version: '2.7'
   role: author
   first_commit_by_person_on: 2022/05/01
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby2_4/commit/69576e0c1884ab3c773394b5f30a9ebafe11a2a7
@@ -2667,7 +2703,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 9
-  minimum_version: '3.2'
+  minimum_version: '2.7'
   role: author
   first_commit_by_person_on: 2022/05/01
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby2_5/commit/78b4f8131d931354f76d4025ab0517fc9792fed2
@@ -2700,7 +2736,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 10
-  minimum_version: '3.2'
+  minimum_version: '2.7'
   role: author
   first_commit_by_person_on: 2022/05/01
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby2_6/commit/d21b64e4f7ab2d581ed6882c430dd042fe73769b
@@ -2733,7 +2769,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 11
-  minimum_version: '3.2'
+  minimum_version: '2.7'
   role: author
   first_commit_by_person_on: 2022/05/01
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby2_7/commit/70d9ab2660620916ed08d1f6057d10fc4f9aa731
@@ -2766,7 +2802,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 12
-  minimum_version: '3.2'
+  minimum_version: '3.0'
   role: author
   first_commit_by_person_on: 2022/05/01
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby3_0/commit/251b24f1147b3a42a16465663be1f08c93e8affc
@@ -2802,7 +2838,7 @@
   theme: family
   family_id: rubocop-lts
   family_position: 13
-  minimum_version: '3.2'
+  minimum_version: '3.1'
   role: author
   first_commit_by_person_on: 2022/04/10
   first_commit_by_person: https://github.com/rubocop-lts/rubocop-ruby3_1/commit/c4cc8fb6374d338e2c328812b4f74c78dfe5cfbd
@@ -2868,7 +2904,7 @@
   theme: family
   family_id: ruby-openid
   family_position: 1
-  minimum_version: '2.7'
+  minimum_version: '1.8'
   role: maintainer
   first_commit_by_person_on: 2024/08/31
   first_commit_by_person: https://github.com/ruby-openid/ruby-openid/commit/273234be43a8ae407159db7d4f363e4abc6a713d
@@ -2945,7 +2981,7 @@
   ecosystem: rubygems
   theme: family
   family_id: rails-family
-  family_position: 1
+  family_position: 2
   minimum_version: '2.3'
   role: author
   first_commit_by_person_on: 2008/11/15
@@ -3076,6 +3112,9 @@
   last_commit_on: 2025/08/13
   status: active
   last_scrape_at: '2026-02-24T05:43:08Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 12
 - name: shields-badge
   description: |
     Shields::Badge.gem_total_downloads(path_parameters: {gem: 'rails'})
@@ -3111,6 +3150,9 @@
   last_commit_on: 2025/08/18
   status: active
   last_scrape_at: '2026-02-24T05:43:12Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 13
 - name: shiftable
   description: Move single records (has_one) or collections (has_many) from one parent
     (belongs_to) to another
@@ -3194,7 +3236,7 @@
   theme: family
   family_id: active-record
   family_position: 10
-  minimum_version: '2.3'
+  minimum_version: '2.4'
   role: author
   first_commit_by_person_on: 2017/06/12
   first_commit_by_person: https://github.com/galtzo-floss/simple_column-scopes/commit/f2bce9c56122527d5d035d9f4bc7f7d13a2f8b57
@@ -3367,7 +3409,7 @@
   ecosystem: rubygems
   theme: family
   family_id: rails-family
-  family_position: 3
+  family_position: 5
   minimum_version: '1.8'
   role: author
   first_commit_by_person_on: 2015/08/24
@@ -3410,7 +3452,7 @@
   ecosystem: rubygems
   theme: family
   family_id: rubygems-bundler-family
-  family_position: 1
+  family_position: 3
   minimum_version: '2.2'
   role: author
   first_commit_by_person_on: 2025/01/24
@@ -3487,7 +3529,7 @@
   ecosystem: rubygems
   theme: family
   family_id: rails-family
-  family_position: 6
+  family_position: 8
   minimum_version: '1.8'
   role: author
   first_commit_by_person_on: 2008/11/15
@@ -3585,6 +3627,9 @@
   last_commit_on: 2025/11/27
   status: active
   last_scrape_at: '2026-02-24T05:43:48Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 14
 - name: version_gem
   description: "\U0001F516 Versions are good. Versions are cool. Versions will win."
   language: Ruby
@@ -3680,13 +3725,16 @@
   last_commit_on: 2025/12/17
   status: active
   last_scrape_at: '2026-02-24T05:43:56Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 15
 - name: yard-fence
   description: "\U0001F93A Convert ASCII braces ('{}') to full-width braces ('{}')
     within code fences (triple-or-single backticks) during YARD processing, and back
     to ASCII braces afterward"
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/11/07
   first_commit_by_person: https://github.com/galtzo-floss/yard-fence/commit/242b77a6caa398ca01ab3b3643d3e3b970497f05
@@ -3708,6 +3756,9 @@
   last_commit_on: 2026/02/23
   status: active
   last_scrape_at: '2026-02-24T05:43:58Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 17
 - name: yaml-converter
   description: "\U0001F968 yaml-converter parses YAML files (with inline #note: annotations
     and validation markers) and emits polished Markdown, HTML, and PDF/DOCX (via pandoc)
@@ -3715,7 +3766,7 @@
     notes."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/11/08
   first_commit_by_person: https://github.com/galtzo-floss/yaml-converter/commit/232ad133b6259aabb39993b476f727d91d0a5f0c
@@ -3737,11 +3788,14 @@
   last_commit_on: 2026/02/23
   status: active
   last_scrape_at: '2026-02-24T05:44:00Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 16
 - name: yard-yaml
   description: "\U0001F968 A YARD plugin for YAML documents"
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/11/10
   first_commit_by_person: https://github.com/galtzo-floss/yard-yaml/commit/fe07f29d0831a3e702e3dc76088debfadc81ad2b
@@ -3763,6 +3817,9 @@
   last_commit_on: 2026/02/23
   status: active
   last_scrape_at: '2026-02-24T05:44:03Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 18
 - name: tree_haver
   description: "\U0001F334 TreeHaver is a cross-Ruby adapter for many AST parsing
     libraries; supporting MRI Ruby, JRuby, & TruffleRuby. Provides unified parsing
@@ -3771,7 +3828,7 @@
     & write once & run anywhere'"
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/14
   first_commit_by_person: https://github.com/kettle-rb/tree_haver/commit/a89211bff10f4440b96758a8ac9d7d539001b0c8
@@ -3800,14 +3857,13 @@
   theme: family
   family_id: ast-merge
   family_position: 1
-  family_primary: true
 - name: ast-merge
   description: "☯️ Ast::Merge provides base classes, modules, and RSpec shared examples
     for building intelligent file mergers using AST analysis. It powers prism-merge,
     psych-merge, json-merge, and other format-specific merge gems."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/06
   first_commit_by_person: https://github.com/kettle-rb/ast-merge/commit/a63a4858cb229530c1706925bb209546695e8b3a
@@ -3844,7 +3900,7 @@
     resolved before format-specific merging."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2026/02/21
   first_commit_by_person: https://github.com/kettle-rb/token-resolver/commit/e0e299cad6e6914d512845c71df6b7ac8009e5ac
@@ -3878,7 +3934,7 @@
     destination files."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/06
   first_commit_by_person: https://github.com/kettle-rb/bash-merge/commit/db525d5aedd0c895422a067629118f3fa9c3c22d
@@ -3915,7 +3971,7 @@
     customized files."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/06
   first_commit_by_person: https://github.com/kettle-rb/commonmarker-merge/commit/12d4e9fff5bbe6a9b29e81c6643b4dd705f8e80a
@@ -3950,7 +4006,7 @@
     configuration. Perfect for merging environment templates with local overrides."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/06
   first_commit_by_person: https://github.com/kettle-rb/dotenv-merge/commit/a34c8f20c877a45d03b9f0b83b973614e123a92b
@@ -3989,7 +4045,7 @@
     instead."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/06
   first_commit_by_person: https://github.com/kettle-rb/json-merge/commit/f1cc25b1d9b79c598270e3aa203fa56787e6c6fc
@@ -4026,7 +4082,7 @@
     devcontainer.json, tsconfig.json, package.json, and VS Code settings."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/06
   first_commit_by_person: https://github.com/kettle-rb/jsonc-merge/commit/f1cc25b1d9b79c598270e3aa203fa56787e6c6fc
@@ -4061,7 +4117,7 @@
     like markly-merge and commonmarker-merge"
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/11
   first_commit_by_person: https://github.com/kettle-rb/markdown-merge/commit/76f2230840b236dd10fdd7baf322c082762dddb0
@@ -4098,7 +4154,7 @@
     files."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/09
   first_commit_by_person: https://github.com/kettle-rb/markly-merge/commit/3dcd8b855b8a773f175ff34d31e3885a28a3e70b
@@ -4132,7 +4188,7 @@
     analysis, similar to a smart 'git merge' specifically designed for Ruby code."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/02
   first_commit_by_person: https://github.com/kettle-rb/prism-merge/commit/71fcddaa659cd6e9e94053e67524e5a400423ced
@@ -4166,7 +4222,7 @@
     Perfect for merging configuration templates with customized destination files."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/05
   first_commit_by_person: https://github.com/kettle-rb/psych-merge/commit/3330d3309d6962a4e676aa1c43e4ca90dfd21dc4
@@ -4201,7 +4257,7 @@
     matching, and configurable merge strategies."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/06
   first_commit_by_person: https://github.com/kettle-rb/rbs-merge/commit/7ae936a6ae844aee513264eecc39215eed53c313
@@ -4237,7 +4293,7 @@
     structural similarity."
   language: Ruby
   ecosystem: rubygems
-  minimum_version: '2.7'
+  minimum_version: '3.2'
   role: author
   first_commit_by_person_on: 2025/12/09
   first_commit_by_person: https://github.com/kettle-rb/toml-merge/commit/772a5f5802ce518f2e2c83a561eb583ed634bac4
@@ -4326,7 +4382,7 @@
   last_scrape_at: '2026-02-24T16:31:47Z'
   theme: family
   family_id: rubygems-bundler-family
-  family_position: 5
+  family_position: 8
 - name: cyclonedx-ruby
   ecosystem: rubygems
   language: Ruby
@@ -4356,6 +4412,9 @@
   first_commit_by_person: https://github.com/CycloneDX/cyclonedx-ruby-gem/commit/6a174b8a9248c6eb29d90bd2e5f100f7213f2cd5
   first_commit_by_person_on: 2025/10/26
   last_scrape_at: '2026-02-24T05:44:38Z'
+  theme: family
+  family_id: rubygems-bundler-family
+  family_position: 2
 - name: rb-sys
   ecosystem: cargo
   language: Rust
@@ -4485,7 +4544,7 @@
   first_commit_by_person_on: 2026/01/14
   theme: family
   family_id: rubygems-bundler-family
-  family_position: 7
+  family_position: 9
   last_scrape_at: '2026-02-24T16:31:59Z'
 - name: tree_stump
   ecosystem: rubygems
@@ -4527,7 +4586,7 @@
     url: https://www.github.com/Faveod/ruby-tree-sitter
     owner: Faveod
   description: Ruby bindings for Tree-Sitter
-  minimum_version: '3.2'
+  minimum_version: '3.1'
   tags:
   - ruby
   - ast
@@ -4575,6 +4634,9 @@
   first_commit_by_person: https://github.com/mongodb/bson-ruby/commit/ddbfce8c9b71470f61b68f0730102e1db4a965f8
   first_commit_by_person_on: 2025/06/02
   last_scrape_at: '2026-02-24T16:32:07Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 6
 - name: rexml
   ecosystem: rubygems
   language: Ruby
@@ -4602,6 +4664,9 @@
   first_commit_by_person: https://github.com/ruby/rexml/commit/ec410a0d5e5e5daddca82fd1455824219403f676
   first_commit_by_person_on: 2025/07/09
   last_scrape_at: '2026-02-24T16:32:10Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 1
 - name: bundler
   ecosystem: rubygems
   language: Ruby
@@ -4629,7 +4694,6 @@
   theme: family
   family_id: rubygems-bundler-family
   family_position: 4
-  family_primary: true
   last_scrape_at: '2026-02-24T16:32:12Z'
 - name: hashie
   ecosystem: rubygems
@@ -4657,6 +4721,9 @@
   first_commit_by_person: https://github.com/hashie/hashie/commit/a44dd9a2687055d0074f8e71f1c50e3096ee846b
   first_commit_by_person_on: 2015/10/19
   last_scrape_at: '2026-02-24T16:32:15Z'
+  theme: family
+  family_id: miscellaneous
+  family_position: 8
 - name: rails
   ecosystem: rubygems
   family: rails-family
@@ -4684,3 +4751,36 @@
   first_commit_by_person: https://github.com/rails/rails/commit/40143bf9d032fbc0081384f00edb5ca1d600068f
   first_commit_by_person_on: 2023/02/23
   last_scrape_at: '2026-02-24T16:32:18Z'
+  theme: family
+  family_id: rails-family
+  family_position: 3
+- name: rv
+  ecosystem: none
+  family: rubygems-bundler-family
+  language: Rust
+  role: contributor
+  forges:
+  - type: GitHub
+    url: https://github.com/spinel-coop/rv/
+    owner: spinel-coop
+  description: "\U0001F48E\U0001F4A8 Extremely fast Ruby version and gem manager"
+  minimum_version: '1.93'
+  tags:
+  - rust
+  - bundler
+  - rubygems
+  - ruby
+  funding_sites: []
+  docs_site:
+  total_downloads:
+  daily_downloads:
+  release_downloads:
+  release_date:
+  github_stars: 1614
+  last_commit_on: 2026/02/24
+  status: active
+  first_commit_by_person: https://github.com/spinel-coop/rv/commit/fb840bf830986170df2bbe9b51b5d7774770cf67
+  first_commit_by_person_on: 2026/01/21
+  theme: family
+  family_id: rubygems-bundler-family
+  family_position: 1

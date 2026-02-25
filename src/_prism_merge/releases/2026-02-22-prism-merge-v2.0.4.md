@@ -1,0 +1,65 @@
+---
+layout: post
+title: "prism-merge v2.0.4 released!"
+date: "2026-02-22T17:33:44Z"
+tags: ["release", "prism-merge", "v2.0.4"]
+---
+
+## [2.0.4] - 2026-02-22
+
+- TAG: [v2.0.4][2.0.4t]
+- COVERAGE: 98.34% -- 891/906 lines in 12 files
+- BRANCH COVERAGE: 84.34% -- 501/594 branches in 12 files
+- 93.51% documented
+
+### Fixed
+
+- Always preserve destination magic comments (`# frozen_string_literal: true`,
+  `# encoding: UTF-8`, etc.) at the top of merged output, regardless of merge
+  preference. Magic comments are file-level metadata managed by Prism and must
+  not be lost when the template side lacks them (e.g. after filtering).
+  `emit_dest_prefix_lines` now detects contiguous magic comments from the first
+  destination node's leading comments, emits them before any template-only nodes
+  (Phase 1), and records the emitted line numbers so `add_node_to_result` and
+  `merge_node_body_recursively` skip them to prevent duplication.
+- Non-top-of-file magic comments (e.g. used as documentation) are left alone and
+  treated as regular comments.
+- Fix blank line preservation between magic comments and subsequent comments when
+  template preference is used. Gap lines between a stripped magic comment and the
+  next remaining comment are now correctly emitted from the template source.
+- Fix inter-node gap line preservation when a matched node is output from the
+  template source. `perform_merge` now checks whether the output source's
+  analysis had a trailing blank before advancing `last_output_dest_line`, so
+  `emit_dest_gap_lines` correctly emits dest gap lines that the template lacked.
+
+[2.0.4]: https://github.com/kettle-rb/prism-merge/compare/v2.0.3...v2.0.4
+[2.0.4t]: https://github.com/kettle-rb/prism-merge/releases/tag/v2.0.4
+
+Official Discord 👉️ [![Live Chat on Discord][✉️discord-invite-img]][✉️discord-invite]
+
+Many paths lead to being a sponsor or a backer of this project. Are you on such a path?
+
+[![OpenCollective Backers][🖇osc-backers-i]][🖇osc-backers] [![OpenCollective Sponsors][🖇osc-sponsors-i]][🖇osc-sponsors] [![Sponsor Me on Github][🖇sponsor-img]][🖇sponsor] [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay] [![Donate on PayPal][🖇paypal-img]][🖇paypal]
+
+[![Buy me a coffee][🖇buyme-small-img]][🖇buyme] [![Donate on Polar][🖇polar-img]][🖇polar] [![Donate to my FLOSS efforts at ko-fi.com][🖇kofi-img]][🖇kofi] [![Donate to my FLOSS efforts using Patreon][🖇patreon-img]][🖇patreon]
+
+[⛳liberapay-img]: https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay&color=a51611&style=flat
+[⛳liberapay]: https://liberapay.com/pboling/donate
+[🖇osc-backers]: https://opencollective.com/kettle-rb#backer
+[🖇osc-backers-i]: https://opencollective.com/kettle-rb/backers/badge.svg?style=flat
+[🖇osc-sponsors]: https://opencollective.com/kettle-rb#sponsor
+[🖇osc-sponsors-i]: https://opencollective.com/kettle-rb/sponsors/badge.svg?style=flat
+[🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
+[🖇sponsor]: https://github.com/sponsors/pboling
+[🖇polar-img]: https://img.shields.io/badge/polar-donate-a51611.svg?style=flat
+[🖇polar]: https://polar.sh/pboling
+[🖇kofi-img]: https://img.shields.io/badge/ko--fi-%E2%9C%93-a51611.svg?style=flat
+[🖇kofi]: https://ko-fi.com/O5O86SNP4
+[🖇patreon-img]: https://img.shields.io/badge/patreon-donate-a51611.svg?style=flat
+[🖇patreon]: https://patreon.com/galtzo
+[🖇buyme-small-img]: https://img.shields.io/badge/buy_me_a_coffee-%E2%9C%93-a51611.svg?style=flat
+[🖇buyme]: https://www.buymeacoffee.com/pboling
+[🖇paypal-img]: https://img.shields.io/badge/donate-paypal-a51611.svg?style=flat&logo=paypal
+[🖇paypal]: https://www.paypal.com/paypalme/peterboling
+[✉️discord-invite]: https://discord.gg/3qme4XHNKN
+[✉️discord-invite-img]: https://img.shields.io/discord/1373797679469170758?style=flat

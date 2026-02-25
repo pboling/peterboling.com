@@ -1,6 +1,6 @@
 ---
 # Full name with title
-full_name: "Peter Boling, team leader, web architect, security researcher, and rubyist. Building for web since 2004. \U0001F9F0"
+full_name: "@pboling team leader, web architect, security researcher, and rubyist. Building for web since 2004. \U0001F9F0"
 
 # Short name/nickname
 name: "Peter Boling"
@@ -10,7 +10,8 @@ nickname: "Peter"
 greeting: "Hi, I am"
 
 # Profile image
-image: "images/avatar.png"
+avatar: "avatar.jpg"
+headshot: "headshot.jpg"
 
 # Contact information
 contact_info:
@@ -42,12 +43,21 @@ description: |
   if you need support, or would like to chat, about any of these projects.
   If you need an expert, <a href="https://docs.google.com/document/d/1H9fYtkMFmnkQO1sucrFPt5E3dvhozgVtI31LgpNLmJ4/pub" target="_blank" rel="noopener" class="text-link">hire me</a>.
   </span>
+description2: |
+  <span class="intro">
+  Focus on efficiency, repeatable outcomes, and resiliency, to build dozens of rock-solid libraries that "just work".
+  Tests, code coverage, and documented APIs, breed confidence and peace of mind.
+  The Ruby community trusts me with infrastructure-level authorization and authentication libraries.
+  In 2025, <a href="https://github.com/ruby-oauth/oauth2" target="_blank" rel="noopener" class="text-link">oauth2</a>
+  and I were invited to participate in Session 3 of the
+  <a href="https://github.blog/open-source/maintainers/securing-the-ai-software-supply-chain-security-results-across-67-open-source-projects/" target="_blank" rel="noopener" class="text-link">GitHub SOSF</a> (Secure Open Source Fund).
+  </span>
 language: Ruby
 aspect: wide
 ecosystem:
 minimum_version: '1.8'
 role: author
-first_commit_by_person_on: 2004/01/01
+first_commit_by_person_on: 1985/12/25
 first_commit_by_person: https://github.com/galtzo-floss/galtzo.com/commit/23b15c81cfe20eb53117efbcba8d76d7c2959290
 funding_sites:
 - type: OpenCollective
@@ -80,6 +90,7 @@ forges:
   url: https://sr.ht/~galtzo/
 tags:
 - api
+- ast
 - bash
 - bridgetown
 - ci/cd
@@ -107,6 +118,23 @@ tags:
 - sqlite3
 - svelte
 - test
+- tree-sitter
 - typescript
 - websockets
 docs_site: https://galtzo.com
+tech_site: https://peterboling.com
+orgs:
+- appraisal-rb
+- contriboss
+- Dynamoid
+- kettle-rb
+- floss_funding
+- galtzo-floss
+- omniauth
+- rails
+- resque
+- rubocop-lts
+- ruby
+- ruby-oauth
+- ruby-openid
+- wordtreefoundation
