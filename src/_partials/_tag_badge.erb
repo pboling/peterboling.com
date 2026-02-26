@@ -1,0 +1,15 @@
+<%
+  info = tag_badge_info(tag)
+  badge_type = info[:type]
+  label = info[:label]
+  logo_url = info[:logo_url]
+  emoji = info[:emoji]
+%>
+<span class="tag-badge tag-badge--<%= badge_type %>">
+  <% if logo_url %>
+    <img class="tag-badge__icon" src="<%= logo_url %>" alt="<%= label %>" loading="lazy" />
+  <% elsif emoji %>
+    <span class="tag-badge__icon"><%= emoji %></span>
+  <% end %>
+  <span class="tag-badge__label"><%= label %></span>
+</span>

@@ -7,10 +7,18 @@ This guide explains how to work with the project, family, and person data struct
 ### Data Locations
 - Projects: `src/_data/projects.yml`
 - Families: `src/_data/families.yml`
+- Orgs: `src/_data/orgs.yml`
 - Person/Author: `src/_data/person.yml` (consolidated from person.yml + author.yaml)
 - Main projects page: `src/projects.erb`
+- Tech posts index (paginated): `src/posts.erb`
 - About page: `src/about.erb`
 - Project card partial: `src/_partials/_project_card.erb`
+- Tag badge partial: `src/_partials/_tag_badge.erb`
+- Logos partial: `src/_partials/_logos.erb` (dynamic from orgs.yml)
+- Tag badge helpers: `plugins/helpers/tag_badge_helpers.rb`
+- Pagination defaults builder: `plugins/builders/pagination_defaults_builder.rb`
+- Language SVGs: `src/images/languages/`
+- Forge SVGs: `src/images/forges/`
 
 ### Access in Templates
 ```erb
@@ -236,14 +244,49 @@ Primary project: <%= primary['name'] %>
 The reusable partial `_project_card.erb` handles rendering:
 
 ```erb
-<%= render partial: "partials/project_card", locals: { project: project } %>
+<%= render "project_card", project: project %>
 ```
 
 The partial automatically:
-- Renders project name, description, and tags
+- Renders project name, description, and tag badges
+- Derives the full tag set from family_id, org owner, project name, and explicit tags
 - Displays forge links with star counts
 - Links to project blog
 - Handles optional fields gracefully
+
+## Working with Tag Badges
+
+### Render a Single Badge
+
+```erb
+<%= render "tag_badge", tag: "ruby" %>
+```
+
+### Get Full Derived Tags for a Project
+
+```erb
+<% all_tags = project_full_tags(project) %>
+<% all_tags.each do |tag| %>
+  <%= render "tag_badge", tag: tag %>
+<% end %>
+```
+
+### Get Badge Info for a Tag
+
+```erb
+<% info = tag_badge_info("kettle-rb") %>
+<!-- info[:type] => "org", info[:logo_url] => "https://...", info[:label] => "kettle-rb" -->
+```
+
+### Badge Types and CSS Classes
+
+| Type | CSS Class | When Applied |
+|------|-----------|-------------|
+| org | `.tag-badge--org` | Tag matches an org id in orgs.yml |
+| family | `.tag-badge--family` | Tag matches a family id in families.yml |
+| project | `.tag-badge--project` | Tag matches a project name in projects.yml |
+| language | `.tag-badge--language` | Tag matches a language SVG filename |
+| generic | `.tag-badge--generic` | No specific match found |
 
 ## Filtering Patterns
 
@@ -355,6 +398,48 @@ The partial automatically:
    <% active = site.data.projects.select { |p| p['status'] == 'active' } %>
    <% active.each { ... } %>
    ```
+
+## Paginated Tech Posts Index
+
+The tech posts index at `/posts/` uses `bridgetown-paginate` to paginate all tech
+posts across every project collection. Personal blog posts and non-content
+collections are excluded automatically.
+
+### How It Works
+
+1. **`src/posts.erb`** — The pagination template. Front matter drives the paginator:
+   ```yaml
+   pagination:
+     enabled: true
+     collection: all    # Aggregates all collections
+     per_page: 25
+     sort_field: date
+     sort_reverse: true
+     trail:
+       before: 3
+       after: 3
+   ```
+
+2. **`plugins/builders/pagination_defaults_builder.rb`** — Marks `pages`, `blog`, and
+   `data` collections as `exclude_from_pagination: true` so they are excluded from
+   the `all` aggregation.
+
+3. The `paginator` object is available in the ERB template with these key methods:
+   - `paginator.documents` / `paginator.each` — posts for the current page
+   - `paginator.page` — current page number
+   - `paginator.total_pages` — total number of pages
+   - `paginator.total_documents` — total number of posts
+   - `paginator.previous_page_path` / `paginator.next_page_path` — navigation links
+   - `paginator.page_trail` — array of `PageTrail` objects for page number navigation
+
+### Excluding Additional Collections
+
+To exclude a new collection from the paginated tech posts index, add its label to
+`EXCLUDED_COLLECTIONS` in `plugins/builders/pagination_defaults_builder.rb`:
+
+```ruby
+EXCLUDED_COLLECTIONS = %w[pages blog data my_new_collection].freeze
+```
 
 ## Common Errors and Fixes
 

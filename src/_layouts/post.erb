@@ -4,4 +4,12 @@ layout: default
 
 <h1><%= data.title %></h1>
 
+<% if data.tags.is_a?(Array) && data.tags.any? %>
+  <div class="post-tags">
+    <% data.tags.each do |tag| %>
+      <%= render "tag_badge", tag: tag %>
+    <% end %>
+  </div>
+<% end %>
+
 <%= yield %>

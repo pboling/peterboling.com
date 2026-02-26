@@ -101,9 +101,18 @@ DEVELOPER_GUIDE.md
 - `family_position` - Sort order within the family
 - `family_primary` - Marks the primary project in a family
 
+### Tag Badge System
+- Tags on project cards are auto-derived from: family_id, org owner, project name, explicit tags
+- Badge pills show icon/logo + label with type-specific colours
+- Logo hierarchy: org logo → family logo → language SVG → emoji fallback
+- Helpers: `tag_badge_info(tag)` and `project_full_tags(project)`
+
 ### Pages & Components
 - `/src/projects.erb` - Main projects page (groups by family)
+- `/src/posts.erb` - Paginated tech posts index (all collections, 25/page)
 - `/src/_partials/_project_card.erb` - Reusable project card component
+- `/src/_partials/_tag_badge.erb` - Tag badge pill partial
+- `/src/_partials/_logos.erb` - Dynamic header logos from orgs.yml
 
 ## Files in Workspace
 
@@ -121,21 +130,41 @@ peterboling.com/
 ```
 ├── src/_data/
 │   ├── projects.yml ................. Projects with family references
-│   └── families.yml ................. Family definitions
+│   ├── families.yml ................. Family definitions
+│   ├── orgs.yml ..................... Org logos and forge links
+│   └── person.yml ................... Author biographical data
 ```
 
 ### Template Files
 ```
 ├── src/
 │   ├── projects.erb ................. Projects page (UPDATED)
+│   ├── posts.erb .................... Paginated tech posts index (NEW)
+│   ├── images/
+│   │   ├── languages/ ............... Language SVGs (Bash, Go, JS, Ruby, Rust, TS)
+│   │   └── forges/ .................. Forge SVGs (Codeberg, GitHub, GitLab, SourceHut)
+│   ├── _layouts/
+│   │   └── post.erb ................. Post layout (tag badges added)
 │   └── _partials/
-│       └── _project_card.erb ........ Project card (NEW)
+│       ├── _project_card.erb ........ Project card (tag badges)
+│       ├── _tag_badge.erb ........... Tag badge pill (NEW)
+│       └── _logos.erb ............... Dynamic logos from orgs.yml (UPDATED)
+```
+
+### Plugin Files
+```
+├── plugins/
+│   ├── helpers/
+│   │   └── tag_badge_helpers.rb ..... Tag badge resolution logic (NEW)
+│   └── builders/
+│       ├── tag_badge_builder.rb ..... Registers helpers (NEW)
+│       └── pagination_defaults_builder.rb  Excludes non-tech collections (NEW)
 ```
 
 ## Last Updated
 
-- **Date:** February 23, 2026
-- **Version:** 1.0
-- **Status:** Complete
+- **Date:** February 26, 2026
+- **Version:** 2.1
+- **Status:** Complete — tag badge system, dynamic logos, image relocation, paginated tech posts
 
 All code updated, tested, and documented.

@@ -33,7 +33,7 @@ title: Projects
         <h2 class="family-name"><%= family['name'] %></h2>
         <div class="projects-grid">
           <% family_projects_list.each do |project| %>
-            <%= render "project_card", locals: { project: project } %>
+            <%= render "project_card", project: project %>
           <% end %>
         </div>
       </div>
@@ -45,7 +45,7 @@ title: Projects
       <h2 class="family-name">Other Projects</h2>
       <div class="projects-grid">
         <% other_projects.each do |project| %>
-          <%= render "project_card", locals: { project: project } %>
+          <%= render "project_card", project: project %>
         <% end %>
       </div>
     </div>
@@ -152,21 +152,6 @@ title: Projects
     font-size: 0.9rem;
   }
 
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 1rem 0;
-  }
-
-  .tag {
-    background: #e3f2fd;
-    color: #1976d2;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
 
   .project-blog-link {
     display: inline-block;

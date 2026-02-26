@@ -55,6 +55,7 @@ git status 2>&1 | tee tmp/git_status.txt
 - **Key data files**:
   - `src/_data/projects.yml` — list of all projects shown on the site
   - `src/_data/families.yml` — project family groupings and metadata
+  - `src/_data/orgs.yml` — GitHub org data with logos for the badge system
   - `src/_data/person.yml` — consolidated author/person biographical data (previously split between person.yml and author.yaml)
 
 ### Data Files Overview
@@ -110,3 +111,60 @@ Within-family member order is based on the `family_position` within `projects.ym
 - `project['family_id']` - References a family's id
 - `project['family_position']` - Display order within the family
 - Projects are grouped and displayed by family on the projects page
+
+### orgs.yml
+
+**Data model:** Org metadata (name, logos, forge links) used by the tag badge system
+and the dynamic logos header partial (`_logos.erb`).
+
+**Example orgs.yml entry:**
+```yaml
+- id: kettle-rb
+  name: "kettle-rb"
+  position: 2
+  logo: "https://logos.galtzo.com/assets/images/kettle-rb/avatar-128px.svg"
+  logo-alt: "kettle-rb Logo by Aboling0, CC BY-SA 4.0"
+  logo-title: "kettle-rb Logo by Aboling0, CC BY-SA 4.0"
+  forge_gh: "https://github.com/kettle-rb"
+  forge_gl: "https://gitlab.com/kettle-rb"
+  forge_cb: "https://codeberg.org/kettle-rb"
+```
+
+### Tag Badge System (as of 2026-02-26)
+
+Tag badges are pill-shaped elements with icon + label, used on project cards and
+blog posts. The full tag set for a project is derived from:
+`family_id`, GH forge `owner` (org), `name` (project name), and explicit `tags`.
+
+**Logo resolution hierarchy per tag type:**
+- **org** (matches orgs.yml id) → org logo
+- **family** (matches families.yml id) → family logo (future) > 👪 emoji
+- **project** (matches projects.yml name) → org logo > language SVG > 📦 emoji
+- **language** (matches SVG in `src/images/languages/`) → language SVG
+- **generic** → 🏷️ emoji
+
+**Key files:**
+- `plugins/helpers/tag_badge_helpers.rb` — `tag_badge_info(tag)` and `project_full_tags(project)` helpers
+- `plugins/builders/tag_badge_builder.rb` — registers helpers with Bridgetown
+- `src/_partials/_tag_badge.erb` — renders a single badge pill
+- `src/_partials/_logos.erb` — dynamic org logos from orgs.yml (header)
+- `src/images/languages/` — language SVGs (Bash, Go, JavaScript, Ruby, Rust, TypeScript)
+- `src/images/forges/` — forge SVGs (Codeberg, GitHub, GitLab, SourceHut)
+- `frontend/styles/index.css` — `.tag-badge` CSS with type-specific colour themes
+
+### Paginated Tech Posts Index (as of 2026-02-26)
+
+The tech posts index (`src/posts.erb`) uses `bridgetown-paginate` to paginate all
+tech posts across every collection (excluding `pages`, `blog`, and `data`).
+
+**Configuration:**
+- `collection: all` — aggregates posts from all project collections
+- `per_page: 25` — 25 posts per page
+- `sort_field: date`, `sort_reverse: true` — newest first
+- `trail: before: 3, after: 3` — page trail navigation window
+
+**Key files:**
+- `src/posts.erb` — paginated tech posts index (front matter drives pagination)
+- `plugins/builders/pagination_defaults_builder.rb` — marks `pages`, `blog`, `data`
+  collections as `exclude_from_pagination: true` so they are excluded from `all`
+- `frontend/styles/index.css` — `.pagination` CSS for nav controls

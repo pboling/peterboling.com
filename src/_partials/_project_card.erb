@@ -25,10 +25,11 @@
     </div>
   <% end %>
 
-  <% if project['tags'] && project['tags'].any? %>
+  <% all_tags = project_full_tags(project) %>
+  <% if all_tags.any? %>
     <div class="project-tags">
-      <% project['tags'].each do |tag| %>
-        <span class="tag"><%= tag %></span>
+      <% all_tags.each do |tag| %>
+        <%= render "tag_badge", tag: tag %>
       <% end %>
     </div>
   <% end %>

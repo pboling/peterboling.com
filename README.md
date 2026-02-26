@@ -29,10 +29,10 @@ The projects page displays cards for all projects, with:
 - **Multi-Forge Support**: Projects can be hosted on multiple platforms (GitHub, GitLab, Codeberg, Bitbucket)
 - **Forge-Specific Accent Colors**: Each forge has a unique color (configurable in `src/_data/projects.yml`)
 - **Star Counts**: Display stars/favorites for each forge
-- **Tags**: Categorize projects by technology
+- **Tag Badges**: Pill-shaped badges with icons derived from orgs, families, languages, and project names
 - **Links to Project Blogs**: Each project card links to its dedicated mini-blog
 
-Configuration is managed via YAML in `src/_data/projects.yml`.
+Configuration is managed via YAML in `src/_data/projects.yml`, `src/_data/families.yml`, and `src/_data/orgs.yml`.
 
 ### 3. Project-Specific Mini-Blogs
 
@@ -84,13 +84,25 @@ To start your site in development mode, run `bin/bridgetown start` and navigate 
 │   ├── _data/
 │   │   ├── projects.yml     # Project configuration
 │   │   ├── families.yml     # Project family definitions
+│   │   ├── orgs.yml         # GitHub org logos & links (tag badges + header)
 │   │   ├── person.yml       # Personal profile & organization data
 │   │   └── site_metadata.yml # Site metadata
 │   ├── _layouts/            # Page layouts
 │   ├── _components/         # Reusable components
 │   ├── _partials/           # Partial templates
+│   │   ├── _project_card.erb    # Project card with tag badges
+│   │   ├── _tag_badge.erb       # Tag badge pill (icon + label)
+│   │   └── _logos.erb           # Dynamic header logos from orgs.yml
+│   ├── images/
+│   │   ├── languages/       # Language SVGs (Bash, Go, JS, Ruby, Rust, TS)
+│   │   └── forges/          # Forge SVGs (Codeberg, GitHub, GitLab, SourceHut)
 │   ├── projects.erb         # Projects page
 │   └── <project_name>.erb   # Individual project blog root pages
+├── plugins/
+│   ├── helpers/
+│   │   └── tag_badge_helpers.rb  # Tag badge icon resolution & tag derivation
+│   └── builders/
+│       └── tag_badge_builder.rb  # Registers helpers with Bridgetown
 ├── config/
 │   └── initializers.rb      # Bridgetown configuration (includes project collections)
 ├── frontend/                # Frontend assets (JS, CSS)

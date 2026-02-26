@@ -1,5 +1,6 @@
-source "https://rubygems.org"
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+source "https://gem.coop"
+
+git_source(:gitlab) { |repo| "https://github.com/#{repo}.git" }
 
 ####
 # Welcome to your project's Gemfile, used by Rubygems & Bundler.
@@ -19,10 +20,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # If you need to upgrade/switch Bridgetown versions, change the line below
 # and then run `bundle update bridgetown`
-gem "bridgetown", "~> 2.1.1"
-
-# Uncomment to add file-based dynamic routing to your project:
-# gem "bridgetown-routes", "~> 2.1.1"
+gem "bridgetown", "~> 2.1", ">= 2.1.1"
+gem "bridgetown-paginate", "~> 2.1", ">= 2.1.1"
+gem "bridgetown-routes", "~> 2.1", ">= 2.1.1"
 
 # Puma is the Rack-compatible web server used by Bridgetown
 # (you can optionally limit this to the "development" group)

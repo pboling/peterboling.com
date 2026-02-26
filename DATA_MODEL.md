@@ -4,11 +4,12 @@ This document describes the YAML data structures used for managing projects, pro
 
 ## Overview
 
-Data is organized into three related YAML files:
+Data is organized into four related YAML files:
 
 1. **`src/_data/projects.yml`** - Individual project entries
 2. **`src/_data/families.yml`** - Project family definitions
-3. **`src/_data/person.yml`** - Author/person biographical and contact information
+3. **`src/_data/orgs.yml`** - GitHub org data with logos
+4. **`src/_data/person.yml`** - Author/person biographical and contact information
 
 ## person.yml Schema
 
@@ -171,6 +172,82 @@ Defines project families for grouping related projects.
 - Each family has a unique `id` that projects reference via `family_id`
 - The `position` field controls the order families appear on the projects page
 - Families are displayed in order of `position` (ascending)
+
+## orgs.yml Schema
+
+Defines GitHub organizations with logos and forge links, used by the tag badge system
+and the dynamic logos header partial.
+
+### Structure
+
+```yaml
+---
+- id: org-id                     # Unique identifier (matches GitHub org name)
+  name: "Org Name"               # Human-readable name
+  position: 1                    # Sort order for header logos
+  logo: "https://..."            # Logo image URL
+  logo-alt: "alt text"           # Logo alt text
+  logo-title: "title text"       # Logo title/tooltip text
+  forge_gh: "https://..."        # GitHub org URL
+  forge_gl: "https://..."        # GitLab org URL (optional)
+  forge_cb: "https://..."        # Codeberg org URL (optional)
+```
+
+### Example
+
+```yaml
+---
+- id: kettle-rb
+  name: "kettle-rb"
+  position: 2
+  logo: "https://logos.galtzo.com/assets/images/kettle-rb/avatar-128px.svg"
+  logo-alt: "kettle-rb Logo by Aboling0, CC BY-SA 4.0"
+  logo-title: "kettle-rb Logo by Aboling0, CC BY-SA 4.0"
+  forge_gh: "https://github.com/kettle-rb"
+  forge_gl: "https://gitlab.com/kettle-rb"
+  forge_cb: "https://codeberg.org/kettle-rb"
+```
+
+### Usage
+
+- Org logos appear in the header via the dynamic `_logos.erb` partial
+- The tag badge system matches tag strings against org `id` fields
+- When a tag matches an org, the org logo is displayed in the badge pill
+
+## Tag Badge System
+
+Tag badges are pill-shaped elements rendered on project cards and blog posts.
+Each badge shows an icon/logo on the left and the tag label on the right.
+
+### Full Tag Derivation for Projects
+
+The full tag set for a project is derived from these fields (in order):
+1. `family_id` — the family the project belongs to
+2. GH forge `owner` — the GitHub org that owns the project
+3. `name` — the project's own name
+4. `tags` — explicit tags from the project data
+
+Tags are deduplicated (case-insensitive, first occurrence wins).
+
+### Logo Resolution Hierarchy
+
+| Tag Type | Match Condition | Logo Source |
+|----------|----------------|-------------|
+| **org** | Tag matches `orgs.yml` id | Org logo from orgs.yml |
+| **family** | Tag matches `families.yml` id | Family logo (future) → 👪 emoji |
+| **project** | Tag matches `projects.yml` name | Org logo → language SVG → 📦 emoji |
+| **language** | Tag matches language SVG filename | Language SVG from `/images/languages/` |
+| **generic** | No match found | 🏷️ emoji |
+
+### Key Files
+
+- `plugins/helpers/tag_badge_helpers.rb` — `tag_badge_info(tag)` and `project_full_tags(project)`
+- `plugins/builders/tag_badge_builder.rb` — Registers helpers with Bridgetown
+- `src/_partials/_tag_badge.erb` — Renders a single badge pill
+- `src/_partials/_logos.erb` — Dynamic header logos from orgs.yml
+- `src/images/languages/` — Language SVGs (Bash, Go, JavaScript, Ruby, Rust, TypeScript)
+- `src/images/forges/` — Forge SVGs (Codeberg, GitHub, GitLab, SourceHut)
+- `frontend/styles/index.css` — `.tag-badge` CSS with type-specific colour themes
 
 ## projects.yml Schema
 
@@ -357,6 +434,18 @@ When a project belongs to a family, include:
 
 <!-- Filter by family_id -->
 <% active_record_projects = site.data.projects.select { |p| p['family_id'] == 'active-record' } %>
+
+<!-- Render a tag badge for a single tag -->
+<%= render "tag_badge", tag: "ruby" %>
+
+<!-- Get the full derived tag list for a project and render badges -->
+<% all_tags = project_full_tags(project) %>
+<% all_tags.each do |tag| %>
+  <%= render "tag_badge", tag: tag %>
+<% end %>
+
+<!-- Render a project card (includes derived tag badges automatically) -->
+<%= render "project_card", project: project %>
 ```
 
 ## Updating Projects Data
@@ -377,10 +466,21 @@ When a project belongs to a family, include:
    - `position` number (lower = appears first)
 2. Update any existing projects to reference the new family via `family_id`
 
+### When Adding a New Org
+
+1. Add entry to `src/_data/orgs.yml` with:
+   - `id` matching the GitHub org name
+   - `name`, `position`, and `logo` URL
+   - `logo-alt` and `logo-title` for accessibility
+   - `forge_gh` (required for header display), `forge_gl`, `forge_cb` (optional)
+2. The org logo will automatically be used by tag badges for matching tags
+3. The header logos partial will automatically include the new org
+
 ### Best Practices
 
 - Use kebab-case for project names (e.g., `active-record-plugin`)
 - Use kebab-case for family ids (e.g., `active-record`)
+- Use GitHub org name for org ids (e.g., `kettle-rb`)
 - Keep descriptions concise but informative
 - Keep `forges` array current with all active hosting locations
 - Update `status`, `github_stars`, and other metrics regularly

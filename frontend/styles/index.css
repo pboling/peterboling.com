@@ -8,6 +8,23 @@
   --forge-codeberg: #2185d0;
   --forge-bitbucket: #0052cc;
   --forge-sourcehut: #0052cc;
+
+  /* Tag badge type colors */
+  --badge-org-bg: #e8f5e9;
+  --badge-org-border: #66bb6a;
+  --badge-org-color: #2e7d32;
+  --badge-family-bg: #fff3e0;
+  --badge-family-border: #ffa726;
+  --badge-family-color: #e65100;
+  --badge-project-bg: #e3f2fd;
+  --badge-project-border: #42a5f5;
+  --badge-project-color: #1565c0;
+  --badge-language-bg: #fce4ec;
+  --badge-language-border: #ef5350;
+  --badge-language-color: #c62828;
+  --badge-generic-bg: #f3e5f5;
+  --badge-generic-border: #ab47bc;
+  --badge-generic-color: #6a1b9a;
 }
 
 body {
@@ -98,4 +115,176 @@ hr {
   border: none;
   border-top: 2px dotted #bbb;
   margin: 3rem 0;
+}
+
+/* ============================================
+   Tag badge pills — shared across posts & cards
+   ============================================ */
+
+/* Container used in both post layouts and project cards */
+.post-tags,
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.75rem 0;
+}
+
+.post-tags {
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+/* Base badge pill — hybrid tag-cloud bubble / modern pill */
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.65rem 0.2rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  border: 1.5px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.tag-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon (img or emoji span) */
+.tag-badge__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+img.tag-badge__icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+span.tag-badge__icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.tag-badge__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Type-specific colour themes */
+.tag-badge--org {
+  background: var(--badge-org-bg);
+  border-color: var(--badge-org-border);
+  color: var(--badge-org-color);
+}
+
+.tag-badge--family {
+  background: var(--badge-family-bg);
+  border-color: var(--badge-family-border);
+  color: var(--badge-family-color);
+}
+
+.tag-badge--project {
+  background: var(--badge-project-bg);
+  border-color: var(--badge-project-border);
+  color: var(--badge-project-color);
+}
+
+.tag-badge--language {
+  background: var(--badge-language-bg);
+  border-color: var(--badge-language-border);
+  color: var(--badge-language-color);
+}
+
+.tag-badge--generic {
+  background: var(--badge-generic-bg);
+  border-color: var(--badge-generic-border);
+  color: var(--badge-generic-color);
+}
+
+/* ============================================
+   Pagination controls
+   ============================================ */
+
+.pagination {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.pagination__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.pagination__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+  padding: 0.35rem 0.75rem;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--body-color);
+  background: #fff;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+a.pagination__link:hover {
+  background: var(--action-color);
+  border-color: var(--action-color);
+  color: #fff;
+}
+
+.pagination__link--current {
+  background: var(--action-color);
+  border-color: var(--action-color);
+  color: #fff;
+  font-weight: 700;
+}
+
+.pagination__link--disabled {
+  color: #bbb;
+  border-color: #eee;
+  cursor: default;
+}
+
+.pagination__link--prev,
+.pagination__link--next {
+  font-weight: 600;
+}
+
+.pagination__numbers {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  font-size: 1rem;
+  color: #999;
+}
+
+.pagination__info {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #888;
 }
