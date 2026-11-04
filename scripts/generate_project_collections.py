@@ -25,6 +25,7 @@ import sys
 TEMPLATE = """---
 layout: page
 title: "{title}"
+feed_url: /feed/{collection_name}.xml
 ---
 
 <% project = site.data.projects.find {{ |p| p['name'] == '{name}' }} %>
