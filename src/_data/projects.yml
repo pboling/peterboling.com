@@ -5890,7 +5890,7 @@
   daily_downloads: 2
   release_downloads: 220
   release_date: 2026/03/08
-  status: archived
+  status: active
   licenses:
   - MIT
   last_scrape_at: '2026-11-03T23:39:10Z'
@@ -8795,12 +8795,12 @@
   minimum_version: '2.4'
   role: author
   first_commit_by_person_on: 2026/10/07
-  first_commit_by_person: https://github.com/kettle-dev/kettle-paths/commit/273d282a2165fff8d910df95fba8dedec87ff154
+  first_commit_by_person: https://github.com/pboling/kettle-paths/commit/273d282a2165fff8d910df95fba8dedec87ff154
   funding_sites: []
   forges:
   - type: GitHub
-    url: https://github.com/kettle-dev/kettle-paths
-    owner: kettle-dev
+    url: https://github.com/pboling/kettle-paths
+    owner: pboling
   tags:
   - kettle
   - ruby
@@ -8814,7 +8814,7 @@
   github_stars: 1
   last_commit_on: 2026/10/31
   status: active
-  license_url: https://github.com/kettle-dev/kettle-paths/blob/main/LICENSE.md
+  license_url: https://github.com/pboling/kettle-paths/blob/main/LICENSE.md
   last_scrape_at: '2026-11-04T11:30:34Z'
   theme: family
   family_id: kettle-dev-family
