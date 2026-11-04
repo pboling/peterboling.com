@@ -14,4 +14,11 @@ cp "$tmp/p/assets/logos/"* src/cards/logos/
 cp "$tmp/p/assets/langs/"* src/cards/langs/
 cp "$tmp/p/assets/profile/city.svg" src/cards/city.svg
 cp "$tmp/p/assets/profile/banner/banner.svg" src/cards/banner.svg
+# Project metadata (names, descriptions, docs sites, families, tags) for the blog pages: galtzo.com is the source,
+# so this copy is refreshed with every sync instead of drifting.
+for f in projects.yml families.yml; do
+  curl -fsSL "https://raw.githubusercontent.com/galtzo-floss/galtzo.com/main/src/_data/$f" -o "$tmp/$f"
+  ruby -ryaml -e 'abort("empty #{ARGV[0]}") if YAML.safe_load_file(ARGV[0], permitted_classes: [Date, Time], aliases: true).to_a.empty?' "$tmp/$f"
+  cp "$tmp/$f" "src/_data/$f"
+done
 echo "synced $(ruby -rjson -e 'puts JSON.parse(File.read("src/_data/cards.json"))["cards"].size') cards"
