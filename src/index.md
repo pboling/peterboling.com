@@ -14,7 +14,7 @@ An interactive listing of projects is available at <a href="https://galtzo.com">
 I am a core maintainer of projects within the following OSS organizations:
 
 * [appraisal-rb][appraisal-rb] (3 projects)
-* [kettle-rb][kettle-rb] (4 projects)
+* [kettle-dev][kettle-dev] (4 projects)
 * [floss-funding][floss-funding] (3 projects)
 * [galtzo-floss][galtzo-floss] (> 50 projects)
 * [omniauth][omniauth] (4 projects)
@@ -25,7 +25,7 @@ I am a core maintainer of projects within the following OSS organizations:
 * [ruby-openid][ruby-openid] (9 projects)
 
 [appraisal-rb]: https://github.com/appraisal-rb
-[kettle-rb]: https://github.com/kettle-rb
+[kettle-dev]: https://github.com/kettle-dev
 [floss-funding]: https://github.com/floss-funding
 [galtzo-floss]: https://github.com/galtzo-floss
 [omniauth]: https://github.com/omniauth
