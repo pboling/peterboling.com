@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Pull the GitHub profile's card data and assets (pboling/pboling) into this site:
+#   data/cards.json -> src/_data/cards.json, org logos + language marks + banner + city -> src/cards/
+# One shallow, sparse clone; leaves the previous copy in place if anything fails.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+tmp=$(mktemp -d); trap 'rm -rf "$tmp"' EXIT
+git clone -q --depth 1 --branch "${CARDS_REF:-main}" --filter=blob:none --sparse https://github.com/pboling/pboling.git "$tmp/p"
+git -C "$tmp/p" sparse-checkout set --no-cone /data/cards.json /assets/logos/ /assets/langs/ /assets/profile/city.svg /assets/profile/banner/
+ruby -rjson -e 'abort("cards.json has no cards") if JSON.parse(File.read(ARGV[0]))["cards"].empty?' "$tmp/p/data/cards.json"
+mkdir -p src/cards/logos src/cards/langs
+cp "$tmp/p/data/cards.json" src/_data/cards.json
+cp "$tmp/p/assets/logos/"* src/cards/logos/
+cp "$tmp/p/assets/langs/"* src/cards/langs/
+cp "$tmp/p/assets/profile/city.svg" src/cards/city.svg
+cp "$tmp/p/assets/profile/banner/banner.svg" src/cards/banner.svg
+echo "synced $(ruby -rjson -e 'puts JSON.parse(File.read("src/_data/cards.json"))["cards"].size') cards"

@@ -1,179 +1,52 @@
 ---
 layout: page
 title: Projects
+page_class: projects-page
 ---
 
 <%
-  # Separate projects by theme
-  # Note: Person/author data is now in person.yml, not projects.yml
-  family_projects = site.data.projects.select { |p| p['theme'] == 'family' && !p['archive'] && p['type'] != 'person' }
-  other_projects = site.data.projects.reject { |p| p['theme'] == 'family' || p['archive'] || p['type'] == 'person' }
-
-  # Group family projects by family_id
-  projects_by_family = family_projects.group_by { |p| p['family_id'] }
-
-  # Sort projects within each family by family_position
-  projects_by_family.each do |family_id, projects|
-    projects_by_family[family_id] = projects.sort_by { |p| p['family_position'] || 999 }
+  cards = site.data.cards.cards
+  role_tags = %w[author maintainer]
+  lang_tag = ->(t) { t.include?(" >= ") }
+  year_tag = ->(t) { t.match?(/\A\d{4}\z/) }
+  counts = Hash.new(0)
+  cards.each { |c| c["tags"].each { |t| counts[t] += 1 } }
+  roles = role_tags.select { |t| counts[t].positive? }
+  ver = lambda do |t|
+    v = t.split(" >= ").last.gsub(/[^\d.]/, "")
+    v.empty? ? [0] : v.split(".").map(&:to_i)
   end
-
-  # Get families data and sort by position
-  families = site.data.families.sort_by { |f| f['position'] || 999 }
+  langs = counts.keys.select(&lang_tag).sort_by { |t| [t.split(" >= ").first, ver.call(t)] }
+  years = counts.keys.select(&year_tag).sort.reverse
+  others = (counts.keys - role_tags - langs - years).sort
+  groups = [["Role", roles], ["Minimum language version", langs], ["Year started", years], ["Tags", others]].reject { |_, ts| ts.empty? }
 %>
 
-<div class="projects-container">
-  <p class="projects-intro">Open source projects I maintain across various platforms. For an interactive presentation of this list with useful filters, head over to <a href="https://galtzo.com">galtzo.com</a>.</p>
+<div class="pstage">
+  <img class="pstage-banner" src="/cards/banner.svg" alt="Peter Boling: team leader, web architect, security researcher, rubyist" width="880" height="200">
+  <img class="pstage-city" src="/cards/city.svg" alt="Contribution city: one building per day of the last year, neon rings on the ten busiest days, a subway train along the near edge" width="880" height="470" loading="lazy">
 
-  <% if families.any? %>
-    <% families.each do |family| %>
-      <% family_projects_list = projects_by_family[family['id']] %>
-      <% next unless family_projects_list && family_projects_list.any? %>
+  <p class="pstage-intro">Every project card opens that project's writing: intros, release notes and tips. Roll-ups (StructuredMerge, RuboCop-LTS) share one blog for the whole family. For the full catalogue with forges and licenses see <a href="https://galtzo.com">galtzo.com</a>.</p>
 
-      <div class="family-section">
-        <h2 class="family-name"><%= family['name'] %></h2>
-        <div class="projects-grid">
-          <% family_projects_list.each do |project| %>
-            <%= render "project_card", project: project %>
+  <div class="pfilters" id="filters">
+    <% groups.each do |title, tags| %>
+      <details class="pfilter">
+        <summary><%= title %> <span class="pf-n"><%= tags.size %></span></summary>
+        <ul>
+          <% tags.each do |tag| %>
+            <li><button type="button" class="tag-link" data-tag="<%= tag %>"><span class="tag"><%= tag %></span> <span class="count"><%= counts[tag] %></span></button></li>
           <% end %>
-        </div>
-      </div>
+        </ul>
+      </details>
     <% end %>
-  <% end %>
+    <button type="button" id="filter-clear" class="pf-clear" hidden>Clear filters</button>
+    <span id="filter-count" class="pf-count" aria-live="polite"><%= cards.size %> projects</span>
+  </div>
 
-  <% if other_projects.any? %>
-    <div class="family-section">
-      <h2 class="family-name">Other Projects</h2>
-      <div class="projects-grid">
-        <% other_projects.each do |project| %>
-          <%= render "project_card", project: project %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+  <ul class="pgrid" id="pgrid">
+    <% cards.each do |c| %>
+      <% href, external = card_target(c) %>
+      <%= render "pcard", card: c, href: href, external: external %>
+    <% end %>
+  </ul>
 </div>
-
-<style>
-  .projects-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-
-  .projects-intro {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 2rem;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .project-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1.5rem;
-    background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-
-  .project-name {
-    font-size: 1.5rem;
-    margin: 0 0 0.5rem 0;
-    color: #333;
-    font-family: monospace;
-  }
-
-  .project-description {
-    color: #666;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-
-  .project-forges {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin: 1rem 0;
-  }
-
-  .forge-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0.75rem;
-    background: #f8f9fa;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #333;
-    transition: background 0.2s;
-  }
-
-  .forge-link:hover {
-    background: #e9ecef;
-  }
-
-  .forge-link.github {
-    border-left: 4px solid var(--forge-github);
-  }
-
-  .forge-link.gitlab {
-    border-left: 4px solid var(--forge-gitlab);
-  }
-
-  .forge-link.codeberg {
-    border-left: 4px solid var(--forge-codeberg);
-  }
-
-  .forge-link.bitbucket {
-    border-left: 4px solid var(--forge-bitbucket);
-  }
-
-  .forge-link.sourcehut {
-    border-left: 4px solid var(--forge-sourcehut);
-  }
-
-  .forge-type {
-    font-weight: 600;
-    text-transform: capitalize;
-  }
-
-  .forge-stars {
-    color: #666;
-    font-size: 0.9rem;
-  }
-
-
-  .project-blog-link {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #1976d2;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .project-blog-link:hover {
-    text-decoration: underline;
-  }
-
-  .family-section {
-    margin-bottom: 3rem;
-  }
-
-  .family-name {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e0e0e0;
-  }
-</style>

@@ -5,3 +5,4 @@ import "$styles/syntax-highlighting.css"
 import components from "$components/**/*.{js,jsx,js.rb,css}"
 
 console.info("Bridgetown is loaded!")
+import "./projects.js"

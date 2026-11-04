@@ -1,0 +1,72 @@
+/* /projects: the GitHub profile's cards as HTML and CSS, on the profile's dark palette. */
+.projects-page main { max-width: none; }
+.pstage {
+  --bg: #0e1718; --panel: #14211f; --edge: #25403c; --paper: #f4efe4; --muted: #8fa6a1;
+  --teal: #4fc3b3; --violet: #a58bf5; --amber: #e8b04a; --dl: #16a34a;
+  --author: #ff8a1f; --maintainer: #2dd4bf; --contributor: #c084fc;
+  background: var(--bg); color: var(--paper); border-radius: 10px; border: 1px solid var(--edge);
+  max-width: 1280px; margin: 1rem auto 3rem; padding: 1rem 1rem 2rem;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+.pstage a { color: var(--teal); }
+.pstage-banner, .pstage-city { display: block; width: 100%; height: auto; border-radius: 6px; }
+.pstage-city { margin-top: .75rem; }
+.pstage-intro { color: var(--muted); font-size: .85rem; line-height: 1.5; max-width: 70ch; margin: 1rem 0; font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", sans-serif; }
+
+/* filters (the galtzo.com pill pattern: collapsible groups of toggle pills, AND across the selection) */
+.pfilters { display: flex; flex-wrap: wrap; gap: .5rem; align-items: flex-start; margin: 0 0 1rem; }
+.pfilter { background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; padding: .25rem .6rem; font-size: .8rem; }
+.pfilter summary { cursor: pointer; color: var(--muted); list-style: none; }
+.pfilter summary::-webkit-details-marker { display: none; }
+.pfilter[open] { flex-basis: 100%; }
+.pf-n { color: var(--teal); margin-left: .35rem; }
+.pfilter ul { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; padding: .5rem 0 .25rem; margin: 0; }
+.tag-link { background: transparent; border: 1px solid var(--edge); color: var(--paper); border-radius: 999px; padding: .15rem .6rem; font: inherit; font-size: .75rem; cursor: pointer; }
+.tag-link .count { color: var(--muted); margin-left: .25rem; }
+.tag-link:hover { border-color: var(--teal); }
+.tag-link.active { background: var(--teal); border-color: var(--teal); color: var(--bg); }
+.tag-link.active .count { color: var(--bg); }
+.pf-clear { background: none; border: 1px solid var(--violet); color: var(--violet); border-radius: 999px; padding: .15rem .7rem; font: inherit; font-size: .75rem; cursor: pointer; }
+.pf-count { margin-left: auto; color: var(--muted); font-size: .8rem; align-self: center; }
+
+/* the grid: every card the same size */
+.pgrid { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
+.pcard[hidden] { display: none; }
+.pcard { position: relative; height: 168px; }
+.pcard-link { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 6px; padding: 10px 14px 10px 18px; text-decoration: none; color: var(--paper);
+  background: var(--panel); border: 1px solid var(--edge); border-radius: 6px; overflow: hidden; transition: border-color .15s, box-shadow .15s, transform .15s; }
+.pcard-link::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--c, var(--muted)); }
+.pcard[data-role="author"] { --c: var(--author); }
+.pcard[data-role="maintainer"] { --c: var(--maintainer); }
+.pcard-link:hover, .pcard-link:focus-visible { border-color: var(--c); box-shadow: 0 0 14px color-mix(in srgb, var(--c) 45%, transparent); transform: translateY(-2px); outline: none; }
+.pcard-head { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.pcard-logo { width: 24px; height: 24px; border-radius: 5px; background: #fff; object-fit: cover; flex: none; }
+.pcard-name { font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", sans-serif; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.pcard-new { background: var(--amber); color: var(--bg); font-size: .6rem; font-weight: 700; border-radius: 8px; padding: 1px 7px; flex: none; }
+.pcard-lang { margin-left: auto; display: flex; align-items: center; gap: 4px; color: var(--muted); font-size: .72rem; flex: none; }
+.pcard-lang img { width: 18px; height: 18px; }
+.pcard-lang .lang-rust, .pcard-lang .lang-bash { background: #e8eefc; border-radius: 4px; padding: 2px; box-sizing: border-box; }
+.pcard-desc { font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", sans-serif; color: var(--muted); font-size: .8rem; line-height: 1.35;
+  display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.pcard-meta { display: flex; align-items: center; gap: 6px; margin-top: auto; min-height: 20px; overflow: hidden; }
+.pcard-install { background: var(--bg); border: 1px solid var(--edge); border-radius: 3px; padding: 1px 7px; font-size: .68rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.pcard-install span { color: var(--muted); }
+.pcard-tag { color: var(--muted); font-size: .65rem; margin-left: auto; white-space: nowrap; }
+.chip { border: 1px solid var(--c); color: var(--c); border-radius: 999px; padding: 0 7px; font-size: .58rem; font-weight: 700; letter-spacing: .5px; flex: none; opacity: .85; }
+.pcard-stats { display: flex; align-items: center; gap: 12px; font-size: .74rem; white-space: nowrap; }
+.st { text-shadow: 0 0 6px currentColor, 0 0 12px currentColor; display: inline-flex; align-items: center; gap: 4px; }
+.st-star { color: var(--amber); } .st-star svg { fill: currentColor; filter: drop-shadow(0 0 3px currentColor); }
+.st-dl { color: var(--dl); } .st-day { color: var(--violet); }
+.st-cov { color: var(--cov); } .st-cov i { font-style: normal; color: var(--muted); text-shadow: none; }
+.role { margin-left: auto; font-size: .66rem; font-weight: 700; letter-spacing: 1px; color: var(--c, var(--muted)); }
+
+/* dealt onto the table, one at a time, from below the fold */
+.js .deal { opacity: 0; }
+.js .deal.dealt { animation: deal .8s cubic-bezier(.17, .84, .3, 1) both; animation-delay: var(--d, 0ms); }
+@keyframes deal {
+  from { opacity: 0; transform: translate(var(--fx, -40px), 85vh) rotate(var(--r, -9deg)) scale(.9); }
+  55%  { opacity: 1; }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .js .deal { opacity: 1; } .js .deal.dealt { animation: none; } }
+@media (max-width: 420px) { .pgrid { grid-template-columns: 1fr; } }
