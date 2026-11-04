@@ -23,7 +23,7 @@ jobs:
         if: github.event_name != 'schedule' || steps.sync.outputs.changed == 'true'
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4'
+          ruby-version: '4.0.9'
 
       - name: Sync project cards from the GitHub profile
         id: sync
