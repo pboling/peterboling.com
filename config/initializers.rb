@@ -34,6 +34,9 @@ Bridgetown.configure do |config|
     collections do
       # Personal blog collection
       blog {}
+      # Roll-up family collections
+      structuredmerge {}
+      rubocop_lts {}
       # Project collections - these will generate /feed/<collection>.xml
       # Only include projects that have posts (active ones with releases)
       active_security {}
@@ -108,6 +111,10 @@ Bridgetown.configure do |config|
           permalink "/:collection/:title/"
         end
       end
+    end
+    # Roll-up collections
+    structuredmerge do
+      output false
     end
     project :blog
     project :active_security
