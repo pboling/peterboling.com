@@ -8,15 +8,15 @@
   forge_gh: "https://github.com/appraisal-rb"
   forge_gl: "https://gitlab.com/appraisal-rb"
   forge_cb: "https://codeberg.org/appraisal-rb"
-- id: kettle-rb
-  name: "kettle-rb"
+- id: kettle-dev
+  name: "kettle-dev"
   position: 2
-  logo: "https://logos.galtzo.com/assets/images/kettle-rb/avatar-128px.svg"
-  logo-alt: "kettle-rb Logo by Aboling0, CC BY-SA 4.0"
-  logo-title: "kettle-rb Logo by Aboling0, CC BY-SA 4.0"
-  forge_gh: "https://github.com/kettle-rb"
-  forge_gl: "https://gitlab.com/kettle-rb"
-  forge_cb: "https://codeberg.org/kettle-rb"
+  logo: "https://logos.galtzo.com/assets/images/kettle-dev/avatar-128px.svg"
+  logo-alt: "kettle-dev Logo by Aboling0, CC BY-SA 4.0"
+  logo-title: "kettle-dev Logo by Aboling0, CC BY-SA 4.0"
+  forge_gh: "https://github.com/kettle-dev"
+  forge_gl: "https://gitlab.com/kettle-dev"
+  forge_cb: "https://codeberg.org/kettle-dev"
 - id: floss-funding
   name: "floss-funding"
   position: 3
