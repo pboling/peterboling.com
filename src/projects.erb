@@ -12,14 +12,15 @@ page_class: projects-page
   counts = Hash.new(0)
   cards.each { |c| c["tags"].each { |t| counts[t] += 1 } }
   roles = role_tags.select { |t| counts[t].positive? }
+  own_tags = %w[owner releaser].select { |t| counts[t].positive? }
   ver = lambda do |t|
     v = t.split(" >= ").last.gsub(/[^\d.]/, "")
     v.empty? ? [0] : v.split(".").map(&:to_i)
   end
   langs = counts.keys.select(&lang_tag).sort_by { |t| [t.split(" >= ").first, ver.call(t)] }
   years = counts.keys.select(&year_tag).sort.reverse
-  others = (counts.keys - role_tags - langs - years).sort
-  groups = [["Role", roles], ["Minimum language version", langs], ["Year started", years], ["Tags", others]].reject { |_, ts| ts.empty? }
+  others = (counts.keys - role_tags - own_tags - langs - years).sort
+  groups = [["Role", roles], ["Ownership", own_tags], ["Minimum language version", langs], ["Year started", years], ["Tags", others]].reject { |_, ts| ts.empty? }
 %>
 
 <div class="pstage">

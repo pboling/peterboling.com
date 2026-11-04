@@ -32,7 +32,7 @@
 /* the grid: every card the same size */
 .pgrid { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
 .pcard[hidden] { display: none; }
-.pcard { position: relative; height: 168px; }
+.pcard { position: relative; height: 168px; container-type: inline-size; }
 .pcard-link { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 6px; padding: 10px 14px 10px 18px; text-decoration: none; color: var(--paper);
   background: var(--panel); border: 1px solid var(--edge); border-radius: 6px; overflow: hidden; transition: border-color .15s, box-shadow .15s, transform .15s; }
 .pcard-link::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--c, var(--muted)); }
@@ -77,3 +77,13 @@
   .st-day { display: none; }
   .pstage { padding: .6rem .6rem 1.5rem; }
 }
+
+/* star history sparkline */
+.spark { margin-left: 5px; overflow: visible; flex: none; }
+.spark-line { fill: none; stroke: var(--amber); stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; filter: drop-shadow(0 0 2px var(--amber)); }
+.spark-area { fill: color-mix(in srgb, var(--amber) 14%, transparent); stroke: none; }
+.spark-dot { fill: var(--amber); filter: drop-shadow(0 0 3px var(--amber)); }
+@media (max-width: 520px) { .spark { display: none; } }
+
+/* a card that carries coverage as well as the sparkline runs out of room under ~440px: drop the per-day figure, keep the role */
+@container (max-width: 440px) { .pcard-stats:has(.st-cov) .st-day { display: none; } }
