@@ -5,15 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "rack-toolbar"]
 ---
 
-Allows you to create simple Rack Middleware that will insert HTML (or whatever!) into responses at specific points.
+Rack Toolbar supplies middleware helpers for inserting content into responses at selected points. It was extracted from Rack Insight and can support diagnostic UI or other response additions. Its README calls out a limitation: this response-rewriting approach is incompatible with Rails streaming responses.
 
-This gem was extracted from [Rack::Insight](https://github.com/pboling/rack-insight).
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/galtzo-floss/rack-toolbar).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/galtzo-floss)
-
+See the [upstream README](https://github.com/galtzo-floss/rack-toolbar/blob/main/README.md) and [project repository](https://github.com/galtzo-floss/rack-toolbar).

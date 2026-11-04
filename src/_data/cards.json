@@ -5615,7 +5615,7 @@
    "new": true,
    "install": "gem install kettle-paths",
    "logo": "pboling",
-   "url": "https://github.com/pboling/kettle-paths",
+   "url": "https://github.com/kettle-dev/kettle-paths",
    "docs": "https://www.rubydoc.info/gems/kettle-paths/0.1.1",
    "family": "kettle-dev-family",
    "rollup": false,

@@ -5,20 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "token-resolver"]
 ---
 
-[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-i]][🖼️galtzo-discord] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![kettle-rb Logo by Aboling0, CC BY-SA 4.0][🖼️kettle-rb-i]][🖼️kettle-rb]
+Token::Resolver recognizes structured tokens and replaces them from a supplied map. Delimiters, separators, and segment counts are configurable, so callers can define a token syntax for their own templates. The README demonstrates resolving `{KJ|NAME}`-style placeholders in otherwise ordinary text.
 
-[🖼️galtzo-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg
-[🖼️galtzo-discord]: https://discord.gg/3qme4XHNKN
-[🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
-[🖼️ruby-lang]: https://www.ruby-lang.org/
-[🖼️kettle-rb-i]: https://logos.galtzo.com/assets/images/kettle-rb/avatar-192px.svg
-[🖼️kettle-rb]: https://github.com/kettle-rb
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/kettle-rb/token-resolver).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/kettle-rb)
-
+Read the [upstream README](https://github.com/kettle-dev/token-resolver/blob/main/README.md) for installation and usage, or browse the [project repository](https://github.com/kettle-dev/token-resolver).

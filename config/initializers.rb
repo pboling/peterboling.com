@@ -146,37 +146,116 @@ Bridgetown.configure do |config|
     project :version_gem
     project :warden_oauth
     project :yacs
+    project :alef
+    project :anonymous_loader
+    project :appraisal2_rubocop
+    project :ast_crispr
+    project :ast_crispr_markdown_markly
+    project :ast_crispr_ruby_prism
+    project :ast_crispr_toml
+    project :ast_crispr_yaml_psych
     project :ast_merge
+    project :ast_merge_git
+    project :ast_template
+    project :auth_sanitizer
     project :bash_merge
+    project :binary_merge
     project :bson
     project :bundler
+    project :citrus_toml_merge
     project :commonmarker_merge
+    project :config_merge
     project :cyclonedx_ruby
     project :dotenv_merge
+    project :gem_mine
     project :gemfile_go
+    project :github_com_structuredmerge_structuredmerge_go
+    project :go_merge
     project :hashie
+    project :html_merge
     project :json_merge
     project :jsonc_merge
+    project :kettle_changelog
+    project :kettle_drift
+    project :kettle_family
+    project :kettle_gha_pins
+    project :kettle_jem
+    project :kettle_jem_appraisals
+    project :kettle_ndjson
+    project :kettle_paths
+    project :kettle_rb
+    project :kettle_rusty
+    project :kettle_wash
+    project :kramdown_merge
     project :magnus
     project :markdown_merge
     project :markly_merge
+    project :nomono
+    project :oauth2_mcp
     project :ore_light
+    project :parslet_toml_merge
+    project :pest_toml_merge
+    project :plain_merge
     project :prism_merge
     project :psych_merge
+    project :pulldown_cmark_merge
+    project :pypi_tree_sitter_language_pack
     project :rails
     project :rb_sys
     project :rbs_merge
     project :rexml
+    project :rubocop_lts_rspec
+    project :rubocop_lts_ruby
+    project :ruby_merge
     project :ruby_tree_sitter
+    project :runtime_groups
+    project :rust_ast_merge
+    project :rust_ast_template
+    project :rust_go_merge
+    project :rust_json_merge
+    project :rust_markdown_merge
+    project :rust_merge
+    project :rust_plain_merge
+    project :rust_ruby_merge
+    project :rust_rust_merge
+    project :rust_tree_haver
+    project :rust_typescript_merge
+    project :rust_yaml_merge
     project :rv
     project :setup_ruby_flash
+    project :smorg_rb
+    project :structuredmerge_ast_merge
+    project :structuredmerge_ast_template
+    project :structuredmerge_binary_merge
+    project :structuredmerge_go_merge
+    project :structuredmerge_js_yaml_merge
+    project :structuredmerge_json_merge
+    project :structuredmerge_kettle_nodule
+    project :structuredmerge_markdown_it_merge
+    project :structuredmerge_markdown_merge
+    project :structuredmerge_peggy_toml_merge
+    project :structuredmerge_plain_merge
+    project :structuredmerge_ruby_merge
+    project :structuredmerge_rust_merge
+    project :structuredmerge_toml_merge
+    project :structuredmerge_tree_haver
+    project :structuredmerge_typescript_compiler_merge
+    project :structuredmerge_typescript_merge
+    project :structuredmerge_yaml_merge
+    project :structuredmerge_zip_merge
     project :token_resolver
     project :toml_merge
     project :tree_haver
     project :tree_stump
+    project :turbo_tests2
+    project :typescript_merge
     project :yaml_converter
+    project :yaml_merge
+    project :yaml_serde_merge
     project :yard_fence
+    project :yard_timekeeper
     project :yard_yaml
+    project :zip_merge
   end
 
   # Other options you might want to investigate:

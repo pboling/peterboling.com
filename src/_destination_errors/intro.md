@@ -5,30 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "destination_errors"]
 ---
 
-Allows you to create a class that has multiple error surfaces registered but stays within the familiar territory of `ActiveRecord::Validations`.
+DestinationErrors gathers errors from several objects into one validation interface. It is useful for a form presenter that coordinates multiple models but needs to expose errors in the familiar ActiveRecord validation style. The README walks through a presenter for related user, profile, and account objects.
 
-| Project                 |  DestinationErrors    |
-|------------------------ | ----------------- |
-| gem name                |  destination_errors   |
-| license                 |  MIT              |
-| expert support          |  | download rank           |  | version                 |  | dependencies            |  | code quality            |  | inline documenation     |  | continuous integration  |  | test coverage           |  | homepage                |  [on Github.com][homepage] |
-| documentation           |  [on Rdoc.info][documentation] |
-| live chat               |  | Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏](https://about.me/peter.boling), [👼](https://angel.co/peter-boling), [:shipit:](http://coderwall.com/pboling), 
-[semver]: http://semver.org/
-[pvc]: http://docs.rubygems.org/read/chapter/16#page74
-[railsbling]: http://www.railsbling.com
-[peterboling]: http://www.peterboling.com
-[coderbits]: https://coderbits.com/pboling
-[coderwall]: http://coderwall.com/pboling
-[documentation]: http://rdoc.info/github/pboling/destination_errors/frames
-[homepage]: https://github.com/pboling/destination_errors
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/galtzo-floss/destination_errors).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/galtzo-floss)
-- [GitLab](https://gitlab.com/galtzo-floss/destination_errors)
-
+See the [upstream README](https://github.com/galtzo-floss/destination_errors/blob/main/README.md) and [project repository](https://github.com/galtzo-floss/destination_errors).

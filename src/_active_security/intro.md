@@ -5,18 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "active_security"]
 ---
 
-<div id="badges">
+ActiveSecurity adds checks around ActiveRecord queries. Models can reject unscoped lookups, require an owning association such as a tenant, and detect query predicates that were not handled. Configure protections per model with `active_security`, or establish shared defaults with `ActiveSecurity.defaults`.
 
-[![CI Build][🚎dl-cwfi]][🚎dl-cwf]
-[![Test Coverage][🔑cc-covi]][🔑cc-cov]
-[![Maintainability][🔑cc-mnti]][🔑cc-mnt]
-[![Depfu][🔑depfui]][🔑depfu]
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/galtzo-floss/active_security).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/galtzo-floss)
-
+Read the [upstream README](https://github.com/galtzo-floss/active_security/blob/main/README.md) for installation and usage, or browse the [project repository](https://github.com/galtzo-floss/active_security).

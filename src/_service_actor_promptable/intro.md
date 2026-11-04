@@ -5,19 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "service_actor-promptable"]
 ---
 
-Easily add a TTY prompt to your Service Actors!
+ServiceActor Promptable adds an interactive prompt to Service Actor workflows. The README demonstrates integration with `tty-prompt` while allowing other prompt libraries. It is useful for command-line workflows that already organize actions with Service Actor and need an explicit user choice.
 
-<!--
-Numbering rows and badges in each row as a visual "database" lookup,
-    as the table is extremely dense, and it can be very difficult to find anything
-Putting one on each row here, to document the emoji that should be used, and for ease of copy/paste.
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/galtzo-floss/service_actor-promptable).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/galtzo-floss)
-- [SourceHut](https://git.sr.ht/~galtzo/service_actor-promptable)
-
+See the [upstream README](https://github.com/galtzo-floss/service_actor-promptable/blob/main/README.md) and [project repository](https://github.com/galtzo-floss/service_actor-promptable).

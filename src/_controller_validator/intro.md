@@ -5,22 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "controller_validator"]
 ---
 
-Simple Validations in the Controller!
-(Re)Use the familiar ActiveModel::Errors pattern for controller validations, so you already know how this works.
+ControllerValidator brings an ActiveModel::Errors-style validation interface into controllers. A controller can collect errors through familiar Rails conventions and check whether its validation succeeded. The README’s example and integration specs show how to connect the validation methods to request handling.
 
-| Project                 |  ControllerValidator    |
-|------------------------ | ----------------- |
-| gem name                |  controller_validator   |
-| license                 |  MIT              |
-| expert support          |  | download rank               |  | version                 |  | dependencies            |  | code quality            |  | inline documenation     |  | continuous integration  |  | test coverage           |  | homepage                |  [on Github.com][homepage] |
-| documentation           |  [on RubyDoc.info][documentation] |
-| live chat               |  | Spread ~♡ⓛⓞⓥⓔ♡~      |  [on Coderbits][coderbits], [on Coderwall][coderwall] |
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/galtzo-floss/controller_validator).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/galtzo-floss)
-
+See the [upstream README](https://github.com/galtzo-floss/controller_validator/blob/main/README.md) and [project repository](https://github.com/galtzo-floss/controller_validator).

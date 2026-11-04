@@ -5,20 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "tree_haver"]
 ---
 
-[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-i]][🖼️galtzo-discord] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![kettle-rb Logo by Aboling0, CC BY-SA 4.0][🖼️kettle-rb-i]][🖼️kettle-rb]
+TreeHaver gives Ruby code a common interface to several parsing backends. Its registry handles parser discovery and capability reporting so callers can select a suitable backend for their runtime. The StructuredMerge libraries build on this layer instead of embedding parser-selection logic in each format package.
 
-[🖼️galtzo-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg
-[🖼️galtzo-discord]: https://discord.gg/3qme4XHNKN
-[🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
-[🖼️ruby-lang]: https://www.ruby-lang.org/
-[🖼️kettle-rb-i]: https://logos.galtzo.com/assets/images/kettle-rb/avatar-192px.svg
-[🖼️kettle-rb]: https://github.com/kettle-rb
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/kettle-rb/tree_haver).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/kettle-rb)
-
+Read the [upstream README](https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/tree_haver/README.md) for installation and usage, or browse the [project repository](https://github.com/structuredmerge/structuredmerge-ruby).

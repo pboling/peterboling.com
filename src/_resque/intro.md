@@ -5,18 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "resque"]
 ---
 
-Resque
-======
+Resque uses Redis to queue background work. Jobs expose a `perform` method, workers consume named queues, and a web interface helps inspect queues and failures. This lets a Ruby application move work out of a request while retaining explicit control over which workers process which queues.
 
-
-Introduction
-------------
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/resque/resque).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/resque)
-
+Read the [upstream README](https://github.com/resque/resque/blob/master/README.markdown) for installation and usage, or browse the [project repository](https://github.com/resque/resque).

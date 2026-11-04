@@ -5,20 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "prism-merge"]
 ---
 
-[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-i]][🖼️galtzo-discord] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![kettle-rb Logo by Aboling0, CC BY-SA 4.0][🖼️kettle-rb-i]][🖼️kettle-rb]
+Prism::Merge uses Prism syntax trees to combine Ruby source. Matching recognizes declarations, renamed methods, and nodes moved inside control-flow blocks, helping template updates avoid duplicate code. It also supports AST-based receiver renaming when gemspec block variable names differ.
 
-[🖼️galtzo-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg
-[🖼️galtzo-discord]: https://discord.gg/3qme4XHNKN
-[🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
-[🖼️ruby-lang]: https://www.ruby-lang.org/
-[🖼️kettle-rb-i]: https://logos.galtzo.com/assets/images/kettle-rb/avatar-192px.svg
-[🖼️kettle-rb]: https://github.com/kettle-rb
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/kettle-rb/prism-merge).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/kettle-rb)
-
+Read the [upstream README](https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/prism-merge/README.md) for installation and usage, or browse the [project repository](https://github.com/structuredmerge/structuredmerge-ruby).

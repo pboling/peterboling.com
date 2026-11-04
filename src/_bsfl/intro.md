@@ -5,12 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "bsfl"]
 ---
 
-bsfl
-====
+BSFL collects reusable shell functions for scripts that source the library. This repository is Peter Boling’s maintained fork of Louwrentius’s project, with contributions credited in the README. Bash Step is a related library built on this fork.
 
-Bash Shell Function Library (FORK)
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/pboling/bsfl).
-
+Read the [upstream README](https://github.com/pboling/bsfl/blob/master/README.md) for installation and usage, or browse the [project repository](https://github.com/pboling/bsfl).

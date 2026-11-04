@@ -5,16 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "stackable_flash"]
 ---
 
-Licensed under the MIT License. See LICENSE for further details.
+Stackable Flash was intended for use with Cacheable Flash. Both projects are archived and unmaintained, and the current README directs users toward `unobtrusive_flash`. Keep the repository as a reference when maintaining an existing dependency, rather than assuming it has a current support policy.
 
-- Copyright (c) 2012-2017 [Peter H. Boling][http://railsbling.com]
-
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/pboling/stackable_flash).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/galtzo-floss)
-
+See the [upstream README](https://github.com/pboling/stackable_flash/blob/master/README.md) and [project repository](https://github.com/pboling/stackable_flash).

@@ -5,20 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "markdown-merge"]
 ---
 
-[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-i]][🖼️galtzo-discord] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![kettle-rb Logo by Aboling0, CC BY-SA 4.0][🖼️kettle-rb-i]][🖼️kettle-rb]
+Markdown Merge combines documents using their block structure. Headings, lists, tables, and code blocks provide matching points, while configurable preferences and protected regions control what a template may replace. Parser-specific wrappers such as `markly-merge` and `commonmarker-merge` select a backend for the shared behavior.
 
-[🖼️galtzo-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg
-[🖼️galtzo-discord]: https://discord.gg/3qme4XHNKN
-[🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
-[🖼️ruby-lang]: https://www.ruby-lang.org/
-[🖼️kettle-rb-i]: https://logos.galtzo.com/assets/images/kettle-rb/avatar-192px.svg
-[🖼️kettle-rb]: https://github.com/kettle-rb
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/kettle-rb/markdown-merge).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/kettle-rb)
-
+Read the [upstream README](https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/markdown-merge/README.md) for installation and usage, or browse the [project repository](https://github.com/structuredmerge/structuredmerge-ruby).

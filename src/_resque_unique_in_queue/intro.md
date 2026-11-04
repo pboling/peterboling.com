@@ -5,21 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "resque-unique_in_queue"]
 ---
 
-| Project                 |  Resque::UniqueInQueue |
-|------------------------ | ----------------------- |
-| gem name                |  [resque-unique_in_queue](https://rubygems.org/gems/resque-unique_in_queue) |
-| license                 |  | download rank           |  | version                 |  | code triage             |  | homepage                |  [on Github.com][homepage], [on Railsbling.com][blogpage] |
-| documentation           |  [on RDoc.info][documentation] |
-| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏](https://about.me/peter.boling), [👼](https://angel.co/peter-boling), [:shipit:](http://coderwall.com/pboling), 
-Resque::UniqueInQueue is a resque plugin to add unique jobs to resque.
+Resque UniqueInQueue suppresses duplicate enqueue attempts using the job class and serialized arguments. The uniqueness key remains until it is released or expires. This controls what enters a queue; applications needing execution-time locking can pair it with the runtime uniqueness plugin.
 
-It is a re-write of [resque_solo](https://github.com/neighborland/resque_solo), which is a fork of [resque-loner](https://github.com/jayniz/resque-loner).
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/resque/resque-unique_in_queue).
-
-
-### Supporting this Project
-- [OpenCollective](https://opencollective.com/resque)
-
+Read the [upstream README](https://github.com/resque/resque-unique_in_queue/blob/main/README.md) for installation and usage, or browse the [project repository](https://github.com/resque/resque-unique_in_queue).

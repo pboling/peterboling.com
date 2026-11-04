@@ -5,11 +5,6 @@ date: 2026-02-25
 tags: ["introduction", "cacheable_flash"]
 ---
 
-= A New Hope
+Cacheable Flash is an archived Ruby gem. Its current README says it is no longer maintained and points existing users toward `unobtrusive_flash`. Treat this repository as a maintenance reference when working on an older application, rather than as a newly supported dependency.
 
-== This gem is no longer maintained.
-
-### Getting Started
-
-For more information and detailed examples, please visit the [documentation](https://github.com/pboling/cacheable-flash).
-
+See the [upstream README](https://github.com/pboling/cacheable-flash/blob/master/README.rdoc) and [project repository](https://github.com/pboling/cacheable-flash).
