@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Personal Blog
+feed_url: /feed/blog.xml
 ---
 
 <ul>

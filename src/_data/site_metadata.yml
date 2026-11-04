@@ -19,7 +19,7 @@ description: >-
 # they will be separated by a divider from the main menus.
 customMenus:
   - name: "RSS"
-    url: "/index.xml"
+    url: "/feed.xml"
   - name: "CV"
     url: "/cv"
   - name: "FLOSS"

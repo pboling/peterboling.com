@@ -9,7 +9,12 @@
     []
   end.sort_by { |_, r| r.date }.reverse
 %>
-<div class="project-root"><p class="project-description"><%= blurb %></p></div>
+<div class="project-root">
+  <p class="project-description"><%= blurb %></p>
+  <a href="/feed.xml" class="rss-link" title="Subscribe to all posts feed">
+    <img src="/images/rss.svg" alt="RSS" class="rss-icon" />
+  </a>
+</div>
 <div class="posts-list">
   <% posts.each do |name, post| %>
     <%= render "post_card", post: post, context: name %>

@@ -2,7 +2,14 @@
 layout: default
 ---
 
-<h1><%= data.title %></h1>
+<h1>
+  <%= data.title %>
+  <% if data.feed_url %>
+    <a href="<%= data.feed_url %>" class="rss-link" title="Subscribe to <%= data.title %> feed" aria-label="Subscribe to <%= data.title %> feed">
+      <img src="/images/rss.svg" alt="RSS" class="rss-icon" />
+    </a>
+  <% end %>
+</h1>
 
 <%= yield %>
 

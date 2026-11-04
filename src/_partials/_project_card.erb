@@ -35,6 +35,11 @@
   <% end %>
 
   <% if project['name'] %>
-    <a href="/<%= project['name'] %>/" class="project-blog-link">View <%= project['name'] %> blog →</a>
+    <div class="project-links">
+      <a href="/<%= project['name'] %>/" class="project-blog-link">View <%= project['name'] %> blog →</a>
+      <a href="/feed/<%= project['name'].tr('-', '_') %>.xml" class="rss-link" title="Subscribe to <%= project['name'] %> feed">
+        <img src="/images/rss.svg" alt="RSS" class="rss-icon" />
+      </a>
+    </div>
   <% end %>
 </div>

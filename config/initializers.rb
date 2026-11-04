@@ -29,6 +29,76 @@ Bridgetown.configure do |config|
     enabled true
   end
 
+  # Configure bridgetown-feed plugin
+  feed do
+    collections do
+      # Personal blog collection
+      blog {}
+      # Project collections - these will generate /feed/<collection>.xml
+      # Only include projects that have posts (active ones with releases)
+      active_security {}
+      activerecord_tablefree {}
+      activerecord_transactionable {}
+      activesupport_broadcast_logger {}
+      activesupport_logger {}
+      activesupport_tagged_logging {}
+      anonymous_active_record {}
+      skywalking_eyes {}
+      appraisal2 {}
+      archivist_client {}
+      awesome_search {}
+      awesome_sponsorships {}
+      bash_step {}
+      bsfl {}
+      cacheable_flash {}
+      capistrano_mailer {}
+      celluloid_io_pg_listener {}
+      controller_validator {}
+      csv_pirate {}
+      debug_logging {}
+      destination_errors {}
+      dry_views {}
+      dynamoid {}
+      each_in_batches {}
+      flag_shih_tzu {}
+      floss_funding {}
+      gem_bench {}
+      gitmoji_regex {}
+      humorous_log_formatter {}
+      include_with_respect {}
+      json_schemer_fuzz {}
+      kettle_dev {}
+      kettle_soup_cover {}
+      kettle_test {}
+      letter_group {}
+      library_tree {}
+      logos {}
+      masq {}
+      masq2 {}
+      month_serializer {}
+      oauth {}
+      oauth_tty {}
+      oauth2 {}
+      omniauth_identity {}
+      omniauth_jwt {}
+      omniauth_jwt2 {}
+      omniauth_ldap {}
+      omniauth_openid {}
+      open_id_authentication {}
+      os {}
+      pretty_feed {}
+      qfill {}
+      rack_insight {}
+      rack_openid {}
+      rack_openid2 {}
+      rack_toolbar {}
+      rails_env_local {}
+      react_rails_benchmark_renderer {}
+    end
+  end
+
+  init :"bridgetown-feed"
+
   # Configure collections for project-specific blogs
   collections do
     def project(name)

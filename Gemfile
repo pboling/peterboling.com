@@ -21,6 +21,7 @@ git_source(:gitlab) { |repo| "https://github.com/#{repo}.git" }
 # If you need to upgrade/switch Bridgetown versions, change the line below
 # and then run `bundle update bridgetown`
 gem "bridgetown", "~> 2.1", ">= 2.1.1"
+gem "bridgetown-feed", "~> 4.0"
 gem "bridgetown-paginate", "~> 2.1", ">= 2.1.1"
 gem "bridgetown-routes", "~> 2.1", ">= 2.1.1"
 
