@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing tree-haver (Rust)"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "tree-haver", "cargo"]
 source_readme: "https://github.com/structuredmerge/structuredmerge/blob/main/crates/tree-haver/README.md"
 ---

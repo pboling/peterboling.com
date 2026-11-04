@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing appraisal2-rubocop"
-date: "2026-11-04"
+date: "2026-06-06"
 tags: ["introduction", "appraisal2-rubocop", "rubygems"]
 source_readme: "https://github.com/appraisal-rb/appraisal2-rubocop/blob/main/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing binary-merge"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "binary-merge", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/binary-merge/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing json-merge (Rust)"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "json-merge", "cargo"]
 source_readme: "https://github.com/structuredmerge/structuredmerge/blob/main/crates/json-merge/README.md"
 ---

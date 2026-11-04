@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing yaml-merge (Rust)"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "yaml-merge", "cargo"]
 source_readme: "https://github.com/structuredmerge/structuredmerge/blob/main/crates/yaml-merge/README.md"
 ---

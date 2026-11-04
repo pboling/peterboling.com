@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing kettle-rusty (Rust)"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "kettle-rusty", "cargo"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-rust/blob/main/crates/kettle-rusty/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing kettle-rb"
-date: "2026-11-04"
+date: "2026-06-27"
 tags: ["introduction", "kettle-rb", "rubygems"]
 source_readme: "https://github.com/kettle-dev/kettle-rb/blob/main/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing github.com/structuredmerge/structuredmerge-go"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "github.com/structuredmerge/structuredmerge-go", "go"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-go/blob/main/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing parslet-toml-merge"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "parslet-toml-merge", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/parslet-toml-merge/README.md"
 ---

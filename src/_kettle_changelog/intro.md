@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing kettle-changelog"
-date: "2026-11-04"
+date: "2026-08-11"
 tags: ["introduction", "kettle-changelog", "rubygems"]
 source_readme: "https://github.com/kettle-dev/kettle-changelog/blob/main/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing rubocop-lts-ruby"
-date: "2026-11-04"
+date: "2026-08-09"
 tags: ["introduction", "rubocop-lts-ruby", "rubygems"]
 source_readme: "https://github.com/rubocop-lts/rubocop-lts-ruby/blob/main/README.md"
 ---

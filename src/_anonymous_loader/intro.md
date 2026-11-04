@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing anonymous_loader"
-date: "2026-11-04"
+date: "2026-06-18"
 tags: ["introduction", "anonymous_loader", "rubygems"]
 source_readme: "https://github.com/ruby-oauth/anonymous_loader/blob/main/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing kettle-jem-appraisals"
-date: "2026-11-04"
+date: "2026-08-09"
 tags: ["introduction", "kettle-jem-appraisals", "rubygems"]
 source_readme: "https://github.com/appraisal-rb/kettle-jem-appraisals/blob/main/README.md"
 ---

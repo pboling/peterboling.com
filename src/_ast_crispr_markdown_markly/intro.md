@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing ast-crispr-markdown-markly"
-date: "2026-11-04"
+date: "2026-08-08"
 tags: ["introduction", "ast-crispr-markdown-markly", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/ast-crispr-markdown-markly/README.md"
 ---

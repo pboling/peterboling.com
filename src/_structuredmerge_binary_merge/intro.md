@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing @structuredmerge/binary-merge"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "@structuredmerge/binary-merge", "npm"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-typescript/blob/main/packages/binary-merge/README.md"
 ---

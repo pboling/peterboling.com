@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing nomono"
-date: "2026-11-04"
+date: "2026-03-26"
 tags: ["introduction", "nomono", "rubygems"]
 source_readme: "https://github.com/kettle-dev/nomono/blob/main/README.md"
 ---

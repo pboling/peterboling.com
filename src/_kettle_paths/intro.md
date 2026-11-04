@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing kettle-paths
-date: 2026-11-04
+date: "2026-10-11"
 tags: ["introduction", "kettle_paths"]
 ---
 

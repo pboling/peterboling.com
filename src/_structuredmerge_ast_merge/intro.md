@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing @structuredmerge/ast-merge"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "@structuredmerge/ast-merge", "npm"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-typescript/blob/main/packages/ast-merge/README.md"
 ---

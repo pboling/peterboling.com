@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing gem_mine"
-date: "2026-11-04"
+date: "2026-06-11"
 tags: ["introduction", "gem_mine", "rubygems"]
 source_readme: "https://github.com/appraisal-rb/gem_mine/blob/main/README.md"
 ---

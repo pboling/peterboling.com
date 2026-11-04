@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing rubocop-lts-rspec"
-date: "2026-11-04"
+date: "2026-05-30"
 tags: ["introduction", "rubocop-lts-rspec", "rubygems"]
 source_readme: "https://github.com/rubocop-lts/rubocop-lts-rspec/blob/main/README.md"
 ---

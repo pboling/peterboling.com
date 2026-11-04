@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing kettle-gha-pins"
-date: "2026-11-04"
+date: "2026-07-23"
 tags: ["introduction", "kettle-gha-pins", "rubygems"]
 source_readme: "https://github.com/kettle-dev/kettle-gha-pins/blob/main/README.md"
 ---

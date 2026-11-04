@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing ast-crispr-toml"
-date: "2026-11-04"
+date: "2026-10-18"
 tags: ["introduction", "ast-crispr-toml", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/ast-crispr-toml/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing markdown-merge (Rust)"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "markdown-merge", "cargo"]
 source_readme: "https://github.com/structuredmerge/structuredmerge/blob/main/crates/markdown-merge/README.md"
 ---

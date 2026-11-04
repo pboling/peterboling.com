@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing kettle-ndjson"
-date: "2026-11-04"
+date: "2026-07-25"
 tags: ["introduction", "kettle-ndjson", "rubygems"]
 source_readme: "https://github.com/kettle-dev/kettle-ndjson/blob/main/README.md"
 ---

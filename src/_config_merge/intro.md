@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing config-merge"
-date: "2026-11-04"
+date: "2026-10-19"
 tags: ["introduction", "config-merge", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/config-merge/README.md"
 ---

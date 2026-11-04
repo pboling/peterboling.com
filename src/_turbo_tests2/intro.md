@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing turbo_tests2"
-date: "2026-11-04"
+date: "2026-05-23"
 tags: ["introduction", "turbo_tests2", "rubygems"]
 source_readme: "https://github.com/galtzo-floss/turbo_tests2/blob/main/README.md"
 ---

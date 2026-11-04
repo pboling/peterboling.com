@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing ast-crispr-ruby-prism"
-date: "2026-11-04"
+date: "2026-08-08"
 tags: ["introduction", "ast-crispr-ruby-prism", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/ast-crispr-ruby-prism/README.md"
 ---

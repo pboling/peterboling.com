@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing oauth2-mcp"
-date: "2026-11-04"
+date: "2026-05-28"
 tags: ["introduction", "oauth2-mcp", "rubygems"]
 source_readme: "https://github.com/ruby-oauth/oauth2-mcp/blob/main/README.md"
 ---

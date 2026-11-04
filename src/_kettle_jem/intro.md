@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing kettle-jem"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "kettle-jem", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/kettle-jem/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing yaml-serde-merge (Rust)"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "yaml-serde-merge", "cargo"]
 source_readme: "https://github.com/structuredmerge/structuredmerge/blob/main/crates/yaml-serde-merge/README.md"
 ---

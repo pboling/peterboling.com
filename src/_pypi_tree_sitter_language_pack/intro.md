@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing tree-sitter-language-pack"
-date: "2026-11-04"
+date: "2024-07-01"
 tags: ["introduction", "tree-sitter-language-pack", "pypi"]
 source_readme: "https://github.com/xberg-io/tree-sitter-language-pack/blob/main/README.md"
 ---

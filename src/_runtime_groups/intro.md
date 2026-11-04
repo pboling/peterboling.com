@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing runtime_groups"
-date: "2026-11-04"
+date: "2026-10-15"
 tags: ["introduction", "runtime_groups", "rubygems"]
 source_readme: "https://github.com/galtzo-floss/runtime_groups/blob/main/README.md"
 ---

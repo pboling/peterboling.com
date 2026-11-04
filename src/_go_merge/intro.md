@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing go-merge"
-date: "2026-11-04"
+date: "2026-05-06"
 tags: ["introduction", "go-merge", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/go-merge/README.md"
 ---
