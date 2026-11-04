@@ -70,3 +70,10 @@
 }
 @media (prefers-reduced-motion: reduce) { .js .deal { opacity: 1; } .js .deal.dealt { animation: none; } }
 @media (max-width: 420px) { .pgrid { grid-template-columns: 1fr; } }
+
+/* narrow screens: keep the role label in view by dropping the per-day figure, and tighten the row */
+@media (max-width: 520px) {
+  .pcard-stats { gap: 9px; font-size: .7rem; }
+  .st-day { display: none; }
+  .pstage { padding: .6rem .6rem 1.5rem; }
+}
