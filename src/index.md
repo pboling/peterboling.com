@@ -13,27 +13,18 @@ An interactive listing of projects is available at <a href="https://galtzo.com">
 
 I am a core maintainer of projects within the following OSS organizations:
 
-* [appraisal-rb][appraisal-rb] (3 projects)
-* [kettle-dev][kettle-dev] (4 projects)
-* [floss-funding][floss-funding] (3 projects)
-* [galtzo-floss][galtzo-floss] (> 50 projects)
-* [omniauth][omniauth] (4 projects)
-* [pboling][pboling] (... projects)
-* [resque][resque] (4 projects)
-* [rubocop-lts][rubocop-lts] (20 projects)
-* [ruby-oauth][ruby-oauth] (7 projects)
-* [ruby-openid][ruby-openid] (9 projects)
+<ul>
+<% orgs = org_project_counts %>
+<% orgs[:multi].each do |o| %>
+  <li><a href="https://github.com/<%= o[:owner] %>"><%= o[:owner] %></a> (<%= o[:count] %> projects)</li>
+<% end %>
+</ul>
 
-[appraisal-rb]: https://github.com/appraisal-rb
-[kettle-dev]: https://github.com/kettle-dev
-[floss-funding]: https://github.com/floss-funding
-[galtzo-floss]: https://github.com/galtzo-floss
-[omniauth]: https://github.com/omniauth
-[pboling]: https://github.com/pboling
-[resque]: https://github.com/resque
-[rubocop-lts]: https://github.com/rubocop-lts
-[ruby-oauth]: https://github.com/ruby-oauth
-[ruby-openid]: https://github.com/ruby-openid
+<% if orgs[:single_projects].positive? %>
+<p>...plus <%= orgs[:single_projects] %> more projects, each under its own organization or account.</p>
+<% end %>
+
+*Counts come from the same project data as the [Projects](./projects) page (mine and maintained, not archived or up for adoption), one project per repository, and update automatically.*
 
 My latest technical, or project-specific, posts can be found on the [Tech Posts](./posts).
 My latest general audience, or at least non-tech-specific, personal (and obviously public), blog posts can be found on the [Personal Blog](./blog).
