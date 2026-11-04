@@ -9,7 +9,9 @@ module Builders
       "structuredmerge" => { prefix: "smorg-", title: "StructuredMerge" },
       "rubocop_lts" => { prefix: "rubocop-lts", title: "RuboCop LTS" },
       # Family matched by exact family_id; members span non-Ruby ecosystems
-      "tree_sitter_language_pack" => { family_id: "xberg-io", title: "Tree-sitter Language Pack" }
+      # TODO: once galtzo.com's families.yml adds `rollup: tree-sitter-language-pack`,
+      # this can be derived from site.data.families instead of hardcoded here.
+      "tree_sitter_language_pack" => { family_id: "tree-sitter-language-pack", title: "Tree-sitter Language Pack" }
     }.freeze
 
     def build
