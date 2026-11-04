@@ -30,7 +30,7 @@ jobs:
         run: |
           scripts/sync_cards
           git config user.name "autobolt"; git config user.email "32689569+autobolt@users.noreply.github.com"   # machine user: never counts as pboling's commits
-          git add -A src/_data/cards.json src/cards
+          git add -A src/_data/cards.json src/_data/projects.yml src/_data/families.yml src/cards
           if git diff --staged --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
           echo "changed=true" >> "$GITHUB_OUTPUT"
           git commit -m "data: refresh project cards"
