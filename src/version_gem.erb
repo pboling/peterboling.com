@@ -22,14 +22,6 @@ title: "Version Gem"
 <div class="posts-list">
   <p>Tips and updates about <%= project_name %>.</p>
   <% collections.send(collection_name).resources.sort_by(&:date).reverse.each do |post| %>
-    <article class="post-item">
-      <h2><a href="<%= post.relative_url %>"><%= post.data.title %></a></h2>
-      <time datetime="<%= post.date.strftime('%Y-%m-%d') %>">
-        <%= post.date.strftime('%B %d, %Y') %>
-      </time>
-      <% if post.data.excerpt %>
-        <p><%= post.data.excerpt %></p>
-      <% end %>
-    </article>
+    <%= render "post_card", post: post %>
   <% end %>
 </div>

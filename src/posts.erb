@@ -16,22 +16,8 @@ pagination:
 <% if paginator %>
   <div class="posts-list">
     <% paginator.each do |post| %>
-      <article class="post-item">
-        <h2><a href="<%= post.relative_url %>"><%= post.data.title %></a></h2>
-        <div class="post-meta">
-          <time datetime="<%= post.date.strftime('%Y-%m-%d') %>">
-            <%= post.date.strftime('%B %d, %Y') %>
-          </time>
-          <% if post.collection.label != 'posts' %>
-            <span class="post-collection">
-              in <a href="/<%= post.collection.label.tr('_', '-') %>"><%= post.collection.label.tr('_', ' ').split.map(&:capitalize).join(' ') %></a>
-            </span>
-          <% end %>
-        </div>
-        <% if post.data.excerpt %>
-          <p class="post-excerpt"><%= post.data.excerpt %></p>
-        <% end %>
-      </article>
+      <% ctx = post.collection.label != 'posts' ? post.collection.label.tr('_', '-') : nil %>
+      <%= render "post_card", post: post, context: ctx %>
     <% end %>
   </div>
 

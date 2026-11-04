@@ -12,11 +12,6 @@
 <div class="project-root"><p class="project-description"><%= blurb %></p></div>
 <div class="posts-list">
   <% posts.each do |name, post| %>
-    <article class="post-item">
-      <h2><a href="<%= post.relative_url %>"><%= post.data.title %></a></h2>
-      <time datetime="<%= post.date.strftime('%Y-%m-%d') %>"><%= post.date.strftime('%B %d, %Y') %></time>
-      <span class="post-project"> · <%= name %></span>
-      <% if post.data.excerpt %><p><%= post.data.excerpt %></p><% end %>
-    </article>
+    <%= render "post_card", post: post, context: name %>
   <% end %>
 </div>

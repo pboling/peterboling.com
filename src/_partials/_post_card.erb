@@ -1,0 +1,21 @@
+<%# A post in a list. Same card language as the project cards (panel, edge, left
+    accent bar, hover lift), but reading-first: date and title lead, no logo or
+    stats. `context` (optional) names the project/collection the post belongs to. %>
+<%
+  kind = post.data.source_release || Array(post.data.tags).include?("release") ? "release" : (Array(post.data.tags).include?("introduction") ? "intro" : "post")
+%>
+<article class="post-card deal" data-kind="<%= kind %>">
+  <a href="<%= post.relative_url %>" class="post-card-link">
+    <span class="post-card-meta">
+      <time datetime="<%= post.date.strftime('%Y-%m-%d') %>"><%= post.date.strftime('%b %-d, %Y') %></time>
+      <span class="post-card-kind post-card-kind--<%= kind %>"><%= kind %></span>
+      <% if defined?(context) && context %>
+        <span class="post-card-context"><%= context %></span>
+      <% end %>
+    </span>
+    <h2 class="post-card-title"><%= post.data.title %></h2>
+    <% if post.data.excerpt %>
+      <p class="post-card-excerpt"><%= post.data.excerpt %></p>
+    <% end %>
+  </a>
+</article>
