@@ -7,7 +7,9 @@ module Builders
   class RollupCollectionsBuilder < SiteBuilder
     ROLLUPS = {
       "structuredmerge" => { prefix: "smorg-", title: "StructuredMerge" },
-      "rubocop_lts" => { prefix: "rubocop-lts", title: "RuboCop LTS" }
+      "rubocop_lts" => { prefix: "rubocop-lts", title: "RuboCop LTS" },
+      # Family matched by exact family_id; members span non-Ruby ecosystems
+      "tree_sitter_language_pack" => { family_id: "xberg-io", title: "Tree-sitter Language Pack" }
     }.freeze
 
     def build
@@ -25,9 +27,13 @@ module Builders
         collection = site.collections[rollup_label]
         next unless collection
 
-        # Find member projects by family prefix
+        # Find member projects by family prefix or exact family_id
         member_names = projects.select do |p|
-          p["ecosystem"] == "rubygems" && p["family_id"].to_s.start_with?(info[:prefix])
+          if info[:family_id]
+            p["family_id"] == info[:family_id]
+          else
+            p["ecosystem"] == "rubygems" && p["family_id"].to_s.start_with?(info[:prefix])
+          end
         end.map { |p| p["name"].tr("-", "_") }
 
         # Gather resources from member collections

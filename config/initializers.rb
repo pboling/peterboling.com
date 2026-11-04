@@ -37,6 +37,7 @@ Bridgetown.configure do |config|
       # Roll-up family collections
       structuredmerge {}
       rubocop_lts {}
+      tree_sitter_language_pack {}
       # Project collections - these will generate /feed/<collection>.xml
       # Only include projects that have posts (active ones with releases)
       active_security {}
@@ -114,6 +115,9 @@ Bridgetown.configure do |config|
     end
     # Roll-up collections
     structuredmerge do
+      output false
+    end
+    tree_sitter_language_pack do
       output false
     end
     project :blog
