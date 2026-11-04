@@ -52,7 +52,7 @@ title: About
 
   .projects-intro {
     font-size: 1.1rem;
-    color: #666;
+    color: var(--muted);
     margin-bottom: 2rem;
   }
 
@@ -64,10 +64,10 @@ title: About
   }
 
   .project-card {
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--edge-color);
     border-radius: 8px;
     padding: 1.5rem;
-    background: white;
+    background: var(--panel);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     transition: transform 0.2s, box-shadow 0.2s;
   }
@@ -80,12 +80,12 @@ title: About
   .project-name {
     font-size: 1.5rem;
     margin: 0 0 0.5rem 0;
-    color: #333;
+    color: var(--heading-color);
     font-family: monospace;
   }
 
   .project-description {
-    color: #666;
+    color: var(--muted);
     margin-bottom: 1rem;
     line-height: 1.6;
   }
@@ -102,15 +102,15 @@ title: About
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0.75rem;
-    background: #f8f9fa;
+    background: var(--panel-2);
     border-radius: 4px;
     text-decoration: none;
-    color: #333;
+    color: var(--heading-color);
     transition: background 0.2s;
   }
 
   .forge-link:hover {
-    background: #e9ecef;
+    background: var(--panel-3);
   }
 
   .forge-link.github {
@@ -139,7 +139,7 @@ title: About
   }
 
   .forge-stars {
-    color: #666;
+    color: var(--muted);
     font-size: 0.9rem;
   }
 
@@ -147,7 +147,7 @@ title: About
   .project-blog-link {
     display: inline-block;
     margin-top: 1rem;
-    color: #1976d2;
+    color: var(--action-color);
     text-decoration: none;
     font-weight: 500;
   }

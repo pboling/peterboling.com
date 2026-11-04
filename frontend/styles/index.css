@@ -1,9 +1,16 @@
 @import "./projects.css";
 :root {
-  --body-background: #f2f2f2;
-  --body-color: #444;
-  --heading-color: black;
-  --action-color: #d64045;
+  /* Dark theme (the profile palette) */
+  color-scheme: dark;
+  --body-background: #0a1011;
+  --body-color: #cfd8d4;
+  --heading-color: #f4efe4;
+  --action-color: #4fc3b3;
+  --muted: #8fa6a1;
+  --edge-color: #25403c;
+  --panel: #14211f;
+  --panel-2: #182927;
+  --panel-3: #203734;
   --forge-github: #24292e;
   --forge-gitlab: #fc6d26;
   --forge-codeberg: #2185d0;
@@ -11,21 +18,21 @@
   --forge-sourcehut: #0052cc;
 
   /* Tag badge type colors */
-  --badge-org-bg: #e8f5e9;
-  --badge-org-border: #66bb6a;
-  --badge-org-color: #2e7d32;
-  --badge-family-bg: #fff3e0;
-  --badge-family-border: #ffa726;
-  --badge-family-color: #e65100;
-  --badge-project-bg: #e3f2fd;
-  --badge-project-border: #42a5f5;
-  --badge-project-color: #1565c0;
-  --badge-language-bg: #fce4ec;
-  --badge-language-border: #ef5350;
-  --badge-language-color: #c62828;
-  --badge-generic-bg: #f3e5f5;
-  --badge-generic-border: #ab47bc;
-  --badge-generic-color: #6a1b9a;
+  --badge-org-bg: #14301f;
+  --badge-org-border: #3a8a5a;
+  --badge-org-color: #8be0a8;
+  --badge-family-bg: #33240f;
+  --badge-family-border: #b97b2a;
+  --badge-family-color: #ffc978;
+  --badge-project-bg: #112a3d;
+  --badge-project-border: #3a7fb9;
+  --badge-project-color: #9fd0ff;
+  --badge-language-bg: #3a1722;
+  --badge-language-border: #b9485a;
+  --badge-language-color: #ffa3b0;
+  --badge-generic-bg: #271a3a;
+  --badge-generic-border: #7e57c2;
+  --badge-generic-color: #cdb4ff;
 }
 
 body {
@@ -42,7 +49,7 @@ body {
 a {
   color: var(--action-color);
   text-decoration: underline;
-  text-decoration-color: #ffb088;
+  text-decoration-color: #2e7f74;
 }
 
 h1 {
@@ -98,9 +105,10 @@ main {
   max-width: 65rem;
   min-height: calc(100vh - 200px);
   padding: 25px 25px 50px;
-  background: white;
-  box-shadow: 2px 3px 3px #ddd;
-  border-radius: 3px;
+  background: #0e1718;
+  border: 1px solid var(--edge-color);
+  box-shadow: none;
+  border-radius: 6px;
 
   @media (max-width: 500px) {
     padding: 16px 16px 50px;
@@ -115,7 +123,7 @@ footer {
 
 hr {
   border: none;
-  border-top: 2px dotted #bbb;
+  border-top: 2px dotted var(--edge-color);
   margin: 3rem 0;
 }
 
@@ -155,7 +163,7 @@ hr {
 
 .tag-badge:hover {
   transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Icon (img or emoji span) */
@@ -236,32 +244,32 @@ span.tag-badge__icon {
   justify-content: center;
   min-width: 2.2rem;
   padding: 0.35rem 0.75rem;
-  border: 1.5px solid #ddd;
+  border: 1.5px solid var(--edge-color);
   border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
   color: var(--body-color);
-  background: #fff;
+  background: var(--panel);
   transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 
 a.pagination__link:hover {
   background: var(--action-color);
   border-color: var(--action-color);
-  color: #fff;
+  color: #0a1011;
 }
 
 .pagination__link--current {
   background: var(--action-color);
   border-color: var(--action-color);
-  color: #fff;
+  color: #0a1011;
   font-weight: 700;
 }
 
 .pagination__link--disabled {
-  color: #bbb;
-  border-color: #eee;
+  color: #4b6460;
+  border-color: var(--panel-2);
   cursor: default;
 }
 
@@ -282,11 +290,11 @@ a.pagination__link:hover {
   justify-content: center;
   min-width: 1.5rem;
   font-size: 1rem;
-  color: #999;
+  color: var(--muted);
 }
 
 .pagination__info {
   margin-top: 0.75rem;
   font-size: 0.85rem;
-  color: #888;
+  color: var(--muted);
 }

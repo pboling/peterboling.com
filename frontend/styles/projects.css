@@ -4,7 +4,7 @@
   --bg: #0e1718; --panel: #14211f; --edge: #25403c; --paper: #f4efe4; --muted: #8fa6a1;
   --teal: #4fc3b3; --violet: #a58bf5; --amber: #e8b04a; --dl: #16a34a;
   --author: #ff8a1f; --maintainer: #2dd4bf; --contributor: #c084fc;
-  background: var(--bg); color: var(--paper); border-radius: 10px; border: 1px solid var(--edge);
+  background: transparent; color: var(--paper); border: 0;
   max-width: 1280px; margin: 1rem auto 3rem; padding: 1rem 1rem 2rem;
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
