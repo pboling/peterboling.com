@@ -14,6 +14,24 @@ module Builders
         end
       end
 
+      # Projects per GitHub organization/account for the home page: the live project data, one project per
+      # repository, mine and maintained (not contributor, archived or up for adoption), the same selection as /projects.
+      helper :org_project_counts do
+        repos = Hash.new { |h, k| h[k] = [] }
+        site.data.projects.each do |p|
+          next if p["role"] == "contributor" || p["status"] == "archived" || p["adoptable"] || p["theme"] == "adopt-me"
+
+          gh = Array(p["forges"]).find { |f| f["type"] == "GitHub" }
+          next unless gh
+
+          owner = gh["url"].to_s.sub(%r{\Ahttps://github\.com/}, "").split("/").first
+          repos[owner] << gh["url"].downcase if owner
+        end
+        counted = repos.map { |owner, urls| { owner: owner, count: urls.uniq.size } }
+        multi, single = counted.partition { |o| o[:count] > 1 }
+        { multi: multi.sort_by { |o| o[:owner].downcase }, single_projects: single.sum { |o| o[:count] } }
+      end
+
       # Where a card leads: the project's own blog page when this site has one (rolled-up families have a
       # single family blog), otherwise the project's repository.
       helper :card_target do |card|
