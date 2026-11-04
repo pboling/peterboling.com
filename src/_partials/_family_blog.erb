@@ -1,0 +1,22 @@
+<%# One blog for a rolled-up family: the posts of every member project that has a collection, newest first. %>
+<%
+  members = site.data.projects.select { |p| p["ecosystem"] == "rubygems" && p["family_id"].to_s.start_with?(family_prefix) }
+  posts = members.flat_map do |m|
+    coll = m["name"].tr("-", "_")
+    c = collections.respond_to?(coll) ? collections.send(coll) : nil
+    c ? c.resources.map { |r| [m["name"], r] } : []
+  rescue NoMethodError
+    []
+  end.sort_by { |_, r| r.date }.reverse
+%>
+<div class="project-root"><p class="project-description"><%= blurb %></p></div>
+<div class="posts-list">
+  <% posts.each do |name, post| %>
+    <article class="post-item">
+      <h2><a href="<%= post.relative_url %>"><%= post.data.title %></a></h2>
+      <time datetime="<%= post.date.strftime('%Y-%m-%d') %>"><%= post.date.strftime('%B %d, %Y') %></time>
+      <span class="post-project"> · <%= name %></span>
+      <% if post.data.excerpt %><p><%= post.data.excerpt %></p><% end %>
+    </article>
+  <% end %>
+</div>

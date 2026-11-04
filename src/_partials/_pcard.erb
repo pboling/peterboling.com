@@ -1,0 +1,35 @@
+<%# One project card, plain HTML/CSS. Same fields and layout as the GitHub profile's cards (data/cards.json there). %>
+<%
+  c = card
+  known_langs = %w[Ruby Rust Go TypeScript JavaScript Bash]
+  langs = c["languages"].compact
+  icons = langs.select { |l| known_langs.include?(l) }.first(4)
+%>
+<li class="card pcard deal" data-tags="<%= c["tags"].to_json %>" data-name="<%= c["name"] %>" data-role="<%= c["role"] %>">
+  <a class="pcard-link" href="<%= href %>" <%== external ? 'target="_blank" rel="noopener"' : "" %> aria-label="<%= c["name"] %>: <%= c["role"] %>. <%= c["description"][0, 140] %>">
+    <span class="pcard-head">
+      <% if c["logo"] %><img class="pcard-logo" src="/cards/logos/<%= c["logo"] %>.<%= File.exist?(File.join(site.source, "cards/logos/#{c["logo"]}.png")) ? "png" : "jpg" %>" alt="" width="24" height="24" loading="lazy"><% end %>
+      <strong class="pcard-name"><%= c["name"] %></strong>
+      <% if c["new"] %><span class="pcard-new">NEW</span><% end %>
+      <span class="pcard-lang">
+        <% icons.each do |l| %><img class="lang lang-<%= l.downcase %>" src="/cards/langs/<%= l %>.svg" alt="<%= l %>" title="<%= l %>" width="18" height="18" loading="lazy"><% end %>
+        <% if icons.empty? %><span class="lang-name"><%= c["language"] %></span><% end %>
+        <% if c["minimum_version"] && icons.size == 1 %><span class="minver">≥ <%= c["minimum_version"] %></span><% end %>
+      </span>
+    </span>
+    <span class="pcard-desc"><%== ERB::Util.html_escape(c["description"]) %></span>
+    <span class="pcard-meta">
+      <% if c["install"] %><code class="pcard-install"><span>$</span> <%= c["install"] %></code><% end %>
+      <% if c["rollup"] %><span class="pcard-tag"><%= c["pkgs"] %> packages</span><% end %>
+      <% if c["owner"] %><span class="chip role-<%= c["role"] %>">OWNER</span><% end %>
+      <% if c["releaser"] %><span class="chip role-<%= c["role"] %>">RELEASER</span><% end %>
+    </span>
+    <span class="pcard-stats">
+      <span class="st st-star"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 1.8l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.1l7.1-.7z"/></svg><%= c["stars"].to_s.reverse.scan(/\d{1,3}/).join(",").reverse %></span>
+      <span class="st st-dl">↓ <%= human_count(c["downloads"]) %></span>
+      <span class="st st-day">↓/d <%= human_count(c["daily"]) %></span>
+      <% if c["coverage"] %><span class="st st-cov" style="--cov: <%= c["coverage"] >= 90 ? "#4cd964" : c["coverage"] >= 75 ? "#f2d12f" : c["coverage"] >= 50 ? "#ff9a2e" : "#ff5a4a" %>"><i>cov</i> <%= c["coverage"].round %>%</span><% end %>
+      <span class="role role-<%= c["role"] %>"><%= c["role"].upcase %></span>
+    </span>
+  </a>
+</li>
