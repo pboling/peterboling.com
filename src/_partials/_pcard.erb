@@ -25,7 +25,7 @@
       <% if c["releaser"] %><span class="chip role-<%= c["role"] %>">RELEASER</span><% end %>
     </span>
     <span class="pcard-stats">
-      <span class="st st-star"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 1.8l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.1l7.1-.7z"/></svg><%= c["stars"].to_s.reverse.scan(/\d{1,3}/).join(",").reverse %></span>
+      <span class="st st-star"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 1.8l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.1l7.1-.7z"/></svg><%= c["stars"].to_s.reverse.scan(/\d{1,3}/).join(",").reverse %><%= render "spark", series: c["spark"] %></span>
       <span class="st st-dl">↓ <%= human_count(c["downloads"]) %></span>
       <span class="st st-day">↓/d <%= human_count(c["daily"]) %></span>
       <% if c["coverage"] %><span class="st st-cov" style="--cov: <%= c["coverage"] >= 90 ? "#4cd964" : c["coverage"] >= 75 ? "#f2d12f" : c["coverage"] >= 50 ? "#ff9a2e" : "#ff5a4a" %>"><i>cov</i> <%= c["coverage"].round %>%</span><% end %>

@@ -1,0 +1,19 @@
+<%# Stars over the last 12 months as a tiny line (cards.json "spark": cumulative stars at 25 evenly spaced days). %>
+<% if series && series.size > 1 %>
+  <%
+    w, h, pad = 54.0, 14.0, 1.5
+    lo, hi = series.min, series.max
+    span = (hi - lo).zero? ? 1.0 : (hi - lo).to_f
+    pts = series.each_with_index.map do |v, i|
+      [(pad + i * (w - 2 * pad) / (series.size - 1)).round(1), (h - pad - (v - lo) / span * (h - 2 * pad)).round(1)]
+    end
+    gained = series.last - series.first
+    line = pts.map { |x, y| "#{x},#{y}" }.join(" ")
+  %>
+  <svg class="spark" viewBox="0 0 <%= w.to_i %> <%= h.to_i %>" width="<%= w.to_i %>" height="<%= h.to_i %>" role="img" aria-label="Stars over the last 12 months: <%= series.first %> to <%= series.last %>">
+    <title>Stars over the last 12 months: <%= series.first %> → <%= series.last %> (<%= gained >= 0 ? "+" : "" %><%= gained %>)</title>
+    <polygon points="<%= pts.first[0] %>,<%= h - pad %> <%= line %> <%= pts.last[0] %>,<%= h - pad %>" class="spark-area"/>
+    <polyline points="<%= line %>" class="spark-line"/>
+    <circle cx="<%= pts.last[0] %>" cy="<%= pts.last[1] %>" r="1.6" class="spark-dot"/>
+  </svg>
+<% end %>
