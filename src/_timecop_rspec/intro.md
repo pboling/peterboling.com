@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing timecop-rspec
-date: 2026-02-25
+date: 2025-08-17
 tags: ["introduction", "timecop-rspec"]
 ---
 

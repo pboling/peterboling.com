@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing react-rails-benchmark_renderer
-date: 2026-02-25
+date: 2015-06-21
 tags: ["introduction", "react-rails-benchmark_renderer"]
 ---
 

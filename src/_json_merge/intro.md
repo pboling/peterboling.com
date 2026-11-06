@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing json-merge
-date: 2026-02-25
+date: 2026-01-06
 tags: ["introduction", "json-merge"]
 ---
 

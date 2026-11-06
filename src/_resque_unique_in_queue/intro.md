@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing resque-unique_in_queue
-date: 2026-02-25
+date: 2018-11-08
 tags: ["introduction", "resque-unique_in_queue"]
 ---
 

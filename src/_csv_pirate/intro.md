@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing csv_pirate
-date: 2026-02-25
+date: 2009-10-01
 tags: ["introduction", "csv_pirate"]
 ---
 

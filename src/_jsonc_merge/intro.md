@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing jsonc-merge
-date: 2026-02-25
+date: 2026-02-01
 tags: ["introduction", "jsonc-merge"]
 ---
 

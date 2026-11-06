@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing alef"
-date: "2026-09-27"
+date: "2026-07-21"
 tags: ["introduction", "alef", "cargo"]
 source_readme: "https://github.com/xberg-io/alef/blob/main/README.md"
 ---

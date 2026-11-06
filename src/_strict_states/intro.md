@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing strict_states
-date: 2026-02-25
+date: 2015-11-09
 tags: ["introduction", "strict_states"]
 ---
 

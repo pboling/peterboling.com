@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing stone_checksums
-date: 2026-02-25
+date: 2025-02-24
 tags: ["introduction", "stone_checksums"]
 ---
 

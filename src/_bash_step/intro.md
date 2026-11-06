@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing bash_step
-date: 2026-02-25
+date: 2013-11-08
 tags: ["introduction", "bash_step"]
 ---
 

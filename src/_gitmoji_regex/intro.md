@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing gitmoji-regex
-date: 2026-02-25
+date: 2022-03-28
 tags: ["introduction", "gitmoji-regex"]
 ---
 

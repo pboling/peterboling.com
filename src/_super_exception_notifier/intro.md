@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing super_exception_notifier
-date: 2026-02-25
+date: 2009-10-22
 tags: ["introduction", "super_exception_notifier"]
 ---
 

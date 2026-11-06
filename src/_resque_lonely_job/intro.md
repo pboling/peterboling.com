@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing resque-lonely_job
-date: 2026-02-25
+date: 2025-10-18
 tags: ["introduction", "resque-lonely_job"]
 ---
 

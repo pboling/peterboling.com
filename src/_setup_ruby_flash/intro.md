@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing setup-ruby-flash
-date: 2026-02-25
+date: 2026-01-14
 tags: ["introduction", "setup-ruby-flash"]
 ---
 

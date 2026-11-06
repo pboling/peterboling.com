@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing version_gem
-date: 2026-02-25
+date: 2022-06-20
 tags: ["introduction", "version_gem"]
 ---
 

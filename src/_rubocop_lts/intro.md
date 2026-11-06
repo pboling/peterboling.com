@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing rubocop-lts
-date: 2026-02-25
+date: 2022-05-22
 tags: ["introduction", "rubocop-lts"]
 ---
 

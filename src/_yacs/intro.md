@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing yacs
-date: 2026-02-25
+date: 2025-09-24
 tags: ["introduction", "yacs"]
 ---
 

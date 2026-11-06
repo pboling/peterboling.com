@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing rack-toolbar
-date: 2026-02-25
+date: 2015-04-13
 tags: ["introduction", "rack-toolbar"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing spyke-connection_lambda
-date: 2026-02-25
+date: 2024-03-23
 tags: ["introduction", "spyke-connection_lambda"]
 ---
 

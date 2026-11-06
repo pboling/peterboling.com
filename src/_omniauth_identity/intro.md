@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing omniauth-identity
-date: 2026-02-25
+date: 2020-05-01
 tags: ["introduction", "omniauth-identity"]
 ---
 

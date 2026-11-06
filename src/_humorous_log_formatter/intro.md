@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing humorous_log_formatter
-date: 2026-02-25
+date: 2014-10-16
 tags: ["introduction", "humorous_log_formatter"]
 ---
 

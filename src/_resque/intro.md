@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing resque
-date: 2026-02-25
+date: 2024-05-17
 tags: ["introduction", "resque"]
 ---
 

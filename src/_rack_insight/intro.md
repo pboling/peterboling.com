@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing rack-insight
-date: 2026-02-25
+date: 2012-08-30
 tags: ["introduction", "rack-insight"]
 ---
 

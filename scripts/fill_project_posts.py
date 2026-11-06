@@ -11,6 +11,9 @@ import urllib.request
 from pathlib import Path
 from datetime import datetime
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import intro_dates
+
 def parse_projects_yml(path: Path):
     text = path.read_text(encoding="utf-8")
     projects = []
@@ -144,7 +147,7 @@ def fill_intro(project, src_dir):
     new_front_matter = {
         "layout": "post",
         "title": f"Introducing {project['name']}",
-        "date": datetime.now().strftime("%Y-%m-%d"),
+        "date": intro_dates.date_for(project["name"]) or datetime.now().strftime("%Y-%m-%d"),   # when the project began, not today
         "tags": ["introduction", project["name"]]
     }
 

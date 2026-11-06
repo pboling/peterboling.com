@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing silent_stream
-date: 2026-02-25
+date: 2018-09-23
 tags: ["introduction", "silent_stream"]
 ---
 

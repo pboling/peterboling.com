@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing markly-merge
-date: 2026-02-25
+date: 2026-02-19
 tags: ["introduction", "markly-merge"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing rots
-date: 2026-02-25
+date: 2024-09-25
 tags: ["introduction", "rots"]
 ---
 

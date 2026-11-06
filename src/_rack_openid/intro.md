@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing rack-openid
-date: 2026-02-25
+date: 2024-09-04
 tags: ["introduction", "rack-openid"]
 ---
 

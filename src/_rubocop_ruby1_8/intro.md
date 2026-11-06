@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing rubocop-ruby1_8
-date: 2026-02-25
+date: 2023-05-18
 tags: ["introduction", "rubocop-ruby1_8"]
 ---
 

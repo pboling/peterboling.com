@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing gemfile-go
-date: 2026-02-25
+date: 2026-02-08
 tags: ["introduction", "gemfile-go"]
 ---
 

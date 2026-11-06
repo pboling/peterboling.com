@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing floss_funding
-date: 2026-02-25
+date: 2025-08-10
 tags: ["introduction", "floss_funding"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing json_schemer-fuzz
-date: 2026-02-25
+date: 2023-10-26
 tags: ["introduction", "json_schemer-fuzz"]
 ---
 

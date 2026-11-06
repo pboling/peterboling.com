@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing anonymous_active_record
-date: 2026-02-25
+date: 2018-01-04
 tags: ["introduction", "anonymous_active_record"]
 ---
 

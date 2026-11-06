@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing ruby-openid2
-date: 2026-02-25
+date: 2024-09-04
 tags: ["introduction", "ruby-openid2"]
 ---
 

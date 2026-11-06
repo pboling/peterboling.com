@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing logos
-date: 2026-02-25
+date: 2025-07-31
 tags: ["introduction", "logos"]
 ---
 

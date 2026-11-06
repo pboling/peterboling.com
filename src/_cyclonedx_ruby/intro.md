@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing cyclonedx-ruby"
-date: "2019-07-13"
+date: "2025-10-26"
 tags: ["introduction", "cyclonedx-ruby", "rubygems"]
 source_readme: "https://github.com/CycloneDX/cyclonedx-ruby-gem/blob/master/README.md"
 ---

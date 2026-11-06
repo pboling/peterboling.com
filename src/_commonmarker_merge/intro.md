@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing commonmarker-merge
-date: 2026-02-25
+date: 2026-02-02
 tags: ["introduction", "commonmarker-merge"]
 ---
 

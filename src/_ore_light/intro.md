@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing ore-light
-date: 2026-02-25
+date: 2026-01-19
 tags: ["introduction", "ore-light"]
 ---
 
