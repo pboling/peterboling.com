@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing toml-merge
-date: 2026-02-25
+date: 2025-12-19
 tags: ["introduction", "toml-merge"]
 ---
 

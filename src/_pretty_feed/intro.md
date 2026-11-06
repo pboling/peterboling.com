@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing pretty_feed
-date: 2026-02-25
+date: 2022-03-21
 tags: ["introduction", "pretty_feed"]
 ---
 

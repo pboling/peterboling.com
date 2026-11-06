@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing warden_oauth
-date: 2026-02-25
+date: 2025-10-19
 tags: ["introduction", "warden_oauth"]
 ---
 

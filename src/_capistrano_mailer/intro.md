@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing capistrano_mailer
-date: 2026-02-25
+date: 2009-11-04
 tags: ["introduction", "capistrano_mailer"]
 ---
 

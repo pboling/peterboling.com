@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing activesupport-logger
-date: 2026-02-25
+date: 2024-10-10
 tags: ["introduction", "activesupport-logger"]
 ---
 

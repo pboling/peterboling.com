@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing omniauth-jwt
-date: 2026-02-25
+date: 2023-11-30
 tags: ["introduction", "omniauth-jwt"]
 ---
 

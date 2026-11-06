@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing os
-date: 2026-02-25
+date: 2022-12-11
 tags: ["introduction", "os"]
 ---
 

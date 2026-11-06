@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing simple_column-scopes
-date: 2026-02-25
+date: 2017-06-20
 tags: ["introduction", "simple_column-scopes"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing rubocop-ruby3_0
-date: 2026-02-25
+date: 2022-05-01
 tags: ["introduction", "rubocop-ruby3_0"]
 ---
 

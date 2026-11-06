@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing dynamoid
-date: 2026-02-25
+date: 2016-05-24
 tags: ["introduction", "dynamoid"]
 ---
 

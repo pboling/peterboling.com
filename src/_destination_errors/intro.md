@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing destination_errors
-date: 2026-02-25
+date: 2015-04-08
 tags: ["introduction", "destination_errors"]
 ---
 

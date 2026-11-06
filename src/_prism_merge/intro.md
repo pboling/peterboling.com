@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing prism-merge
-date: 2026-02-25
+date: 2025-12-03
 tags: ["introduction", "prism-merge"]
 ---
 

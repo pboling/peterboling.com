@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing archivist-client
-date: 2026-02-25
+date: 2013-12-31
 tags: ["introduction", "archivist-client"]
 ---
 

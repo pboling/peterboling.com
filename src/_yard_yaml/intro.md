@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing yard-yaml
-date: 2026-02-25
+date: 2025-11-10
 tags: ["introduction", "yard-yaml"]
 ---
 

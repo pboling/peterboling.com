@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing awesome-sponsorships
-date: 2026-02-25
+date: 2025-05-24
 tags: ["introduction", "awesome-sponsorships"]
 ---
 

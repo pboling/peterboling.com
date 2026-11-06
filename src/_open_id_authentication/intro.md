@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing open_id_authentication
-date: 2026-02-25
+date: 2024-09-05
 tags: ["introduction", "open_id_authentication"]
 ---
 

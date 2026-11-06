@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing shiftable
-date: 2026-02-25
+date: 2021-10-23
 tags: ["introduction", "shiftable"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing active_security
-date: 2026-02-25
+date: 2024-07-05
 tags: ["introduction", "active_security"]
 ---
 

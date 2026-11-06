@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing yard-fence
-date: 2026-02-25
+date: 2025-11-07
 tags: ["introduction", "yard-fence"]
 ---
 

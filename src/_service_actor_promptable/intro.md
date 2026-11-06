@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing service_actor-promptable
-date: 2026-02-25
+date: 2022-06-09
 tags: ["introduction", "service_actor-promptable"]
 ---
 

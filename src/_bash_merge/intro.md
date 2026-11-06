@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing bash-merge
-date: 2026-02-25
+date: 2026-01-01
 tags: ["introduction", "bash-merge"]
 ---
 

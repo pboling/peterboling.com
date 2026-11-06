@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing omniauth-openid
-date: 2026-02-25
+date: 2025-04-30
 tags: ["introduction", "omniauth-openid"]
 ---
 

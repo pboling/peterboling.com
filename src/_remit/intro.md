@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing remit
-date: 2026-02-25
+date: 2010-09-21
 tags: ["introduction", "remit"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing dotenv-merge
-date: 2026-02-25
+date: 2025-12-12
 tags: ["introduction", "dotenv-merge"]
 ---
 

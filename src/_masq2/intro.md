@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing masq2
-date: 2026-02-25
+date: 2025-04-04
 tags: ["introduction", "masq2"]
 ---
 

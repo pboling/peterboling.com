@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing rbs-merge
-date: 2026-02-25
+date: 2025-12-13
 tags: ["introduction", "rbs-merge"]
 ---
 

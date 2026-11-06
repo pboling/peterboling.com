@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing awesome_search
-date: 2026-02-25
+date: 2010-04-30
 tags: ["introduction", "awesome_search"]
 ---
 

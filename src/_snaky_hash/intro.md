@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing snaky_hash
-date: 2026-02-25
+date: 2022-08-26
 tags: ["introduction", "snaky_hash"]
 ---
 

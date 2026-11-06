@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing appraisal2
-date: 2026-02-25
+date: 2025-07-28
 tags: ["introduction", "appraisal2"]
 ---
 

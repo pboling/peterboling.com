@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing debug_logging
-date: 2026-02-25
+date: 2017-03-25
 tags: ["introduction", "debug_logging"]
 ---
 
