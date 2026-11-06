@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing each_in_batches
-date: 2015-06-18
+date: 2008-11-15
 tags: ["introduction", "each_in_batches"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing activerecord-tablefree
-date: 2017-11-14
+date: 2017-11-09
 tags: ["introduction", "activerecord-tablefree"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing ast-merge-git"
-date: "2026-08-08"
+date: "2026-04-20"
 tags: ["introduction", "ast-merge-git", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/ast-merge-git/README.md"
 ---

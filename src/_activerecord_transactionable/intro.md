@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing activerecord-transactionable
-date: 2016-03-28
+date: 2016-03-27
 tags: ["introduction", "activerecord-transactionable"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing ast-crispr-yaml-psych"
-date: "2026-10-19"
+date: "2026-04-20"
 tags: ["introduction", "ast-crispr-yaml-psych", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/ast-crispr-yaml-psych/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing smorg-rb"
-date: "2026-08-08"
+date: "2026-04-20"
 tags: ["introduction", "smorg-rb", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/smorg-rb/README.md"
 ---

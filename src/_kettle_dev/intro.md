@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing kettle-dev
-date: 2025-08-24
+date: 2023-08-17
 tags: ["introduction", "kettle-dev"]
 ---
 

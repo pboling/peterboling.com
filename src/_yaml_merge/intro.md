@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing yaml-merge"
-date: "2026-05-06"
+date: "2026-04-18"
 tags: ["introduction", "yaml-merge", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/yaml-merge/README.md"
 ---

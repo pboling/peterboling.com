@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing kettle-test
-date: 2025-08-22
+date: 2023-08-17
 tags: ["introduction", "kettle-test"]
 ---
 

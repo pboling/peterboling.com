@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing dry_views
-date: 2012-08-15
+date: 2012-08-14
 tags: ["introduction", "dry_views"]
 ---
 

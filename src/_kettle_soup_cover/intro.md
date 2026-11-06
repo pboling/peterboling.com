@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing kettle-soup-cover
-date: 2023-10-17
+date: 2023-10-16
 tags: ["introduction", "kettle-soup-cover"]
 ---
 
