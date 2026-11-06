@@ -32,6 +32,14 @@ module Builders
         { multi: multi.sort_by { |o| o[:owner].downcase }, single_projects: single.sum { |o| o[:count] } }
       end
 
+      # Post count and latest post date behind a card: the project's own collection, or for a rolled-up family
+      # the combined roll-up collection (one blog for the whole family). Intro and release posts all count.
+      helper :card_posts do |card|
+        coll = site.collections[card["name"].to_s.tr("-", "_")]
+        posts = coll ? coll.resources.to_a : []
+        { count: posts.size, latest: posts.map(&:date).compact.max }
+      end
+
       # Where a card leads: the project's own blog page when this site has one (rolled-up families have a
       # single family blog), otherwise the project's repository.
       helper :card_target do |card|

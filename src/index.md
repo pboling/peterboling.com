@@ -7,9 +7,11 @@ layout: default
 Welcome to my corner of the internet! This is the main index page of my website.
 Here, you'll find a collection of my projects, blog posts, and other content that I have created.
 
-My published open source projects are listed alphabetically over at [Projects](./projects),
-where each project has its own mini blog. RSS feeds for project updates are available.
-An interactive listing of projects is available at <a href="https://galtzo.com">galtzo.com</a>.
+My open source projects live on the [Projects](./projects) page, ranked by lifetime downloads and
+filterable by role, ownership, language version, year and tag. Each card opens that project's posts
+(an introduction, release notes and tips), with the post count and the date of the latest one on the card.
+StructuredMerge and RuboCop-LTS each share one blog for the whole family. RSS feeds are available for every
+project. For the full catalogue, with forges and licenses, see <a href="https://galtzo.com">galtzo.com</a>.
 
 I am a core maintainer of projects within the following OSS organizations:
 

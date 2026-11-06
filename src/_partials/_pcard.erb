@@ -31,5 +31,9 @@
       <% if c["coverage"] %><span class="st st-cov" style="--cov: <%= c["coverage"] >= 90 ? "#4cd964" : c["coverage"] >= 75 ? "#f2d12f" : c["coverage"] >= 50 ? "#ff9a2e" : "#ff5a4a" %>"><i>cov</i> <%= c["coverage"].round %>%</span><% end %>
       <span class="role role-<%= c["role"] %>"><%= c["role"].upcase %></span>
     </span>
+    <% posts = card_posts(c) %>
+    <% if !external && posts[:count].positive? %>
+      <span class="pcard-posts"><span><%= posts[:count] %> post<%= posts[:count] == 1 ? "" : "s" %><% if posts[:latest] %> · latest <%= posts[:latest].strftime("%b %-d, %Y") %><% end %></span><span class="pcard-go" aria-hidden="true">read →</span></span>
+    <% end %>
   </a>
 </li>
