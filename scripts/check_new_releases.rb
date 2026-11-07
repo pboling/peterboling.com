@@ -153,6 +153,7 @@ class ReleaseChecker
   end
 
   def run
+    abort "Release generation disabled: kettle-changelog must provide selected-release JSON (https://github.com/kettle-dev/kettle-changelog/issues/6)."
     puts "=== Release Checker Started at #{Time.now.utc.iso8601} ==="
     puts "Dry run: #{@dry_run}" if @dry_run
     puts "Target project: #{@target_project || 'all'}"

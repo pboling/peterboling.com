@@ -181,6 +181,7 @@ For more information and detailed examples, please visit the [documentation]({pr
     intro_path.write_text(full_content, encoding="utf-8")
 
 def fill_releases(project, src_dir):
+    raise RuntimeError("Release imports disabled until kettle-changelog provides selected-release JSON: https://github.com/kettle-dev/kettle-changelog/issues/6")
     slug = get_repo_slug(project.get("github_url"))
     if not slug: return
 
@@ -230,7 +231,8 @@ def main():
         if role in target_roles:
             print(f"Processing {project['name']}...")
             fill_intro(project, src_dir)
-            fill_releases(project, src_dir)
+            # Release imports are disabled until kettle-changelog provides selected-release JSON.
+        # https://github.com/kettle-dev/kettle-changelog/issues/6
 
 if __name__ == "__main__":
     main()
