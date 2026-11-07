@@ -7,7 +7,7 @@ This guide explains how to work with the project, family, and person data struct
 ### Data Locations
 - Projects: `src/_data/projects.yml`
 - Families: `src/_data/families.yml`
-- Orgs: `src/_data/orgs.yml`
+- Orgs: `src/_data/orgs.yml` (synced from galtzo.com; don't edit here)
 - Person/Author: `src/_data/person.yml` (consolidated from person.yml + author.yaml)
 - Main projects page: `src/projects.erb`
 - Tech posts index (paginated): `src/posts.erb`
