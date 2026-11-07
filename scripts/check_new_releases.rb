@@ -101,8 +101,33 @@ class ReleaseChecker
     @target_project = options[:project]
     @verbose = options[:verbose] || false
 
+    load_env
     load_data
     load_state
+  end
+
+  def load_env
+    env_paths = [
+      File.expand_path('../.env.local', __dir__),
+      File.expand_path('../.env', __dir__)
+    ]
+    env_paths.each do |path|
+      next unless File.file?(path)
+
+      File.readlines(path).each do |line|
+        line = line.strip
+        next if line.empty? || line.start_with?('#')
+
+        # Handle "export KEY=val" or "KEY=val"
+        line = line.sub(/^export\s+/, '')
+        key, val = line.split('=', 2)
+        next unless key && val
+
+        # Strip surrounding quotes if present
+        val = val.strip.sub(/^["']/, '').sub(/["']$/, '')
+        ENV[key.strip] ||= val
+      end
+    end
   end
 
   def load_data
