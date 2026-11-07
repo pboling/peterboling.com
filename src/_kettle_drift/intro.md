@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing kettle-drift"
-date: "2026-05-25"
+date: "2026-04-11"
 tags: ["introduction", "kettle-drift", "rubygems"]
 source_readme: "https://github.com/kettle-dev/kettle-drift/blob/main/README.md"
 ---

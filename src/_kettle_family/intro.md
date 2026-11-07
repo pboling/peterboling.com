@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing kettle-family"
-date: "2026-06-10"
+date: "2026-06-08"
 tags: ["introduction", "kettle-family", "rubygems"]
 source_readme: "https://github.com/kettle-dev/kettle-family/blob/main/README.md"
 ---

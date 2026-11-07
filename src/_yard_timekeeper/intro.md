@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing yard-timekeeper"
-date: "2026-05-23"
+date: "2026-04-11"
 tags: ["introduction", "yard-timekeeper", "rubygems"]
 source_readme: "https://github.com/galtzo-floss/yard-timekeeper/blob/main/README.md"
 ---

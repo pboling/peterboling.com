@@ -5,10 +5,12 @@ The intro posts were generated in bulk (112 of them on 2026-02-25), so "Introduc
 from this year while the gem is years old, and every card's "latest post" showed that bogus date.
 
 Rule, per project (all its registry entries considered together):
-  author      -> the first registry release (rubygems / npm / crates.io / ...), else my first commit
+  author      -> the earlier of my first commit and the first registry release (a project cannot have begun after
+                 its first release: the 13 SM packages' commit history only starts when they were imported into the
+                 monorepo on 2026-04-18/20, months after their first releases)
   maintainer  -> when I joined: the later of the first release and my first commit (resque's 2009 release is not
                  my introduction), else whichever exists
-Data: src/_data/projects.yml (first_commit_by_person_on) and the profile's data/first_release.json
+Data: src/_data/projects.yml (first_commit_by_person_on, from real git history) and the profile's data/first_release.json
 (registry first-release dates; fetched from github.com/pboling/pboling when not given locally).
 
   scripts/intro_dates.py            dry run: show what would change
@@ -44,7 +46,7 @@ def intro_date(entries, first_release):
     first_commit = min((d for d in commits if d), default=None)
     role = entries[0].get("role")
     if role == "author":
-        return first_rel or first_commit
+        return min((d for d in (first_rel, first_commit) if d), default=None)
     if first_rel and first_commit:
         return max(first_rel, first_commit)
     return first_commit or first_rel

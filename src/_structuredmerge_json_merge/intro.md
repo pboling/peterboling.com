@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing @structuredmerge/json-merge"
-date: "2026-05-06"
+date: "2026-04-18"
 tags: ["introduction", "@structuredmerge/json-merge", "npm"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-typescript/blob/main/packages/json-merge/README.md"
 ---

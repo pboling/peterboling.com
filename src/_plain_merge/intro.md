@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing plain-merge"
-date: "2026-05-06"
+date: "2026-04-18"
 tags: ["introduction", "plain-merge", "rubygems"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-ruby/blob/main/gems/plain-merge/README.md"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing yaml-converter
-date: 2025-11-09
+date: 2025-11-08
 tags: ["introduction", "yaml-converter"]
 ---
 

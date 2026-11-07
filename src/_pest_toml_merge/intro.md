@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing pest-toml-merge (Rust)"
-date: "2026-05-06"
+date: "2026-04-18"
 tags: ["introduction", "pest-toml-merge", "cargo"]
 source_readme: "https://github.com/structuredmerge/structuredmerge/blob/main/crates/pest-toml-merge/README.md"
 ---
