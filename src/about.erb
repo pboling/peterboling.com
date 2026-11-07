@@ -19,18 +19,41 @@ title: About
                      when 'codeberg' then 'codeberg_stars'
                      else nil
                      end %>
-        <% star_count = site.data.projects.sum { |p| p[star_key].to_i } %>
+        <% star_totals = { 'Author/Maintainer' => 0, 'Contributor' => 0 } %>
+        <% if star_key %>
+          <% repositories = {} %>
+          <% site.data.projects.each do |project| %>
+            <% role = project['role'].to_s.downcase %>
+            <% group = if %w[author maintainer].include?(role)
+                         'Author/Maintainer'
+                       elsif role == 'contributor'
+                         'Contributor'
+                       end %>
+            <% project_forge = (project['forges'] || []).find { |f| f['type'].to_s.casecmp?(forge['type'].to_s) } %>
+            <% url = project_forge && project_forge['url'].to_s.strip.downcase.sub(%r{\Ahttps?://(?:www\.)?}, '').sub(%r{\.git/?\z}, '').sub(%r{/+\z}, '') %>
+            <% next if group.nil? || url.nil? || url.empty? %>
+            <% existing = repositories[url] %>
+            <% if existing.nil? || (existing[:group] == 'Contributor' && group == 'Author/Maintainer') %>
+              <% repositories[url] = { group: group, stars: project[star_key].to_i } %>
+            <% elsif existing[:group] == group %>
+              <% existing[:stars] = [existing[:stars], project[star_key].to_i].max %>
+            <% end %>
+          <% end %>
+          <% repositories.each_value { |repo| star_totals[repo[:group]] += repo[:stars] } %>
+        <% end %>
         <a href="<%= forge['url'] %>"
            class="forge-link <%= forge['type'].downcase %>"
            target="_blank"
            rel="noopener noreferrer">
           <span class="forge-type"><%= forge['type'] %></span>
           <span class="form-url"><%= forge['url'] %></span>
-          <span class="forge-stars">
-            <% unless star_count.zero? %>
-            ⭐ <%= star_count %>
-            <% end %>
-          </span>
+          <% if star_key %>
+            <span class="forge-stars">
+              <% star_totals.each do |label, count| %>
+                <span>⭐ <%= label %>: <%= count %></span>
+              <% end %>
+            </span>
+          <% end %>
         </a>
       <% end %>
     </div>
@@ -139,6 +162,9 @@ title: About
   }
 
   .forge-stars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
     color: var(--muted);
     font-size: 0.9rem;
   }
