@@ -47,15 +47,7 @@ feed_url: /feed/{collection_name}.xml
 <div class="posts-list">
   <p>Tips and updates about <%= project_name %>.</p>
   <% collections.send(collection_name).resources.sort_by(&:date).reverse.each do |post| %>
-    <article class="post-item">
-      <h2><a href="<%= post.relative_url %>"><%= post.data.title %></a></h2>
-      <time datetime="<%= post.date.strftime('%Y-%m-%d') %>">
-        <%= post.date.strftime('%B %d, %Y') %>
-      </time>
-      <% if post.data.excerpt %>
-        <p><%= post.data.excerpt %></p>
-      <% end %>
-    </article>
+    <%= render "post_card", post: post %>
   <% end %>
 </div>
 """
@@ -171,7 +163,7 @@ def find_project_name_for_collection(collection: str, project_names: list[str]) 
 def make_page_content(name: str) -> str:
     # Use the name as title by default; if the name contains '-'/"_", present a nicer title
     title = name.replace('-', ' ').replace('_', ' ').strip().title()
-    return TEMPLATE.format(title=title, name=name)
+    return TEMPLATE.format(title=title, name=name, collection_name=name.replace('-', '_'))
 
 
 def main(argv: list[str] | None = None) -> int:

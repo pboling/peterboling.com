@@ -42,3 +42,7 @@ yarn-debug.log*
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
+
+# Python bytecode
+__pycache__/
+*.pyc
