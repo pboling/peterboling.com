@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing kettle-wash"
-date: "2026-07-19"
+date: "2026-03-14"
 tags: ["introduction", "kettle-wash", "rubygems"]
 source_readme: "https://github.com/kettle-dev/kettle-wash/blob/main/README.md"
 ---

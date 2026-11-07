@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing auth-sanitizer"
-date: "2026-05-15"
+date: "2026-04-06"
 tags: ["introduction", "auth-sanitizer", "rubygems"]
 source_readme: "https://github.com/ruby-oauth/auth-sanitizer/blob/main/README.md"
 ---

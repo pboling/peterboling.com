@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing activesupport-broadcast_logger
-date: 2024-11-21
+date: 2024-11-20
 tags: ["introduction", "activesupport-broadcast_logger"]
 ---
 

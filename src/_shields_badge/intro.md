@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing shields-badge
-date: 2025-05-30
+date: 2025-05-29
 tags: ["introduction", "shields-badge"]
 ---
 

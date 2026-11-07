@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introducing stackable_flash
-date: 2012-08-17
+date: 2012-08-16
 tags: ["introduction", "stackable_flash"]
 ---
 

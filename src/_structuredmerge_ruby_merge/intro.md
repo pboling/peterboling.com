@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Introducing @structuredmerge/ruby-merge"
-date: "2026-05-06"
+date: "2026-04-18"
 tags: ["introduction", "@structuredmerge/ruby-merge", "npm"]
 source_readme: "https://github.com/structuredmerge/structuredmerge-typescript/blob/main/packages/ruby-merge/README.md"
 ---
