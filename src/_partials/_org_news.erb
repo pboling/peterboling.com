@@ -1,0 +1,10 @@
+<%# The news for a GitHub organization: posts from every project it owns, newest first. %>
+<% posts = org_news_posts(owner) %>
+<div class="project-root">
+  <p class="project-description">Posts from the <%= posts.map(&:first).uniq.size %> <a href="https://github.com/<%= owner %>"><%= owner %></a> projects with writing on this site: introductions, release notes and tips, newest first. See the <a href="/projects/">Projects</a> page for the projects themselves.</p>
+</div>
+<div class="posts-list">
+  <% posts.each do |name, post| %>
+    <%= render "post_card", post: post, context: name %>
+  <% end %>
+</div>

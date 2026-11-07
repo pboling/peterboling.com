@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "../helpers/org_news_helpers"
+
 module Builders
   # Helpers for the project cards (src/projects.erb, src/_partials/_pcard.erb).
   class CardHelpersBuilder < SiteBuilder
@@ -15,21 +17,29 @@ module Builders
       end
 
       # Projects per GitHub organization/account for the home page: the live project data, one project per
-      # repository, mine and maintained (not contributor, archived or up for adoption), the same selection as /projects.
+      # repository (see Helpers::OrgNewsHelpers for the selection), with each organization's post count and latest post.
       helper :org_project_counts do
-        repos = Hash.new { |h, k| h[k] = [] }
-        site.data.projects.each do |p|
-          next if p["role"] == "contributor" || p["status"] == "archived" || p["adoptable"] || p["theme"] == "adopt-me"
-
-          gh = Array(p["forges"]).find { |f| f["type"] == "GitHub" }
-          next unless gh
-
-          owner = gh["url"].to_s.sub(%r{\Ahttps://github\.com/}, "").split("/").first
-          repos[owner] << gh["url"].downcase if owner
+        counted = Helpers::OrgNewsHelpers.owner_projects(site.data.projects).map do |owner, entries|
+          { owner: owner, slug: Helpers::OrgNewsHelpers.slug(owner), count: Helpers::OrgNewsHelpers.repo_count(entries) }
         end
-        counted = repos.map { |owner, urls| { owner: owner, count: urls.uniq.size } }
         multi, single = counted.partition { |o| o[:count] > 1 }
         { multi: multi.sort_by { |o| o[:owner].downcase }, single_projects: single.sum { |o| o[:count] } }
+      end
+
+      # Every post from an organization's projects, newest first, as [project name, post] pairs (a post that
+      # also sits in a roll-up collection is listed once).
+      helper :org_news_posts do |owner|
+        entries = Helpers::OrgNewsHelpers.owner_projects(site.data.projects)[owner] || []
+        seen = {}
+        entries.map { |p| p["name"] }.uniq.flat_map do |name|
+          coll = site.collections[name.tr("-", "_")]
+          (coll ? coll.resources.to_a : []).filter_map do |post|
+            next if seen[post.relative_url]
+
+            seen[post.relative_url] = true
+            [name, post]
+          end
+        end.sort_by { |_, post| post.date }.reverse
       end
 
       # Post count and latest post date behind a card: the project's own collection, or for a rolled-up family
