@@ -76,3 +76,10 @@
   forge_gh: "https://github.com/ruby-openid"
   forge_gl: "https://gitlab.com/ruby-openid"
   forge_cb: "https://codeberg.org/ruby-openid"
+- id: xberg-io
+  name: "xberg-io"
+  position: 7
+  logo: "https://github.com/xberg-io.png?size=128"
+  logo-alt: "xberg-io Logo (GitHub org avatar)"
+  logo-title: "xberg-io Logo (GitHub org avatar)"
+  forge_gh: "https://github.com/xberg-io"
