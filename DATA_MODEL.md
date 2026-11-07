@@ -8,7 +8,7 @@ Data is organized into four related YAML files:
 
 1. **`src/_data/projects.yml`** - Individual project entries
 2. **`src/_data/families.yml`** - Project family definitions
-3. **`src/_data/orgs.yml`** - GitHub org data with logos
+3. **`src/_data/orgs.yml`** - GitHub org data with logos (synced from galtzo.com)
 4. **`src/_data/person.yml`** - Author/person biographical and contact information
 
 ## person.yml Schema
@@ -178,6 +178,9 @@ Defines project families for grouping related projects.
 Defines GitHub organizations with logos and forge links, used by the tag badge system
 and the dynamic logos header partial.
 
+> **Synced from galtzo.com.** This file is canonical in galtzo.com and overwritten by
+> `scripts/sync_cards`. Do not edit it here.
+
 ### Structure
 
 ```yaml
@@ -185,6 +188,7 @@ and the dynamic logos header partial.
 - id: org-id                     # Unique identifier (matches GitHub org name)
   name: "Org Name"               # Human-readable name
   position: 1                    # Sort order for header logos
+  banner: false                  # Optional: omit from header logos (badge logo still used)
   logo: "https://..."            # Logo image URL
   logo-alt: "alt text"           # Logo alt text
   logo-title: "title text"       # Logo title/tooltip text
@@ -468,13 +472,14 @@ When a project belongs to a family, include:
 
 ### When Adding a New Org
 
-1. Add entry to `src/_data/orgs.yml` with:
+1. Add entry to `src/_data/orgs.yml` **in galtzo.com** (this copy is synced) with:
    - `id` matching the GitHub org name
    - `name`, `position`, and `logo` URL
    - `logo-alt` and `logo-title` for accessibility
    - `forge_gh` (required for header display), `forge_gl`, `forge_cb` (optional)
 2. The org logo will automatically be used by tag badges for matching tags
-3. The header logos partial will automatically include the new org
+3. The header logos partial will automatically include the new org (unless `banner: false`)
+4. Run `scripts/sync_cards` (or wait for the deploy workflow) to pull it into this repo
 
 ### Best Practices
 

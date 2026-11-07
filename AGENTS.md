@@ -55,7 +55,7 @@ git status 2>&1 | tee tmp/git_status.txt
 - **Key data files**:
   - `src/_data/projects.yml` — list of all projects shown on the site
   - `src/_data/families.yml` — project family groupings and metadata
-  - `src/_data/orgs.yml` — GitHub org data with logos for the badge system
+  - `src/_data/orgs.yml` — GitHub org data with logos for the badge system (synced from galtzo.com; do not edit here)
   - `src/_data/person.yml` — consolidated author/person biographical data (previously split between person.yml and author.yaml)
 
 ### Data Files Overview
@@ -116,6 +116,11 @@ Within-family member order is based on the `family_position` within `projects.ym
 
 **Data model:** Org metadata (name, logos, forge links) used by the tag badge system
 and the dynamic logos header partial (`_logos.erb`).
+
+**Source of truth:** `orgs.yml` is owned by galtzo.com and synced into this repo by
+`scripts/sync_cards` (and `deploy.yml`). **Do not edit it here**; change it in
+galtzo.com and the next sync picks it up. Orgs with `banner: false` are skipped in the
+header logos but still give their projects a badge logo.
 
 **Example orgs.yml entry:**
 ```yaml

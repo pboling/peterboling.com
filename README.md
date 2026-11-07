@@ -84,7 +84,7 @@ To start your site in development mode, run `bin/bridgetown start` and navigate 
 │   ├── _data/
 │   │   ├── projects.yml     # Project configuration
 │   │   ├── families.yml     # Project family definitions
-│   │   ├── orgs.yml         # GitHub org logos & links (tag badges + header)
+│   │   ├── orgs.yml         # GitHub org logos & links (tag badges + header); synced from galtzo.com
 │   │   ├── person.yml       # Personal profile & organization data
 │   │   └── site_metadata.yml # Site metadata
 │   ├── _layouts/            # Page layouts
