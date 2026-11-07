@@ -17,6 +17,13 @@ module Builders
             org owner
             content "<%= render \"org_news\", owner: data.org %>"
           end
+
+          add_resource :pages, "feed/news/#{Helpers::OrgNewsHelpers.slug(owner)}.xml.erb" do
+            layout nil
+            permalink "/feed/news/#{Helpers::OrgNewsHelpers.slug(owner)}.xml"
+            org owner
+            content '<%= render "org_news_feed", owner: data.org %>'
+          end
         end
       end
     end

@@ -1,0 +1,17 @@
+<% require "cgi" %><% require "time" %><% posts = org_news_posts(owner) %><% base = site.config.url.to_s.sub(%r{/$}, ""); base = "https://peterboling.com" if base.empty? %><% escape = ->(value) { CGI.escapeHTML(value.to_s) } %><?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title><%== escape.call("#{owner} news") %></title>
+    <link><%== escape.call("#{base}/news/#{owner.downcase}/") %></link>
+    <description><%== escape.call("Project news from #{owner}") %></description>
+    <% posts.each do |_, post| %>
+    <item>
+      <title><%== escape.call(post.data.title) %></title>
+      <link><%== escape.call("#{base}#{post.relative_url}") %></link>
+      <guid><%== escape.call("#{base}#{post.relative_url}") %></guid>
+      <pubDate><%== post.date.rfc2822 %></pubDate>
+      <% if post.data.excerpt %><description><%== escape.call(post.data.excerpt) %></description><% end %>
+    </item>
+    <% end %>
+  </channel>
+</rss>

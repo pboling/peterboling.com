@@ -19,7 +19,7 @@ I am a core maintainer of projects within the following OSS organizations:
 <% orgs = org_project_counts %>
 <% orgs[:multi].each do |o| %>
   <% news = org_news_posts(o[:owner]) %>
-  <li><a href="https://github.com/<%= o[:owner] %>"><%= o[:owner] %></a> (<%= o[:count] %> projects)<% if news.any? %> · <a href="/news/<%= o[:slug] %>/">news</a> (<%= news.size %> posts, latest <%= news.first[1].date.strftime("%b %-d, %Y") %>)<% end %></li>
+  <li><a href="https://github.com/<%= o[:owner] %>"><%= o[:owner] %></a> (<%= o[:count] %> projects)<% if news.any? %> · <a href="/news/<%= o[:slug] %>/">news</a> <a href="/feed/news/<%= o[:slug] %>.xml" class="rss-link" title="Subscribe to <%= o[:owner] %> news" aria-label="Subscribe to <%= o[:owner] %> news RSS feed"><img src="/images/rss.svg" alt="" class="rss-icon" /></a> (<%= news.size %> posts, latest <%= news.first[1].date.strftime("%b %-d, %Y") %>)<% end %></li>
 <% end %>
 </ul>
 
