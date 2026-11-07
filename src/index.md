@@ -18,7 +18,8 @@ I am a core maintainer of projects within the following OSS organizations:
 <ul>
 <% orgs = org_project_counts %>
 <% orgs[:multi].each do |o| %>
-  <li><a href="https://github.com/<%= o[:owner] %>"><%= o[:owner] %></a> (<%= o[:count] %> projects)</li>
+  <% news = org_news_posts(o[:owner]) %>
+  <li><a href="https://github.com/<%= o[:owner] %>"><%= o[:owner] %></a> (<%= o[:count] %> projects)<% if news.any? %> · <a href="/news/<%= o[:slug] %>/">news</a> (<%= news.size %> posts, latest <%= news.first[1].date.strftime("%b %-d, %Y") %>)<% end %></li>
 <% end %>
 </ul>
 
