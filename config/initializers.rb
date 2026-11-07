@@ -255,6 +255,9 @@ Bridgetown.configure do |config|
       yard_timekeeper {}
       yard_yaml {}
       zip_merge {}
+      namespaced_gem {}
+      kettle_deps_floor {}
+      galtzo_os {}
     end
   end
 
@@ -494,6 +497,9 @@ Bridgetown.configure do |config|
     project :yard_timekeeper
     project :yard_yaml
     project :zip_merge
+    project :namespaced_gem
+    project :kettle_deps_floor
+    project :galtzo_os
   end
 
   # Other options you might want to investigate:
