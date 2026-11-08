@@ -94,4 +94,3 @@ tags: ["release", "activesupport-broadcast_logger", "v3.0.0"]
 - Move gemspec version loading out of the Active Support broadcast logger class hierarchy.
 
 [3.0.0t]: https://github.com/galtzo-floss/activesupport-broadcast_logger/releases/tag/v3.0.0
-

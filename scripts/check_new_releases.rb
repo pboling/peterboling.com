@@ -522,7 +522,7 @@ class ReleaseChecker
     tags: ["release", "#{name}", "#{tag}"]
     ---
 
-    #{changelog}
+    #{changelog.rstrip}
     MARKDOWN
 
     unless @dry_run

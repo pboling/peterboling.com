@@ -36,4 +36,3 @@ tags: ["release", "activesupport-logger", "v3.0.1"]
 - Load the ActiveSupport::Logger version namespace before applying VersionGem enhancements.
 
 [3.0.1t]: https://github.com/galtzo-floss/activesupport-logger/releases/tag/v3.0.1
-

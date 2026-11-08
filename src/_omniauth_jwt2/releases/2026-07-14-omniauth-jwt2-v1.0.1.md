@@ -24,4 +24,3 @@ tags: ["release", "omniauth-jwt2", "v1.0.1"]
 - Package configured license files in gem release file lists.
 
 [1.0.1t]: https://github.com/omniauth/omniauth-jwt2/releases/tag/v1.0.1
-

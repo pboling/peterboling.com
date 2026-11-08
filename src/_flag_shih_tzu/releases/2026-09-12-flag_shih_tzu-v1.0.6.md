@@ -45,4 +45,3 @@ tags: ["release", "flag_shih_tzu", "v1.0.6"]
 - Restore the ActiveRecord test bundle removed by an earlier template pass.
 
 [1.0.6t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.6
-

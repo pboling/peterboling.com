@@ -27,4 +27,3 @@ tags: ["release", "omniauth-ldap", "v3.0.2"]
 - Package configured license files in gem release file lists.
 
 [3.0.2t]: https://github.com/omniauth/omniauth-ldap/releases/tag/v3.0.2
-

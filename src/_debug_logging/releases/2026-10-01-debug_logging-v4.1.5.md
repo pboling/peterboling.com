@@ -30,4 +30,3 @@ tags: ["release", "debug_logging", "v4.1.5"]
   - workflows (21)
 
 [4.1.5t]: https://github.com/galtzo-floss/debug_logging/releases/tag/v4.1.5
-

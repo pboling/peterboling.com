@@ -35,4 +35,3 @@ tags: ["release", "omniauth-identity", "v3.2.1"]
 - Package configured license files in gem release file lists.
 
 [3.2.1t]: https://github.com/omniauth/omniauth-identity/releases/tag/v3.2.1
-

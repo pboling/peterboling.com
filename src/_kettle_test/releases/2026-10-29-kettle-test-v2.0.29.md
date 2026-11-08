@@ -24,4 +24,3 @@ tags: ["release", "kettle-test", "v2.0.29"]
   - workflows (2)
 
 [2.0.29t]: https://github.com/kettle-dev/kettle-test/releases/tag/v2.0.29
-

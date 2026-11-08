@@ -24,4 +24,3 @@ tags: ["release", "kettle-dev", "v3.1.26"]
   - workflows (2)
 
 [3.1.26t]: https://github.com/kettle-dev/kettle-dev/releases/tag/v3.1.26
-

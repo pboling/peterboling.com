@@ -23,4 +23,3 @@ tags: ["release", "kettle-soup-cover", "v3.0.16"]
   - workflows (1)
 
 [3.0.16t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.16
-

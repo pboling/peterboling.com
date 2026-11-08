@@ -98,4 +98,3 @@ tags: ["release", "include_with_respect", "v1.0.2"]
 - Avoid shared per-call state when suppressing duplicate include and extend operations.
 
 [1.0.2t]: https://github.com/galtzo-floss/include_with_respect/releases/tag/v1.0.2
-

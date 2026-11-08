@@ -90,4 +90,3 @@ tags: ["release", "activesupport-tagged_logging", "v3.0.0"]
 - Move gemspec version loading out of the Active Support tagged logging module hierarchy.
 
 [3.0.0t]: https://github.com/galtzo-floss/activesupport-tagged_logging/releases/tag/v3.0.0
-

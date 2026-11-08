@@ -13,4 +13,3 @@ tags: ["release", "library_tree", "v1.0.0"]
 - Initial release
 
 [1.0.0t]: https://gitlab.com/galtzo-floss/library_tree/-/tags/v1.0.0
-

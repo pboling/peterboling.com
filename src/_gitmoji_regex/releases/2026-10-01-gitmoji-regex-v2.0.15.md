@@ -21,4 +21,3 @@ tags: ["release", "gitmoji-regex", "v2.0.15"]
   - other (1)
 
 [2.0.15t]: https://github.com/galtzo-floss/gitmoji-regex/releases/tag/v2.0.15
-

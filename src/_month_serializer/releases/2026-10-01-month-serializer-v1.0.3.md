@@ -30,4 +30,3 @@ tags: ["release", "month-serializer", "v1.0.3"]
   engine support needs.
 
 [1.0.3t]: https://github.com/galtzo-floss/month-serializer/releases/tag/v1.0.3
-
