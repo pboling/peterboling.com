@@ -153,7 +153,6 @@ class ReleaseChecker
   end
 
   def run
-    abort "Release generation disabled: kettle-changelog must provide selected-release JSON (https://github.com/kettle-dev/kettle-changelog/issues/6)."
     puts "=== Release Checker Started at #{Time.now.utc.iso8601} ==="
     puts "Dry run: #{@dry_run}" if @dry_run
     puts "Target project: #{@target_project || 'all'}"
@@ -252,7 +251,10 @@ class ReleaseChecker
     puts "  🔔 New release detected: #{name} #{latest_tag}"
 
     # Fetch changelog/release notes
-    changelog = fetch_changelog(github_url, latest_tag, latest_release['body'])
+    release_data = fetch_changelog(github_url, latest_tag)
+    return nil unless release_data
+
+    changelog = release_data.fetch('markdown')
 
     # Score the release
     score_data = score_release(project, latest_tag, latest_release, changelog)
@@ -267,13 +269,8 @@ class ReleaseChecker
     # Generate release post
     post_path = generate_release_post(project, latest_tag, latest_published, changelog, score_data)
 
-    # Syndicate if not dry run
+    # Publishing to external services requires an explicit instruction.
     syndication_results = {}
-    unless @dry_run
-      destinations.each do |dest|
-        syndication_results[dest] = syndicate(dest, project, latest_tag, latest_published, changelog, score_data, post_path)
-      end
-    end
 
     # Update state
     @state['projects'][name] = {
@@ -330,37 +327,25 @@ class ReleaseChecker
     nil
   end
 
-  def fetch_changelog(github_url, tag, release_body)
-    # Prefer release body from GitHub
-    return release_body if release_body && !release_body.empty?
-
-    # Try to fetch CHANGELOG.md from repo
+  def fetch_changelog(github_url, tag)
     repo_path = github_url.sub(%r{^https?://github\.com/}, '').sub(/\.git$/, '')
-    changelog_url = "https://raw.githubusercontent.com/#{repo_path}/#{tag}/CHANGELOG.md"
-
-    uri = URI(changelog_url)
+    uri = URI("https://raw.githubusercontent.com/#{repo_path}/#{URI.encode_www_form_component(tag)}/CHANGELOG.md")
     req = Net::HTTP::Get.new(uri)
-    req['Authorization'] = "token #{ENV['GITHUB_TOKEN']}" if ENV['GITHUB_TOKEN']
+    response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.request(req) }
+    raise "changelog fetch returned HTTP #{response.code}" unless response.code == '200'
 
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    res = http.request(req)
+    stdout, stderr, status = Open3.capture3('bundle', 'exec', 'kettle-changelog', '--release', tag, stdin_data: response.body)
+    raise "kettle-changelog failed: #{stderr.strip}" unless status.success?
 
-    return res.body if res.code == '200'
-
-    # Try without tag (main branch)
-    changelog_url = "https://raw.githubusercontent.com/#{repo_path}/main/CHANGELOG.md"
-    uri = URI(changelog_url)
-    req = Net::HTTP::Get.new(uri)
-    req['Authorization'] = "token #{ENV['GITHUB_TOKEN']}" if ENV['GITHUB_TOKEN']
-    res = http.request(req)
-
-    return res.body if res.code == '200'
-
-    "No changelog available."
-  rescue => e
-    warn "    Failed to fetch changelog: #{e.message}"
-    "No changelog available."
+    release = JSON.parse(stdout)
+    unless release.is_a?(Hash) && release['version'] == tag.delete_prefix('v') &&
+        release['markdown'].is_a?(String) && !release['markdown'].strip.empty?
+      raise 'kettle-changelog returned invalid or mismatched release data'
+    end
+    release
+  rescue StandardError => e
+    warn "    Cannot extract #{tag} from #{github_url}: #{e.message}"
+    nil
   end
 
   def score_release(project, tag, release, changelog)
@@ -399,13 +384,6 @@ class ReleaseChecker
       breakdown[:breaking] = RELEASE_IMPACT[:breaking_changes]
     end
 
-    # Significant features
-    added_section = extract_section(changelog, 'added')
-    if added_section && added_section.lines.count { |l| l.strip.start_with?('-', '*') } > 1
-      score += RELEASE_IMPACT[:significant_features]
-      breakdown[:features] = RELEASE_IMPACT[:significant_features]
-    end
-
     # Deprecations
     if changelog_lower.match?(/deprecat/)
       score += RELEASE_IMPACT[:deprecations]
@@ -416,13 +394,6 @@ class ReleaseChecker
     if changelog_lower.match?(/ruby \d+\.\d+|dropp?ing? ruby|support for ruby|minimum.*ruby|requires? ruby/)
       score += RELEASE_IMPACT[:runtime_compatibility_shift]
       breakdown[:runtime_shift] = RELEASE_IMPACT[:runtime_compatibility_shift]
-    end
-
-    # User-facing bug fixes (guaranteed floor)
-    fixed_section = extract_section(changelog, 'fixed')
-    if fixed_section && user_facing_bug_fix?(fixed_section)
-      score += RELEASE_IMPACT[:user_facing_bug_fix]
-      breakdown[:user_facing_fix] = RELEASE_IMPACT[:user_facing_bug_fix]
     end
 
     # Maintenance-only penalty
@@ -454,13 +425,6 @@ class ReleaseChecker
     else
       :patch
     end
-  end
-
-  def extract_section(changelog, section_name)
-    # Look for ### Section or ## Section
-    pattern = /^#{Regexp.escape('#')}#{Regexp.escape('#')}#{Regexp.escape('#')}\s+#{section_name}\b.*?(?=^#{Regexp.escape('#')}{2,3}\s+\w|\z)/im
-    match = changelog.match(pattern)
-    match ? match[0] : nil
   end
 
   def user_facing_bug_fix?(fixed_section)
@@ -548,17 +512,8 @@ class ReleaseChecker
       return filepath
     end
 
-    # Parse changelog into sections
-    changelog_sections = parse_changelog_for_post(changelog)
-
-    # Build the post content
+    # Build the post content from kettle-changelog without altering its Markdown.
     title = "#{name} #{tag} released!"
-    compare_url = build_compare_url(project, tag)
-    tag_url = build_tag_url(project, tag)
-
-    # Get funding/sponsorship footer
-    footer = build_sponsorship_footer(project)
-
     content = <<~MARKDOWN
     ---
     layout: post
@@ -567,16 +522,7 @@ class ReleaseChecker
     tags: ["release", "#{name}", "#{tag}"]
     ---
 
-    ## [#{tag.sub(/^v/, '')}] - #{date_str}
-
-    - TAG: [#{tag}](#{tag_url})
-    - COVERAGE: #{project['coverage'] || 'N/A'}
-    - BRANCH COVERAGE: #{project['coverage_branch'] || 'N/A'}
-    - #{'%.2f' % (project['documented_percent'] || 0)}% documented
-
-    #{changelog_sections}
-
-    #{footer}
+    #{changelog}
     MARKDOWN
 
     unless @dry_run
@@ -589,83 +535,12 @@ class ReleaseChecker
     filepath
   end
 
-  def parse_changelog_for_post(changelog)
-    sections = []
-    %w[Added Changed Deprecated Removed Fixed Security].each do |section|
-      content = extract_section(changelog, section.downcase)
-      next unless content
-
-      # Clean up the section header
-      lines = content.lines
-      # Skip the header line
-      body_lines = lines[1..-1] || []
-      # Filter out empty lines at start/end
-      body_lines = body_lines.reject { |l| l.strip.empty? }
-      next if body_lines.empty?
-
-      sections << "### #{section}\n\n#{body_lines.join}"
-    end
-
-    sections.join("\n\n")
-  end
-
-  def build_compare_url(project, tag)
-    github_url = extract_github_url(project)
-    return "#" unless github_url
-
-    repo = github_url.sub(%r{^https?://github\.com/}, '').sub(/\.git$/, '')
-    # Need previous tag - for now just link to releases
-    "https://github.com/#{repo}/compare/#{tag}"
-  end
-
   def build_tag_url(project, tag)
     github_url = extract_github_url(project)
     return "#" unless github_url
 
     repo = github_url.sub(%r{^https?://github\.com/}, '').sub(/\.git$/, '')
     "https://github.com/#{repo}/releases/tag/#{tag}"
-  end
-
-  def build_sponsorship_footer(project)
-    # Check for OpenCollective funding
-    funding_sites = project['funding_sites'] || []
-    oc_site = funding_sites.find { |f| f['type'] == 'OpenCollective' }
-    oc_url = oc_site ? oc_site['url'] : 'https://opencollective.com/kettle-dev'
-
-    # Extract collective slug
-    oc_slug = oc_url.sub(%r{^https?://opencollective\.com/}, '')
-
-    # Standard footer matching existing pattern
-    <<~FOOTER
-    Official Discord 👉️ [![Live Chat on Discord][✉️discord-invite-img]][✉️discord-invite]
-
-    Many paths lead to being a sponsor or a backer of this project. Are you on such a path?
-
-    [![OpenCollective Backers][🖇osc-backers-i]][🖇osc-backers] [![OpenCollective Sponsors][🖇osc-sponsors-i]][🖇osc-sponsors] [![Sponsor Me on Github][🖇sponsor-img]][🖇sponsor] [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay] [![Donate on PayPal][🖇paypal-img]][🖇paypal]
-
-    [![Buy me a coffee][🖇buyme-small-img]][🖇buyme] [![Donate on Polar][🖇polar-img]][🖇polar] [![Donate to my FLOSS efforts at ko-fi.com][🖇kofi-img]][🖇kofi] [![Donate to my FLOSS efforts using Patreon][🖇patreon-img]][🖇patreon]
-
-    [⛳liberapay-img]: https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay&color=a51611&style=flat
-    [⛳liberapay]: https://liberapay.com/pboling/donate
-    [🖇osc-backers]: #{oc_url}#backer
-    [🖇osc-backers-i]: https://img.shields.io/opencollective/backers/#{oc_slug}?style=flat
-    [🖇osc-sponsors]: #{oc_url}#sponsor
-    [🖇osc-sponsors-i]: https://img.shields.io/opencollective/sponsors/#{oc_slug}?style=flat
-    [🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
-    [🖇sponsor]: https://github.com/sponsors/pboling
-    [🖇polar-img]: https://img.shields.io/badge/polar-donate-a51611.svg?style=flat
-    [🖇polar]: https://polar.sh/pboling
-    [🖇kofi-img]: https://img.shields.io/badge/ko--fi-%E2%9C%93-a51611.svg?style=flat
-    [🖇kofi]: https://ko-fi.com/O5O86SNP4
-    [🖇patreon-img]: https://img.shields.io/badge/patreon-donate-a51611.svg?style=flat
-    [🖇patreon]: https://patreon.com/galtzo
-    [🖇buyme-small-img]: https://img.shields.io/badge/buy_me_a_coffee-%E2%9C%93-a51611.svg?style=flat
-    [🖇buyme]: https://www.buymeacoffee.com/pboling
-    [🖇paypal-img]: https://img.shields.io/badge/donate-paypal-a51611.svg?style=flat&logo=paypal
-    [🖇paypal]: https://www.paypal.com/paypalme/peterboling
-    [✉️discord-invite]: https://discord.gg/3qme4XHNKN
-    [✉️discord-invite-img]: https://img.shields.io/discord/1373797679469170758?style=flat
-    FOOTER
   end
 
   # ============================================================================
@@ -935,7 +810,7 @@ class ReleaseChecker
     name = project['name']
     post_url = "https://peterboling.com/#{post_path.sub(/.*src\//, '').sub(/\.md$/, '')}"
 
-    changelog_sections = parse_changelog_for_post(changelog)
+    changelog_sections = changelog
 
     <<~BODY
     #{changelog_sections}
@@ -953,7 +828,7 @@ class ReleaseChecker
     name = project['name']
     post_url = "https://peterboling.com/#{post_path.sub(/.*src\//, '').sub(/\.md$/, '')}"
 
-    changelog_sections = parse_changelog_for_post(changelog).gsub("\n", "<br>")
+    changelog_sections = changelog.gsub("\n", "<br>")
 
     <<~HTML
     <h2>#{name} #{tag} Released!</h2>
@@ -969,7 +844,7 @@ class ReleaseChecker
     name = project['name']
     post_url = "https://peterboling.com/#{post_path.sub(/.*src\//, '').sub(/\.md$/, '')}"
 
-    changelog_sections = parse_changelog_for_post(changelog)
+    changelog_sections = changelog
 
     <<~BODY
     #{changelog_sections}
@@ -987,7 +862,7 @@ class ReleaseChecker
     name = project['name']
     post_url = "https://peterboling.com/#{post_path.sub(/.*src\//, '').sub(/\.md$/, '')}"
 
-    changelog_sections = parse_changelog_for_post(changelog)
+    changelog_sections = changelog
 
     <<~BODY
     #{changelog_sections}

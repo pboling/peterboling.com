@@ -35,3 +35,5 @@ gem "puma", ">= 7.2.1"
 
 # Or for faster parsing of HTML-only resources via Inspectors, use Nokolexbor:
 # gem "nokolexbor", "~> 0.5"
+
+gem "kettle-changelog", ">= 1.0.17", require: false
