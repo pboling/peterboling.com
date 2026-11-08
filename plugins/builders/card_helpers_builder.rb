@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 require_relative "../helpers/org_news_helpers"
+require_relative "../helpers/tag_badge_helpers"
 
 module Builders
   # Helpers for the project cards (src/projects.erb, src/_partials/_pcard.erb).
   class CardHelpersBuilder < SiteBuilder
+    include Helpers::TagBadgeHelpers
     def build
       helper :human_count do |n|
         n = n.to_i
@@ -48,6 +50,24 @@ module Builders
         coll = site.collections[card["name"].to_s.tr("-", "_")]
         posts = coll ? coll.resources.to_a : []
         { count: posts.size, latest: posts.map(&:date).compact.max }
+      end
+
+      # Resolve the same synced card artwork for a post's project, including projects
+      # represented by a family rollup on the projects page.
+      helper :post_project_icons do |context|
+        key = context.to_s.downcase.tr("-", "_")
+        cards = site.data.cards.cards
+        card = cards.find { |c| c["name"].to_s.downcase.tr("-", "_") == key }
+        rollup = card || cards.find { |c| c["rollup"] && Array(c["members"]).any? { |m| m.downcase.tr("-", "_") == key } }
+        project = site.data.projects.find { |p| p["name"].to_s.downcase.tr("-", "_") == key }
+        logo = rollup && rollup["logo"]
+        extension = %w[png jpg].find { |ext| logo && File.exist?(File.join(site.source, "cards/logos/#{logo}.#{ext}")) }
+        badge = tag_badge_info(context)
+        languages = card ? Array(card["languages"]) : [project && project["language"]]
+        known = Helpers::TagBadgeHelpers::KNOWN_LANGUAGES
+        languages = languages.filter_map { |lang| known.find { |l| l.casecmp?(lang.to_s) } }.uniq.first(4)
+        { logo: extension ? "/cards/logos/#{logo}.#{extension}" : badge[:logo_url],
+          emoji: extension ? nil : badge[:emoji], languages: languages }
       end
 
       # Where a card leads: the project's own blog page when this site has one (rolled-up families have a

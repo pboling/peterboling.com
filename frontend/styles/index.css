@@ -307,7 +307,7 @@ a.pagination__link:hover {
 }
 
 /* Post cards: the project-card language (panel, edge, left accent bar, hover
-   lift + glow) turned reading-first — date and title lead, no logo or stats.
+   lift + glow) turned reading-first — date and title lead.
    The accent color marks the kind of post, not a project role. */
 .posts-list { display: flex; flex-direction: column; gap: 12px; margin: 1rem 0 2rem; }
 .post-card { position: relative; }
@@ -326,7 +326,10 @@ a.pagination__link:hover {
 .post-card-kind--release { color: #e8b04a; border-color: #e8b04a; }
 .post-card-kind--intro { color: #4fc3b3; border-color: #4fc3b3; }
 .post-card-kind--post { color: var(--muted); border-color: var(--edge-color); }
-.post-card-context { margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.post-card-context { margin-left: auto; min-width: 0; display: inline-flex; align-items: center; gap: 5px; }
+.post-card-context-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.post-card-logo { width: 20px; height: 20px; border-radius: 4px; background: #fff; object-fit: cover; flex: none; }
+.post-card-language { width: 16px; height: 16px; flex: none; }
 .post-card-title { margin: 4px 0 0; font-size: 1.05rem; line-height: 1.3; color: var(--heading-color); }
 .post-card-excerpt { margin: 6px 0 0; color: var(--muted); font-size: .85rem; line-height: 1.45;
   display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }

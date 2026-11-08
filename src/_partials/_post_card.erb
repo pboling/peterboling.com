@@ -1,5 +1,5 @@
 <%# A post in a list. Same card language as the project cards (panel, edge, left
-    accent bar, hover lift), but reading-first: date and title lead, no logo or
+    accent bar, hover lift), but reading-first: date and title lead, no
     stats. `context` (optional) names the project/collection the post belongs to. %>
 <%
   kind = post.data.source_release || Array(post.data.tags).include?("release") ? "release" : (Array(post.data.tags).include?("introduction") ? "intro" : "post")
@@ -10,7 +10,12 @@
       <time datetime="<%= post.date.strftime('%Y-%m-%d') %>"><%= post.date.strftime('%b %-d, %Y') %></time>
       <span class="post-card-kind post-card-kind--<%= kind %>"><%= kind %></span>
       <% if defined?(context) && context %>
-        <span class="post-card-context"><%= context %></span>
+        <% icons = post_project_icons(context) %>
+        <span class="post-card-context">
+          <% if icons[:logo] %><img class="post-card-logo" src="<%= icons[:logo] %>" alt="" loading="lazy"><% elsif icons[:emoji] %><span aria-hidden="true"><%= icons[:emoji] %></span><% end %>
+          <span class="post-card-context-name"><%= context %></span>
+          <% icons[:languages].each do |language| %><img class="post-card-language" src="/cards/langs/<%= language %>.svg" alt="<%= language %>" title="<%= language %>" loading="lazy"><% end %>
+        </span>
       <% end %>
     </span>
     <h2 class="post-card-title"><%= post.data.title %></h2>
