@@ -16,7 +16,7 @@
 
 Bridgetown.configure do |config|
   # The base hostname & protocol for your site, e.g. https://example.com
-  url ""
+  url "https://peterboling.com"
 
   # Available options are `erb` (default), `serbea`, or `liquid`
   template_engine "erb"
@@ -31,7 +31,12 @@ Bridgetown.configure do |config|
 
   # Configure bridgetown-feed plugin
   feed do
+    path "/feed.xml"
     collections do
+      # /feed.xml is the aggregated tech feed; keep the original posts feed separately.
+      posts do
+        path "/feed/posts.xml"
+      end
       # Personal blog collection
       blog {}
       # Roll-up family collections
