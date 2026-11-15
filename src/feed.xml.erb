@@ -11,6 +11,7 @@ permalink: /feed.xml
       post.data.exclude_from_pagination || post.data.key?("pagination") || post.data.key?("paginate")
     end
   end.uniq { |post| post.relative_url }.sort_by(&:date).reverse.first(25)
+  used_updated = {}
 %><?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Peter Boling | Tech Posts</title>
@@ -21,12 +22,15 @@ permalink: /feed.xml
   <author><name><%== escape.call(site.data.person.name) %></name><email><%== escape.call(site.data.person.feed_email) %></email></author>
   <% posts.each do |post| %><%
     url = "#{base}#{post.relative_url}"
+    updated = post.date
+    updated += 1 while used_updated[updated.to_i]
+    used_updated[updated.to_i] = true
   %>
   <entry>
     <title><%== escape.call(post.data.title) %></title>
     <id><%== escape.call(url) %></id>
     <link rel="alternate" type="text/html" href="<%== escape.call(url) %>" />
-    <updated><%== post.date.iso8601 %></updated>
+    <updated><%== updated.iso8601 %></updated>
     <published><%== post.date.iso8601 %></published>
     <summary><%== escape.call(post.data.excerpt || post.data.title) %></summary>
   </entry>
