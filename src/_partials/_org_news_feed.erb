@@ -1,15 +1,18 @@
 <% require "cgi" %><% require "time" %><% posts = org_news_posts(owner) %><% base = site.config.url.to_s.sub(%r{/$}, ""); base = "https://peterboling.com" if base.empty? %><% escape = ->(value) { CGI.escapeHTML(value.to_s) } %><?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title><%== escape.call("#{owner} news") %></title>
     <link><%== escape.call("#{base}/news/#{owner.downcase}/") %></link>
     <description><%== escape.call("Project news from #{owner}") %></description>
+    <atom:link href="<%== escape.call("#{base}/feed/news/#{owner.downcase}.xml") %>" rel="self" type="application/rss+xml" />
+    <managingEditor><%== escape.call("#{site.data.person.feed_email} (#{site.data.person.name})") %></managingEditor>
     <% posts.each do |_, post| %>
     <item>
       <title><%== escape.call(post.data.title) %></title>
       <link><%== escape.call("#{base}#{post.relative_url}") %></link>
       <guid><%== escape.call("#{base}#{post.relative_url}") %></guid>
       <pubDate><%== post.date.rfc2822 %></pubDate>
+      <author><%== escape.call("#{site.data.person.feed_email} (#{site.data.person.name})") %></author>
       <% if post.data.excerpt %><description><%== escape.call(post.data.excerpt) %></description><% end %>
     </item>
     <% end %>
